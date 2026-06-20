@@ -774,6 +774,18 @@ h1, h2, h3, .hero__name, .gate__name {
     opacity: 1; pointer-events: auto;
     transform: translateY(0);
   }
+  .mobile-menu__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+  }
   body.menu-open { overflow: hidden; }
 
   /* --- LAYOUT --- */
@@ -1026,6 +1038,7 @@ html.is-transitioning .texture-overlay {
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" onclick="toggleMobileMenu()" aria-label="Close Menu">×</button>
     <nav class="mobile-menu__links" id="mobileNavLinks"><a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Focus</a><a href="#experience" class="mobile-nav-item" onclick="toggleMobileMenu()">Experience</a><a href="#education" class="mobile-nav-item" onclick="toggleMobileMenu()">Education</a><a href="#projects" class="mobile-nav-item" onclick="toggleMobileMenu()">Projects</a><a href="#skills" class="mobile-nav-item" onclick="toggleMobileMenu()">Skills</a><a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu()">Contact</a></nav>
     <div class="mobile-menu__bottom">
       <div class="theme-switch">
