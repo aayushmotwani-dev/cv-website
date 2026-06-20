@@ -943,6 +943,29 @@ html.is-transitioning .texture-overlay {
   mix-blend-mode: normal !important;
 }
 
+
+/* Screensaver */
+#screensaver {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: var(--ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 10000;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+#screensaver.active {
+  opacity: 1; pointer-events: all;
+}
+.ss-text {
+  margin-top: 2rem;
+  font-family: var(--mono);
+  color: var(--paper);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
 </style>
 <script>
   /* FOUC prevention for Dark Mode */
