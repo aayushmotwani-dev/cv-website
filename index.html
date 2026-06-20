@@ -984,6 +984,19 @@ html.is-transitioning .texture-overlay {
   if (localStorage.getItem("cv-theme") === "dark" || (!localStorage.getItem("cv-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     document.documentElement.classList.add("dark-theme");
   }
+  
+  /* Random Premium Accent Color */
+  const ACCENT_COLORS = [
+    "#C36343", /* Terracotta */
+    "#527E72", /* Deep Sage */
+    "#A57B36", /* Muted Gold */
+    "#8B6D87", /* Dusty Amethyst */
+    "#59788E", /* Slate Blue */
+    "#8E5B5B", /* Brick Rose */
+    "#778A58"  /* Matcha */
+  ];
+  const randomAccent = ACCENT_COLORS[Math.floor(Math.random() * ACCENT_COLORS.length)];
+  document.documentElement.style.setProperty('--accent', randomAccent);
 </script>
 </head>
 <body>
