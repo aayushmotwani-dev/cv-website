@@ -1,0 +1,2003 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Aayush Motwani</title>
+<meta name="description" content="Aayush Motwani · Electrical engineer and Computer &amp; Media Engineering M.Sc. student. Automation, AI, and media technology.">
+<meta name="theme-color" id="meta-theme-color" content="#F0EAD6">
+
+<!-- Open Graph & Twitter Cards -->
+<meta property="og:title" content="Aayush Motwani">
+<meta property="og:description" content="Electrical engineer and Computer &amp; Media Engineering M.Sc. student. Automation, AI, and media technology.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://aayushmotwani.com/">
+<meta property="og:image" content="/images/og-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- SEO & Icons -->
+<link rel="canonical" href="https://aayushmotwani.com/">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aayush Motwani",
+  "jobTitle": "Electrical Engineer & M.Sc. Student",
+  "url": "https://aayushmotwani.com/",
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "RWTH Aachen University" },
+    { "@type": "CollegeOrUniversity", "name": "FH Aachen University of Applied Sciences" }
+  ],
+  "worksFor": { "@type": "Organization", "name": "Kellermann GmbH" },
+  "knowsLanguage": ["en", "de", "hi"],
+  "sameAs": [
+    "https://github.com/aayushmotwani-dev",
+    "https://linkedin.com/in/aayushmotwani"
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&amp;display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — Paper Monograph
+   ============================================================ */
+:root {
+  --paper:  #F0EAD6;
+  --ink:    #2C241D;
+  --ink-2:  #6B5E52;
+  --muted:  #726555;
+  --rule:   #D4C9B8;
+  --ghost:  rgba(44, 36, 29, 0.25);
+  --sel:    rgba(168, 74, 50, 0.15);
+  --accent: #A84A32;
+
+  --serif:  "Newsreader", Georgia, serif;
+  --sans:   "Geist", system-ui, sans-serif;
+  --mono:   "IBM Plex Mono", monospace;
+
+  --maxw:   1080px;
+  --pad:    clamp(20px, 5vw, 72px);
+  --lh:     1.68rem;
+}
+
+:root.dark-theme {
+  --paper:  #1E1C18;
+  --ink:    #E8E0D0;
+  --ink-2:  #A89E90;
+  --muted:  #8D8678;
+  --rule:   #3B3730;
+  --ghost:  rgba(232, 224, 208, 0.25);
+  --sel:    rgba(194, 103, 77, 0.2);
+  --accent: #C2674D;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.68;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  font-variant-ligatures: common-ligatures;
+  font-kerning: normal;
+  orphans: 3;
+  widows: 3;
+  /* Safe area support for notched phones */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+::selection { background: var(--sel); color: var(--ink); }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+p  { orphans: 3; widows: 3; overflow-wrap: break-word; text-wrap: pretty; word-spacing: -0.02em; letter-spacing: -0.01em; }
+li { orphans: 3; widows: 3; overflow-wrap: break-word; text-wrap: pretty; word-spacing: -0.02em; letter-spacing: -0.01em; }
+h1, h2, h3, h4, h5, h6, .hero__name { text-wrap: balance; }
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   LANGUAGE GATE
+   ============================================================ */
+.gate {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: var(--pad);
+  background: var(--paper);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.gate.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.gate__mark {
+  font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 28px;
+  opacity: 0; animation: gateRise 0.7s 0.1s ease forwards;
+}
+.gate__name {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  line-height: 1.02; letter-spacing: -0.025em;
+  margin-bottom: 8px; font-variation-settings: "opsz" 72;
+  text-rendering: optimizeLegibility;
+  opacity: 0; animation: gateRise 0.8s 0.2s ease forwards;
+}
+.gate__sub {
+  color: var(--ink-2); font-size: 0.95rem;
+  max-width: 32ch; margin: 0 auto 48px;
+  opacity: 0; animation: gateRise 0.8s 0.35s ease forwards;
+}
+.gate__q {
+  font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+  opacity: 0; animation: gateRise 0.8s 0.5s ease forwards;
+}
+.gate__btns {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  opacity: 0; animation: gateRise 0.8s 0.6s ease forwards;
+}
+.gate__btn {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+  padding: 13px 38px; border: 1px solid var(--rule);
+  background: transparent; color: var(--ink); cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+  letter-spacing: 0.01em;
+}
+.gate__btn:hover {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+
+@keyframes gateRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px var(--pad);
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav__name {
+  font-family: var(--serif); font-size: 1.1rem;
+  font-weight: 500; letter-spacing: -0.01em;
+}
+.nav__links {
+  display: flex; gap: 24px; align-items: center;
+}
+.nav__links a {
+  font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 2px;
+  background: linear-gradient(var(--accent), var(--accent)) bottom left / 0% 1px no-repeat;
+  transition: background-size 0.35s ease, color 0.3s ease;
+}
+.nav__links a:hover { color: var(--ink); background-size: 100% 1px; }
+.nav__links a.active { color: var(--accent); background-size: 100% 1px; }
+
+.nav__right { display: flex; align-items: center; gap: 16px; }
+.lang {
+  display: flex; font-family: var(--mono); font-size: 0.72rem;
+  border: 1px solid var(--rule); overflow: hidden;
+}
+.lang button {
+  appearance: none; -webkit-appearance: none;
+  background: transparent; border: none; color: var(--muted); cursor: pointer;
+  padding: 5px 11px; font-family: inherit; font-size: inherit;
+  letter-spacing: 0.06em; transition: all 0.25s;
+}
+.lang button.active { background: var(--ink); color: var(--paper); }
+
+/* ============================================================
+   THEME SWITCH & TEXTURE
+   ============================================================ */
+.texture-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none; opacity: 0.08; mix-blend-mode: multiply;
+  background-image: url('texture.png'); background-repeat: repeat; background-size: cover;
+}
+
+/* Warm parchment vignette — subtle radial shadow at edges */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(44, 36, 29, 0.06) 100%);
+}
+.theme-switch {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-right: 12px;
+}
+.theme-switch button {
+  appearance: none; -webkit-appearance: none;
+  background: transparent; border: none; color: inherit; cursor: pointer;
+  font-family: inherit; font-size: inherit; letter-spacing: inherit;
+  padding: 0; transition: color 0.3s;
+}
+.theme-switch button:hover { color: var(--ink); }
+.theme-switch button.active {
+  color: var(--accent);
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+}
+.theme-sep { color: var(--rule); }
+
+.nav__cv {
+  font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink); border: 1px solid var(--rule);
+  padding: 6px 13px; transition: border-color 0.3s;
+}
+.nav__cv:hover { border-color: var(--ink); }
+
+/* Hamburger Button */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 44px; padding: 10px;
+  background: transparent; border: none; cursor: pointer;
+}
+.hamburger span {
+  display: block; width: 24px; height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 1001;
+  background: var(--paper);
+  display: none; flex-direction: column; justify-content: space-between;
+  padding: 100px var(--pad) 60px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mobile-menu__links { display: flex; flex-direction: column; gap: 24px; }
+.mobile-menu__links a {
+  font-family: var(--serif); font-size: 2rem;
+  font-weight: 400; color: var(--ink); letter-spacing: -0.01em;
+  transition: color 0.3s; text-decoration: none;
+}
+.mobile-menu__links a.active { color: var(--accent); }
+.mobile-menu__bottom { display: flex; flex-direction: column; gap: 24px; }
+.mobile-menu__bottom .nav__cv { align-self: flex-start; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap {
+  max-width: var(--maxw); margin: 0 auto;
+  padding-left: var(--pad); padding-right: var(--pad);
+}
+section {
+  padding: clamp(56px, 8vw, 110px) 0;
+  border-top: 1px solid var(--rule);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+section:first-of-type { border-top: none; }
+
+/* Two-column section grid */
+.sec-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+}
+.sec-marker {
+  font-family: var(--mono); font-size: 0.78rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink); padding-top: 3px;
+}
+.fade-up {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--stagger, 0) * 0.06s);
+  will-change: opacity, transform;
+}
+.fade-up.in { opacity: 1; transform: translateY(0); }
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-up {
+      opacity: 1; transform: none; /* Override JS starting state */
+      animation: revealScroll linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 25%;
+    }
+    @keyframes revealScroll {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+}
+.sec-num { color: var(--ink-2); font-variant-numeric: lining-nums tabular-nums; }
+.sec-sep { color: var(--rule); margin: 0 2px; }
+.sec-marker span:last-child {
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.25em;
+  text-decoration-skip-ink: auto;
+}
+
+/* Image slot (ready for later use) */
+.img-slot {
+  border: 1px solid var(--rule); overflow: hidden;
+  filter: grayscale(100%) contrast(110%);
+}
+.img-slot img {
+  width: 100%; height: 100%; object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+.img-slot__cap {
+  font-family: var(--mono); font-size: 0.68rem;
+  color: var(--muted); margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+
+/* Selected Work */
+.work-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.work-plate {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.work-plate__c {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--muted); letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+@media (pointer: fine) {
+  body, a, button { cursor: none; }
+  .custom-cursor {
+    position: fixed; top: 0; left: 0;
+    width: 12px; height: 12px; border-radius: 50%;
+    background-color: #fff; pointer-events: none;
+    mix-blend-mode: difference; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+    will-change: transform;
+  }
+  .custom-cursor.hover { width: 32px; height: 32px; }
+  .custom-cursor.text-hover { width: 22px; height: 22px; }
+  .custom-cursor.shaking { 
+    width: 120px !important; height: 120px !important; 
+    transition: width 0.15s cubic-bezier(0.25, 1, 0.5, 1), height 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  padding-top: clamp(64px, 10vw, 140px);
+  padding-bottom: clamp(56px, 8vw, 110px);
+}
+.hero__mark {
+  font-family: var(--mono); font-size: 0.74rem;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 24px;
+}
+.hero__name {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.8rem, 10vw, 6.4rem);
+  line-height: 0.95; letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  font-variation-settings: "opsz" 72;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  text-rendering: optimizeLegibility;
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.1em;
+  text-decoration-skip-ink: auto;
+}
+.hero__tag {
+  font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.4; color: var(--ink-2);
+}
+.hero__tag em {
+  font-family: var(--serif); font-style: italic;
+  color: var(--ink);
+}
+.hero__chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px;
+}
+.chip {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--ink-2); border: 1px solid var(--rule);
+  padding: 6px 12px; letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.chip b { color: var(--ink); font-weight: 500; }
+
+.hero__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  font-family: var(--sans); font-size: 0.88rem; font-weight: 450;
+  letter-spacing: 0.01em; padding: 12px 24px;
+  border: 1px solid var(--rule); background: transparent;
+  color: var(--ink); cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, color 0.3s;
+}
+.btn:hover { border-color: var(--ink); }
+.btn--primary {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.btn--primary:hover { background: var(--ink-2); border-color: var(--ink-2); }
+
+@media (hover: none) {
+  a:active, button:active, .proj-entry:active, .focus-item:active, .tl__item:active {
+    transform: scale(0.97) !important;
+    opacity: 0.7 !important;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+}
+
+/* ============================================================
+   FOCUS / PILLARS
+   ============================================================ */
+.focus-grid {
+  display: block;
+}
+.focus-item {
+  padding: 0;
+  border-left: none;
+}
+.focus-item:first-child { padding-left: 0; border-left: none; }
+.focus-item:last-child { padding-right: 0; }
+
+.focus-item__n {
+  font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+  letter-spacing: 0.1em; margin-bottom: 12px;
+  font-variant-numeric: oldstyle-nums;
+}
+.focus-item__t {
+  font-family: var(--serif); font-size: 1.2rem;
+  font-weight: 500; margin-bottom: 10px;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36;
+  text-rendering: optimizeLegibility;
+}
+.focus-item__b {
+  color: var(--ink-2); font-size: 0.92rem; line-height: 1.62;
+  max-width: 64ch; hanging-punctuation: first last;
+}
+
+/* ============================================================
+   TIMELINE (experience + education)
+   ============================================================ */
+.tl { display: flex; flex-direction: column; }
+.tl__item {
+  display: grid; grid-template-columns: 150px 1fr;
+  gap: 24px; padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.tl__item:first-child { padding-top: 0; }
+.tl__item:last-child { border-bottom: none; }
+.tl__when {
+  font-family: var(--mono); font-size: 0.8rem;
+  color: var(--muted); letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+.tl:hover .tl__item { opacity: 0.35; filter: blur(1.5px); }
+.tl__item:hover { opacity: 1 !important; filter: blur(0) !important; }
+.tl__org {
+  font-family: var(--serif); font-size: 1.2rem;
+  font-weight: 500; letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36;
+  text-rendering: optimizeLegibility;
+}
+.tl__role {
+  color: var(--ink-2); font-size: 0.92rem; margin: 2px 0 3px;
+}
+.tl__loc {
+  color: var(--muted); font-size: 0.82rem; margin-bottom: 12px;
+}
+.tl__list { list-style: none; max-width: 68ch; }
+.tl__list li {
+  position: relative; padding-left: 16px;
+  color: var(--ink-2); font-size: 0.92rem;
+  margin-bottom: 5px; line-height: 1.58;
+  hanging-punctuation: first last;
+}
+.tl__list li::before {
+  content: "–"; position: absolute; left: 0; top: 0;
+  color: var(--muted);
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag {
+  font-family: var(--mono); font-size: 0.66rem;
+  color: var(--muted); border: 1px solid var(--rule);
+  padding: 3px 8px; letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.proj-group { margin-bottom: 40px; }
+.proj-group:last-child { margin-bottom: 0; }
+.proj-group__h {
+  font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+}
+
+.proj-entry {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.3s;
+}
+.proj-entry:last-child { border-bottom: none; }
+.proj-entry:hover { border-bottom-color: var(--ink-2); }
+
+.proj-entry__head {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;
+}
+.proj-entry__num {
+  font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+  letter-spacing: 0.1em;
+  font-variant-numeric: oldstyle-nums;
+}
+.proj-entry__t {
+  font-family: var(--serif); font-size: 1.15rem;
+  font-weight: 500; letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36;
+  transition: transform 0.3s ease;
+}
+.proj-entry:hover .proj-entry__t { transform: translateX(4px); }
+
+.proj-entry__d {
+  color: var(--ink-2); font-size: 0.9rem;
+  line-height: 1.6; max-width: 68ch; margin-bottom: 8px;
+}
+.proj-entry__stack {
+  font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
+  margin-bottom: 12px; letter-spacing: 0.05em;
+}
+#work-list:hover .proj-entry { opacity: 0.35; filter: blur(1.5px); }
+.proj-entry:hover { opacity: 1 !important; filter: blur(0) !important; }
+.proj-entry__links {
+  display: flex; gap: 16px; margin-top: 10px;
+}
+.proj-entry__links a {
+  display: inline-block;
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink); font-weight: 500;
+  text-decoration: none;
+  background: linear-gradient(var(--ink), var(--ink)) no-repeat 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.3s ease, color 0.2s;
+}
+.proj-entry__links a:hover {
+  background-size: 100% 1px; color: var(--accent);
+}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+.skills-list { display: flex; flex-direction: column; }
+.skill-row {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 20px; align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.skill-row:first-child { padding-top: 0; }
+.skill-row:last-child { border-bottom: none; }
+.skill-row__l {
+  font-family: var(--serif); font-size: 1rem;
+  font-weight: 500; padding-top: 2px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-desc-list { list-style: none; padding: 0; margin: 0; }
+.skill-desc-list li { font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); margin-bottom: 8px; }
+.skill-desc-list li:last-child { margin-bottom: 0; }
+.skill-desc-list li b { font-weight: 500; color: var(--ink); }
+/* ============================================================
+   TYPOGRAPHY ENHANCEMENTS
+   ============================================================ */
+h1, h2, h3, .hero__name, .gate__name {
+  text-wrap: balance;
+}
+.focus-item__b, .tl__list li, .proj-entry__d {
+  text-wrap: pretty;
+}
+@media (min-width: 860px) {
+  .focus-item__b::first-letter {
+    -webkit-initial-letter: 3 2;
+    initial-letter: 3 2;
+    font-weight: 500;
+    color: var(--accent);
+    margin-right: 0.1em;
+  }
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-line {
+  color: var(--ink-2); font-size: 1rem;
+  margin-bottom: 28px; max-width: 48ch;
+}
+.contact-list { display: flex; flex-direction: column; }
+.contact-item {
+  display: flex; align-items: baseline; gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.3s;
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-item:hover { border-bottom-color: var(--ink-2); }
+.contact-k {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); flex-shrink: 0; min-width: 80px;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.contact-v {
+  font-size: 0.95rem; color: var(--ink);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  padding: 36px var(--pad);
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+  color: var(--muted); font-family: var(--mono);
+  font-size: 0.7rem; letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   SCROLL PROGRESS INDICATOR
+   ============================================================ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 101;
+  width: 100%; height: 2px;
+  background: transparent;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.scroll-progress::after {
+  content: '';
+  display: block; width: 100%; height: 100%;
+  background: var(--accent);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scrollProgress linear;
+    animation-timeline: scroll();
+  }
+  @keyframes scrollProgress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+}
+
+/* ============================================================
+   HOVER — CONTEXT DIMMING  (pure CSS :has())
+   ============================================================ */
+@media (hover: hover) {
+  .tl:has(.tl__item:hover) .tl__item {
+    opacity: 0.45;
+    transition: opacity 0.18s ease;
+  }
+  .tl .tl__item:hover {
+    opacity: 1 !important;
+    transition: opacity 0.18s ease;
+  }
+
+  .proj-group:has(.proj-entry:hover) .proj-entry {
+    opacity: 0.45;
+    transition: opacity 0.18s ease;
+  }
+  .proj-group .proj-entry:hover {
+    opacity: 1 !important;
+    transition: opacity 0.18s ease;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .sec-grid { grid-template-columns: 160px 1fr; gap: 24px; }
+  .skill-row { grid-template-columns: 160px 1fr; }
+  .nav__links { gap: 16px; }
+  .nav__links a { font-size: 0.65rem; }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 860px) {
+  /* --- NAV: declutter for mobile --- */
+  .nav {
+    padding: 12px var(--pad);
+  }
+  .nav__name { font-size: 0.95rem; z-index: 1002; position: relative; }
+  .nav__links { display: none; }
+  .nav__cv { display: none; }
+  .nav__right { display: none; } /* Hide the normal right section */
+
+  /* Hamburger Button */
+  .hamburger {
+    display: flex;
+    z-index: 1002;
+    position: relative;
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu {
+    display: flex;
+  }
+  .mobile-menu.open {
+    opacity: 1; pointer-events: auto;
+    transform: translateY(0);
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* --- LAYOUT --- */
+  .sec-grid { grid-template-columns: 1fr; gap: 20px; }
+  .focus-grid { display: block; }
+  .focus-item {
+    border-left: none; padding: 0;
+    border-bottom: none;
+  }
+  .focus-item:first-child { padding-top: 0; }
+  .focus-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl__item { grid-template-columns: 1fr; gap: 6px; }
+  .tl__when { padding-top: 0; }
+  .skill-row { grid-template-columns: 1fr; gap: 10px; }
+
+  /* --- TYPOGRAPHY --- */
+  body { font-size: 16px; line-height: 1.6; }
+  .hero__name { font-size: clamp(2.2rem, 9vw, 3.2rem); margin-bottom: 16px; }
+  .hero__tag { font-size: clamp(1.1rem, 4vw, 1.4rem); margin-bottom: 20px; }
+  .hero__mark { font-size: 0.68rem; margin-bottom: 16px; }
+  #hero { padding-top: clamp(40px, 8vw, 80px); padding-bottom: clamp(40px, 6vw, 64px); }
+  section { padding: clamp(40px, 7vw, 72px) 0; }
+
+  /* --- SECTION HEADERS --- */
+  .sec-marker { font-size: 0.72rem; margin-bottom: 4px; }
+
+  /* --- TOUCH TARGETS (Apple HIG: 44px) --- */
+  .gate__btn { min-height: 48px; min-width: 120px; font-size: 1rem; padding: 14px 32px; }
+  .btn { min-height: 44px; padding: 12px 20px; }
+  .contact-item { min-height: 48px; padding: 14px 0; }
+  /* --- TEXT READABILITY --- */
+  .focus-item__b { font-size: 0.88rem; }
+  .tl__list li { font-size: 0.88rem; line-height: 1.55; }
+  .proj-entry__d { font-size: 0.88rem; }
+  .proj-entry { padding: 18px 0; }
+  .proj-entry__head { margin-bottom: 6px; }
+
+  /* --- CHIPS & TAGS --- */
+  .hero__chips { gap: 6px; margin-bottom: 24px; }
+  .chip { font-size: 0.66rem; padding: 5px 10px; }
+
+  /* --- CONTACT --- */
+  .contact-item { flex-direction: column; gap: 4px; }
+  .contact-k { min-width: unset; }
+
+  /* --- FOOTER --- */
+  .foot {
+    flex-direction: column; align-items: center;
+    text-align: center; gap: 6px;
+    padding: 28px var(--pad);
+  }
+}
+
+/* Small phone breakpoint (≤400px) */
+@media (max-width: 400px) {
+  :root { --pad: 16px; }
+  .hero__name { font-size: 1.9rem; letter-spacing: -0.02em; }
+  .hero__tag { font-size: 1.05rem; }
+  .gate__name { font-size: 2rem; }
+  .gate__sub { font-size: 0.85rem; }
+  .hero__btns { flex-direction: column; }
+  .hero__btns .btn { width: 100%; text-align: center; }
+  .nav__name { font-size: 0.85rem; }
+  .theme-switch { font-size: 0.6rem; }
+  .lang { font-size: 0.6rem; }
+  .focus-item__t { font-size: 1.05rem; }
+  .tl__org { font-size: 1.05rem; }
+  .proj-entry__t { font-size: 1rem; }
+  .work-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* iPad / Tablet portrait (768px–1024px) */
+@media (min-width: 641px) and (max-width: 860px) {
+  .sec-grid { grid-template-columns: 140px 1fr; gap: 20px; }
+  .focus-grid { display: block; }
+  .focus-item { border-left: none; border-bottom: none; }
+  .focus-item:first-child { border-left: none; }
+  .focus-item:nth-child(3) { display: none; }
+  .skill-row { grid-template-columns: 140px 1fr; }
+  .tl__item { grid-template-columns: 120px 1fr; gap: 16px; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sec-marker, .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+  /* Disable context dimming transitions */
+  .tl .tl__item,
+  .proj-group .proj-entry { opacity: 1 !important; transition: none !important; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .gate  { display: none !important; }
+  .nav   { display: none !important; }
+  #site  { display: block !important; }
+  body   {
+    font-size: 11pt; line-height: 1.45;
+    color: #000 !important; background: #fff !important;
+    font-variant-numeric: lining-nums;
+    hyphens: none;
+  }
+  .wrap  { max-width: 100%; padding: 0; }
+  section { padding: 0.7cm 0; }
+  .sec-grid { display: block; }
+  .sec-marker { opacity: 1; transform: none; font-size: 7.5pt; margin-bottom: 8pt; }
+  .tl__item, .proj-entry, .focus-item, .skill-row {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .contact-item[href^="mailto"]::after,
+  .contact-item[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 7.5pt; color: #555;
+    font-family: monospace;
+  }
+  @page { margin: 2cm 2.5cm; }
+}
+</style>
+<script>
+  /* FOUC prevention for Dark Mode */
+  if (localStorage.getItem("cv-theme") === "dark" || (!localStorage.getItem("cv-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.classList.add("dark-theme");
+  }
+</script>
+</head>
+<body>
+
+<!-- ============================================================
+     TEXTURE
+     ============================================================ -->
+<div class="texture-overlay"></div>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress"></div>
+
+<!-- ============================================================
+     LANGUAGE GATE
+     ============================================================ -->
+<div class="gate" id="gate">
+  <div class="gate__mark">Aachen · Deutschland</div>
+  <div class="gate__name">Aayush Motwani</div>
+  <p class="gate__sub" id="gateSub">Electrical engineer &amp; M.Sc. student · automation, AI, and media.</p>
+  <div class="gate__q">Sprache wählen / Choose your language</div>
+  <div class="gate__btns">
+    <button class="gate__btn" onclick="start('de')">Deutsch</button>
+    <button class="gate__btn" onclick="start('en')">English</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     SITE
+     ============================================================ -->
+<div class="site" id="site">
+
+  <header class="nav">
+    <a href="#hero" class="nav__name">Aayush Motwani</a>
+    <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Focus</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
+    <div class="nav__right">
+      <div class="theme-switch" id="themeSwitch">
+        <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Light Theme">Paper</button>
+        <span class="theme-sep">/</span>
+        <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme">Ink</button>
+      </div>
+      <div class="lang" id="lang">
+        <button data-lang="de" onclick="setLang('de')">DE</button>
+        <button data-lang="en" onclick="setLang('en')" class="active">EN</button>
+      </div>
+      <a class="nav__cv" id="navCv" href="Aayush_Motwani_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+    
+    <!-- Hamburger for Mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__links" id="mobileNavLinks"><a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Focus</a><a href="#experience" class="mobile-nav-item" onclick="toggleMobileMenu()">Experience</a><a href="#education" class="mobile-nav-item" onclick="toggleMobileMenu()">Education</a><a href="#projects" class="mobile-nav-item" onclick="toggleMobileMenu()">Projects</a><a href="#skills" class="mobile-nav-item" onclick="toggleMobileMenu()">Skills</a><a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu()">Contact</a></nav>
+    <div class="mobile-menu__bottom">
+      <div class="theme-switch">
+        <button onclick="setTheme('light')" aria-label="Light Theme">Paper</button>
+        <span class="theme-sep">/</span>
+        <button onclick="setTheme('dark')" aria-label="Dark Theme">Ink</button>
+      </div>
+      <div class="lang">
+        <button data-lang="de" onclick="setLang('de')">DE</button>
+        <button data-lang="en" onclick="setLang('en')" class="active">EN</button>
+      </div>
+      <a class="nav__cv" id="mobileNavCv" href="Aayush_Motwani_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero__mark" id="heroMark">Aachen · Germany</div>
+      <h1 class="hero__name">Aayush Motwani</h1>
+      <p class="hero__tag" id="heroTag">Master's student in Computer &amp; Media Engineering at RWTH Aachen, working across <em>Extended Reality, AI, and audio signal processing</em>.</p>
+      <div class="hero__chips" id="heroChips"><span class="chip"><b>M.Sc.</b> RWTH Aachen</span><span class="chip"><b>Werkstudent</b> Online Marketing · Kellermann GmbH</span><span class="chip"><b>B.Eng.</b> Electrical Engineering · FH Aachen</span></div>
+      <div class="hero__btns" id="heroBtns"><a class="btn btn--primary" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a><a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener">GitHub</a></div>
+    </section>
+
+    <!-- FOCUS -->
+    <section id="focus">
+      <div class="sec-grid">
+        <h2 class="sec-marker" data-observe="">
+          <span class="sec-num">02</span><span class="sec-sep"> / </span><span id="t-focus">Profile</span>
+        </h2>
+        <div class="sec-body">
+          <div class="focus-grid" id="pillars">
+    <div class="focus-item">
+      <div class="focus-item__b" style="font-size: 1.05rem; line-height: 1.6; max-width: 75ch;">Master’s student in Electrical and Computer Engineering at RWTH Aachen, with a focus on immersive technologies, AI and machine learning, and audio signal processing. I hold a German-taught Bachelor’s degree in Electrical Engineering from FH Aachen, where I developed strong foundations in control engineering, measurement technology, automation, and technical problem-solving.<br><br>During my Bachelor’s studies, I gained hands-on experience in PLC-based automation and independently completed five automation projects, taking each one from schematic design through to commissioning. This strengthened my ability to understand technical systems, work methodically, and translate engineering concepts into functioning solutions.<br><br>Alongside my studies, I work as a working student in online marketing at Kellermann, where I contribute to social media content, product photography, and Shopware 6 development. This role allows me to combine technical thinking with creative execution, especially in digital content, product presentation, and web-based workflows.<br><br>I am particularly interested in roles where engineering, AI, immersive technologies, and digital media come together, and where I can apply both my technical background and creative skills to develop useful, engaging, and well-executed solutions.</div>
+    </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="sec-grid">
+        <h2 class="sec-marker" data-observe="">
+          <span class="sec-num">03</span><span class="sec-sep"> / </span><span id="t-exp">Experience</span>
+        </h2>
+        <div class="sec-body">
+          <div class="tl" id="experience-list">
+    <div class="tl__item">
+      <time class="tl__when">Apr 2026 – present · 21 h/week</time>
+      <div>
+        <h3 class="tl__org">Kellermann GmbH</h3>
+        <div class="tl__role">Working Student · Online Marketing</div>
+        <div class="tl__loc">Aachen</div>
+        <ul class="tl__list"><li>Create social media content for Instagram, LinkedIn, and Facebook, including photography and video editing.</li><li>Web development on the company's Shopware 6 site, contributing to an ongoing redevelopment.</li><li>Experimenting independently with AI models and pipelines to make parts of the marketing workflow more efficient.</li></ul>
+        <div class="tags"><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span><span class="tag">Adobe Firefly</span><span class="tag">CapCut</span><span class="tag">Adobe Express</span><span class="tag">Shopware 6</span><span class="tag">Web Development</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">Apr 2025 – Oct 2025</time>
+      <div>
+        <h3 class="tl__org">API GmbH</h3>
+        <div class="tl__role">Working Student · Outbound Logistics</div>
+        <div class="tl__loc">Germany</div>
+        <ul class="tl__list"><li>Managed outbound shipments and kept inventory records up to date while studying full-time.</li><li>Worked inside a fully automated warehouse, which gave me a practical, on-the-ground understanding of how Industry 4.0 principles actually get implemented, not just how they're described.</li></ul>
+        <div class="tags"><span class="tag">Logistics</span><span class="tag">Inventory</span><span class="tag">Industry 4.0</span><span class="tag">Warehouse Automation</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">Oct 2023 – Mar 2024</time>
+      <div>
+        <h3 class="tl__org">FH Aachen</h3>
+        <div class="tl__role">Student Assistant</div>
+        <div class="tl__loc">Aachen</div>
+        <ul class="tl__list"><li>Created comprehensive lab documentation and video tutorials for the SPS (PLC) lab using DaVinci Resolve.</li></ul>
+        <div class="tags"><span class="tag">Documentation</span><span class="tag">Video Editing</span><span class="tag">DaVinci Resolve</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">2021 · 3-week internship</time>
+      <div>
+        <h3 class="tl__org">Madhya Pradesh Electricity Board</h3>
+        <div class="tl__role">Internship · Power Distribution</div>
+        <div class="tl__loc">India</div>
+        <ul class="tl__list"><li>Observed how electricity distribution for a city actually works end to end, from substations through to the distribution network.</li><li>Got exposure to SCADA systems in a live operational setting, seeing how grid monitoring and control actually function in practice rather than just on paper.</li></ul>
+        <div class="tags"><span class="tag">Power Distribution</span><span class="tag">SCADA</span><span class="tag">Grid Infrastructure</span></div>
+      </div>
+    </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="sec-grid">
+        <h2 class="sec-marker" data-observe="">
+          <span class="sec-num">04</span><span class="sec-sep"> / </span><span id="t-edu">Education</span>
+        </h2>
+        <div class="sec-body">
+          <div class="tl" id="education-list">
+    <div class="tl__item">
+      <time class="tl__when">Since April 2024</time>
+      <div>
+        <h3 class="tl__org">RWTH Aachen University</h3>
+        <div class="tl__role">M.Sc. Computer &amp; Media Engineering</div>
+        <div class="tl__loc">Aachen</div>
+        <ul class="tl__list"><li>My specialisations are Extended Reality (VR/AR), AI and machine learning, and audio signal processing.</li><li>In Virtual Reality 1 I worked on immersive application development and interaction techniques, including HMD integration.</li><li>I'm currently doing lab work in Acoustic Virtual Reality, applying spatial audio and signal processing methods in Python and Jupyter Notebook.</li><li>Other relevant modules: Introduction to AI, Digital Image Processing, Robotics &amp; Human-Machine Interaction.</li></ul>
+        <div class="tags"><span class="tag">XR</span><span class="tag">Machine Learning</span><span class="tag">Signal Processing</span><span class="tag">Python</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">Sep 2018 – Dec 2023 · Grade 2.8</time>
+      <div>
+        <h3 class="tl__org">FH Aachen University of Applied Sciences</h3>
+        <div class="tl__role">B.Eng. Electrical Engineering</div>
+        <div class="tl__loc">Campus Jülich</div>
+        <ul class="tl__list"><li>Specialisation in power engineering (Energietechnik)</li><li>Thesis on India's energy mix, specifically non-CO₂ emitting sources including nuclear power (grade 2.3)</li><li>Control and regulation engineering, measurement technology, and digital electronics were the modules I actually enjoyed</li><li>Core coursework also included Applied Transmission Line Theory (1.0), Electrical Machines, Measurement Technology 1 &amp; 2, and High Voltage Technology</li><li>PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently, street lighting control, crane control, a water reactor simulation, a star-delta motor switching circuit, and an industrial wash cycle, each one taken from schematic design through programming to commissioning and documentation</li><li>Used MATLAB/Simulink to model and simulate dynamic systems, including the water reactor, crane control, and traffic light systems, as a complement to the hands-on PLC work</li></ul>
+        <div class="tags"><span class="tag">Power Engineering</span><span class="tag">Control Systems</span><span class="tag">PLC</span><span class="tag">PC Worx</span><span class="tag">MATLAB</span><span class="tag">Simulink</span></div>
+      </div>
+    </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="sec-grid">
+        <h2 class="sec-marker" data-observe="">
+          <span class="sec-num">05</span><span class="sec-sep"> / </span><span id="t-proj">Selected projects</span>
+        </h2>
+        <div class="sec-body" id="projects-list"><div class="proj-group">
+      <div class="proj-group__h">Software &amp; Tools</div>
+      
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">01</span>
+          <h3 class="proj-entry__t">Acoustic Virtual Reality Lab, RWTH Aachen</h3>
+        </div>
+        <div class="proj-entry__d">Hands-on lab work in spatial audio and virtual acoustics, applying signal processing methods to an XR context using Python and Jupyter Notebook.</div>
+        <div class="proj-entry__stack">Python · Jupyter · Signal Processing</div>
+        <div class="tags"><span class="tag">Spatial Audio</span><span class="tag">XR</span><span class="tag">Python</span></div>
+        <div class="proj-entry__links">
+          
+          
+        </div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">02</span>
+          <h3 class="proj-entry__t">AI-assisted tools and automation</h3>
+        </div>
+        <div class="proj-entry__d">A small but working n8n workflow that monitors a live data feed and fires a notification once defined conditions are met. Cursor, Claude, and Claude Code are part of my regular setup for Python work.</div>
+        <div class="proj-entry__stack">n8n · Python · AI Tools</div>
+        <div class="tags"><span class="tag">n8n</span><span class="tag">Cursor</span><span class="tag">Claude</span></div>
+        <div class="proj-entry__links">
+          
+          
+        </div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">03</span>
+          <h3 class="proj-entry__t">GitHub portfolio</h3>
+        </div>
+        <div class="proj-entry__d">A handful of things built outside coursework: Vinyl Deck, an interactive Spotify web player styled as a vinyl turntable (React, Vite); a bilingual website for a family pharmacy business, built with Antigravity; Manuscripta, a writing environment for authors with character mapping and a timeline tool (React, Tiptap); ChronoVerse, a multi-theme clock widget with AI-generated insights via the Gemini API; and a Streamlit dashboard for social media metrics (Python, Pandas).</div>
+        <div class="proj-entry__stack">React · Python · APIs</div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">Web Apps</span></div>
+        <div class="proj-entry__links">
+          <a href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener">Repo ↗</a>
+          
+        </div>
+      </div>
+    </div><div class="proj-group">
+      <div class="proj-group__h">Engineering &amp; Systems</div>
+      
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">01</span>
+          <h3 class="proj-entry__t">PLC Automation Projects, PC Worx (FH Aachen)</h3>
+        </div>
+        <div class="proj-entry__d">Five complete automation projects built to IEC 61131-3: street lighting control, crane control, a water reactor simulation, star-delta motor switching, and an industrial wash cycle. Each included schematic design, programming, commissioning, and full documentation.</div>
+        <div class="proj-entry__stack">PC Worx · IEC 61131-3 · Commissioned</div>
+        <div class="tags"><span class="tag">PLC</span><span class="tag">Automation</span><span class="tag">PC Worx</span></div>
+        <div class="proj-entry__links">
+          
+          
+        </div>
+      </div>
+    </div></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="sec-grid">
+        <h2 class="sec-marker" data-observe="">
+          <span class="sec-num">06</span><span class="sec-sep"> / </span><span id="t-skills">Skills &amp; tools</span>
+        </h2>
+        <div class="sec-body">
+          <div class="skills-list" id="skills-list">
+    <div class="skill-row">
+      <div class="skill-row__l">Programming</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li><b>Python (NumPy, pandas, Matplotlib, scikit-learn, Jupyter Notebook)</b> — used across coursework, lab work, and personal projects</li><li><b>MATLAB/Simulink</b> — academic use only</li><li><b>HTML/CSS/JavaScript</b> — basic, from an early programming course</li></ul>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">Electrical Engineering &amp; Automation</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li><b>PLC programming (PC Worx, IEC 61131-3)</b> — five complete independent projects</li><li><b>Control and regulation engineering, measurement technology</b> — from B.Eng. coursework and lab work</li></ul>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">XR</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li><b>VR application development, HMD integration</b> — through the Virtual Reality 1 module and ongoing Acoustic VR lab work; not yet built independently outside coursework</li></ul>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">AI &amp; Machine Learning</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li><b>Supervised learning (classification, regression), data preprocessing, basic neural network concepts</b> — from an ongoing course and one university module</li></ul>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">AI Tools — daily use</div>
+      <div class="skill-row__r">
+        <div class="skill-tags"><span class="tag">Cursor</span><span class="tag">Claude</span><span class="tag">Claude Code</span></div>
+        
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">AI Tools — used for specific projects</div>
+      <div class="skill-row__r">
+        <div class="skill-tags"><span class="tag">Higgsfield</span><span class="tag">Google AI Studio</span><span class="tag">Lovable</span><span class="tag">Antigravity (no-code)</span><span class="tag">n8n (workflow automation)</span></div>
+        
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">Software</div>
+      <div class="skill-row__r">
+        <div class="skill-tags"><span class="tag">DaVinci Resolve</span><span class="tag">Adobe Photoshop</span><span class="tag">Adobe Firefly</span><span class="tag">CapCut</span><span class="tag">Shopware 6</span><span class="tag">MS Office</span><span class="tag">Git (basic)</span></div>
+        
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">Certifications</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li>Introduction to Python Programming (HPC.NRW)</li><li>Data Science, AI &amp; Machine Learning (Udemy)</li><li>IELTS Academic (Band 7.5)</li></ul>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">Languages</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li>German (B2 certified)</li><li>English (C1, IELTS 7.5)</li><li>Hindi (native)</li></ul>
+      </div>
+    </div></div>
+        </div>
+      </div>
+    </section>
+ 
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sec-grid">
+        <h2 class="sec-marker" data-observe="">
+          <span class="sec-num">07</span><span class="sec-sep"> / </span><span id="t-contact">Get in touch</span>
+        </h2>
+        <div class="sec-body">
+          <p class="contact-line" id="contact-line">Open to internships, working student roles, and full-time positions. The fastest way to reach me is email.</p>
+          <div class="contact-list" id="contact-grid"><a href="mailto:aayushmotwani@gmail.com" class="contact-item">
+      <span class="contact-k">Email</span><span class="contact-v">aayushmotwani@gmail.com</span></a><a href="https://linkedin.com/in/aayush-motwani-668996103" class="contact-item" target="_blank" rel="noopener">
+      <span class="contact-k">LinkedIn</span><span class="contact-v">aayush-motwani</span></a><a href="https://github.com/aayushmotwani-dev" class="contact-item" target="_blank" rel="noopener">
+      <span class="contact-k">GitHub</span><span class="contact-v">aayushmotwani-dev</span></a><div class="contact-item"><span class="contact-k">Location</span><span class="contact-v">Aachen, Germany</span></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Aayush Motwani</span>
+    <span id="foot-note">Built and designed in Aachen by Aayush Motwani.</span>
+  </footer>
+
+</div>
+
+<script>
+/* ============================================================
+   CONTENT — edit text here. Each field is { en, de }.
+   ============================================================ */
+const DATA = {
+  ui: {
+    nav: {
+      focus:   {en:"Focus", de:"Schwerpunkte"},
+      exp:     {en:"Experience", de:"Erfahrung"},
+      edu:     {en:"Education", de:"Ausbildung"},
+      proj:    {en:"Projects", de:"Projekte"},
+      skills:  {en:"Skills", de:"Kenntnisse"},
+      contact: {en:"Contact", de:"Kontakt"}
+    },
+    cv:       {en:"Download CV", de:"Lebenslauf"},
+    viewProj: {en:"View projects", de:"Projekte ansehen"},
+    getInTouch:{en:"Get in touch", de:"Kontakt aufnehmen"},
+    foot: {
+      en: "Built and designed in Aachen by Aayush Motwani.",
+      de: "Entwickelt und gestaltet in Aachen von Aayush Motwani."
+    },
+  },
+
+  hero: {
+    mark: {en:"Aachen · Germany", de:"Aachen · Deutschland"},
+    tag: {
+      en:"Master's student in Computer & Media Engineering at RWTH Aachen, working across <em>Extended Reality, AI, and audio signal processing</em>.",
+      de:"Masterstudent (Computer & Media Engineering) an der RWTH Aachen, tätig in den Bereichen <em>Extended Reality, KI und Audiosignalverarbeitung</em>."
+    },
+    chips: [
+      {en:"<b>M.Sc.</b> RWTH Aachen", de:"<b>M.Sc.</b> RWTH Aachen"},
+      {en:"<b>Werkstudent</b> Online Marketing · Kellermann GmbH", de:"<b>Werkstudent</b> Online Marketing · Kellermann GmbH"},
+      {en:"<b>B.Eng.</b> Electrical Engineering · FH Aachen", de:"<b>B.Eng.</b> Elektrotechnik · FH Aachen"}
+    ]
+  },
+
+  sections: {
+    focus:   {en:"Profile", de:"Profil"},
+    exp:     {en:"Experience", de:"Erfahrung"},
+    edu:     {en:"Education", de:"Ausbildung"},
+    proj:    {en:"Selected projects", de:"Ausgewählte Projekte"},
+    skills:  {en:"Skills &amp; tools", de:"Kenntnisse &amp; Tools"},
+    creative:{en:"Profile", de:"Profil"},
+    contact: {en:"Get in touch", de:"Kontakt"}
+  },
+
+  focus: [
+    {
+      t:{en:"Profile", de:"Profil"},
+      b:{en:"Master’s student in Electrical and Computer Engineering at RWTH Aachen, with a focus on immersive technologies, AI and machine learning, and audio signal processing. I hold a German-taught Bachelor’s degree in Electrical Engineering from FH Aachen, where I developed strong foundations in control engineering, measurement technology, automation, and technical problem-solving.<br><br>During my Bachelor’s studies, I gained hands-on experience in PLC-based automation and independently completed five automation projects, taking each one from schematic design through to commissioning. This strengthened my ability to understand technical systems, work methodically, and translate engineering concepts into functioning solutions.<br><br>Alongside my studies, I work as a working student in online marketing at Kellermann, where I contribute to social media content, product photography, and Shopware 6 development. This role allows me to combine technical thinking with creative execution, especially in digital content, product presentation, and web-based workflows.<br><br>I am particularly interested in roles where engineering, AI, immersive technologies, and digital media come together, and where I can apply both my technical background and creative skills to develop useful, engaging, and well-executed solutions.",
+         de:"Masterstudent im Bereich Electrical and Computer Engineering an der RWTH Aachen mit einem Schwerpunkt auf Immersive Technologies, KI und maschinellem Lernen sowie Audiosignalverarbeitung. Zuvor habe ich meinen deutschsprachigen Bachelor in Elektrotechnik an der FH Aachen absolviert, wo ich fundierte Grundlagen in Regelungstechnik, Messtechnik, Automatisierung und technischem Problemlösen aufgebaut habe.<br><br>Während meines Bachelorstudiums konnte ich praktische Erfahrung in der SPS-basierten Automatisierung sammeln und fünf Automatisierungsprojekte eigenständig umsetzen — von der Schaltplananalyse bis zur Inbetriebnahme. Dadurch habe ich gelernt, technische Systeme strukturiert zu verstehen, methodisch zu arbeiten und technische Konzepte in funktionierende Lösungen zu übertragen.<br><br>Neben meinem Studium arbeite ich als Werkstudent im Online-Marketing bei Kellermann. Dort unterstütze ich in den Bereichen Social Media Content, Produktfotografie und Shopware-6-Entwicklung. Diese Tätigkeit ermöglicht es mir, technisches Denken mit kreativer Umsetzung zu verbinden, insbesondere in den Bereichen digitale Inhalte, Produktpräsentation und webbasierte Prozesse.<br><br>Besonders interessieren mich Positionen, in denen Engineering, KI, immersive Technologien und digitale Medien zusammenkommen. Ich möchte meine technischen Grundlagen und kreativen Fähigkeiten einsetzen, um nützliche, ansprechende und technisch überzeugende Lösungen zu entwickeln."}
+    }
+  ],
+
+      experience: [
+    {
+      when: {en: "Apr 2026 – present · 21 h/week", de: "Apr 2026 – heute · 21 Std./Woche"},
+      org: "Kellermann GmbH",
+      role: {en: "Working Student · Online Marketing", de: "Werkstudent · Online-Marketing"},
+      loc: {en: "Aachen", de: "Aachen"},
+      bullets: [
+        {en: "Create social media content for Instagram, LinkedIn, and Facebook, including photography and video editing.", de: "Erstellung von Social-Media-Content für Instagram, LinkedIn und Facebook, einschließlich Fotografie und Videobearbeitung."},
+        {en: "Web development on the company's Shopware 6 site, contributing to an ongoing redevelopment.", de: "Webentwicklung für den Shopware 6 Onlineshop des Unternehmens, Mitwirkung an einem laufenden Relaunch."},
+        {en: "Experimenting independently with AI models and pipelines to make parts of the marketing workflow more efficient.", de: "Eigenständiges Experimentieren mit KI-Modellen und Pipelines, um Prozesse im Marketing-Workflow effizienter zu gestalten."}
+      ],
+      tags: [
+        {en: "DaVinci Resolve", de: "DaVinci Resolve"},
+        {en: "Photoshop", de: "Photoshop"},
+        {en: "Adobe Firefly", de: "Adobe Firefly"},
+        {en: "CapCut", de: "CapCut"},
+        {en: "Adobe Express", de: "Adobe Express"},
+        {en: "Shopware 6", de: "Shopware 6"},
+        {en: "Web Development", de: "Webentwicklung"}
+      ]
+    },
+    {
+      when: {en: "Apr 2025 – Oct 2025", de: "Apr 2025 – Okt 2025"},
+      org: "API GmbH",
+      role: {en: "Working Student · Outbound Logistics", de: "Werkstudent · Warenausgangslogistik"},
+      loc: {en: "Germany", de: "Deutschland"},
+      bullets: [
+        {en: "Managed outbound shipments and kept inventory records up to date while studying full-time.", de: "Verwaltung ausgehender Sendungen und Pflege der Bestandsaufzeichnungen neben einem Vollzeitstudium."},
+        {en: "Worked inside a fully automated warehouse, which gave me a practical, on-the-ground understanding of how Industry 4.0 principles actually get implemented, not just how they're described.", de: "Arbeit in einem vollautomatisierten Lager, was mir ein praktisches, praxisnahes Verständnis dafür vermittelte, wie Industrie 4.0-Prinzipien tatsächlich umgesetzt werden – weit über die reine Theorie hinaus."}
+      ],
+      tags: [
+        {en: "Logistics", de: "Logistik"},
+        {en: "Inventory", de: "Bestandsverwaltung"},
+        {en: "Industry 4.0", de: "Industrie 4.0"},
+        {en: "Warehouse Automation", de: "Lagerautomatisierung"}
+      ]
+    },
+    {
+      when: {en: "Oct 2023 – Mar 2024", de: "Okt 2023 – Mär 2024"},
+      org: "FH Aachen",
+      role: {en: "Student Assistant", de: "Studentische Hilfskraft"},
+      loc: {en: "Aachen", de: "Aachen"},
+      bullets: [
+        {en: "Created comprehensive lab documentation and video tutorials for the SPS (PLC) lab using DaVinci Resolve.", de: "Erstellung umfassender Labordokumentationen und Video-Tutorials für das SPS-Labor mit DaVinci Resolve."}
+      ],
+      tags: [
+        {en: "Documentation", de: "Dokumentation"}, 
+        {en: "Video Editing", de: "Videobearbeitung"}, 
+        {en: "DaVinci Resolve", de: "DaVinci Resolve"}
+      ]    },
+    {
+      when: {en: "2021 · 3-week internship", de: "2021 · 3-wöchiges Praktikum"},
+      org: "Madhya Pradesh Electricity Board",
+      role: {en: "Internship · Power Distribution", de: "Praktikum · Energieverteilung"},
+      loc: {en: "India", de: "Indien"},
+      bullets: [
+        {en: "Observed how electricity distribution for a city actually works end to end, from substations through to the distribution network.", de: "Einblick in die vollständige Stromverteilung einer Stadt – vom Umspannwerk bis zum Verteilungsnetz."},
+        {en: "Got exposure to SCADA systems in a live operational setting, seeing how grid monitoring and control actually function in practice rather than just on paper.", de: "Praxisnahe Erfahrungen mit SCADA-Systemen im realen Betriebsumfeld gesammelt und beobachtet, wie Netzüberwachung und -steuerung tatsächlich funktionieren."}
+      ],
+      tags: [
+        {en: "Power Distribution", de: "Energieverteilung"},
+        "SCADA",
+        {en: "Grid Infrastructure", de: "Netzinfrastruktur"}
+      ]
+    }
+  ],
+  education: [
+    {
+      org:"RWTH Aachen University",
+      role:{en:"M.Sc. Computer &amp; Media Engineering", de:"M.Sc. Computer &amp; Media Engineering"},
+      when:{en:"Since April 2024", de:"seit April 2024"},
+      loc:{en:"Aachen", de:"Aachen"},
+      bullets:[
+        {en:"My specialisations are Extended Reality (VR/AR), AI and machine learning, and audio signal processing.", de:"Meine Schwerpunkte sind Extended Reality (VR/AR), Künstliche Intelligenz und Machine Learning sowie Audiosignalverarbeitung."},
+        {en:"In Virtual Reality 1 I worked on immersive application development and interaction techniques, including HMD integration.", de:"Im Modul Virtual Reality 1 habe ich an immersiver Anwendungsentwicklung und Interaktionstechniken gearbeitet, einschließlich HMD-Integration."},
+        {en:"I'm currently doing lab work in Acoustic Virtual Reality, applying spatial audio and signal processing methods in Python and Jupyter Notebook.", de:"Aktuell bin ich im Labor Akustische Virtuelle Realität, wo ich räumliches Audio und Signalverarbeitungsmethoden mit Python und Jupyter Notebook praktisch anwende."},
+        {en:"Other relevant modules: Introduction to AI, Digital Image Processing, Robotics &amp; Human-Machine Interaction.", de:"Weitere relevante Module: Einführung in die KI, Digital Image Processing, Robotik &amp; Mensch-Maschine-Interaktion."}
+      ],
+      tags:["XR","Machine Learning","Signal Processing","Python"]
+    },
+        {
+      org:"FH Aachen University of Applied Sciences",
+      role:{en:"B.Eng. Electrical Engineering", de:"B.Eng. Elektrotechnik"},
+      when:{en:"Sep 2018 – Dec 2023 · Grade 2.8", de:"Sep 2018 – Dez 2023 · Note 2,8"},
+      loc:{en:"Campus Jülich", de:"Campus Jülich"},
+      bullets:[
+        {en:"Specialisation in power engineering (Energietechnik)", de:"Schwerpunkt Energietechnik"},
+        {en:"Thesis on India's energy mix, specifically non-CO₂ emitting sources including nuclear power (grade 2.3)", de:"Bachelorarbeit über den indischen Energiemix, speziell zu CO₂-freien Energiequellen einschließlich Kernenergie (Note 2,3)"},
+        {en:"Control and regulation engineering, measurement technology, and digital electronics were the modules I actually enjoyed", de:"Steuerungs- und Regelungstechnik, Messtechnik und Digitaltechnik waren die Module, die mir am meisten Freude bereitet haben"},
+        {en:"Core coursework also included Applied Transmission Line Theory (1.0), Electrical Machines, Measurement Technology 1 & 2, and High Voltage Technology", de:"Zu den weiteren Kernfächern zählten Angewandte Leitungstheorie (1,0), Elektrische Maschinen, Messtechnik 1 & 2 sowie Hochspannungstechnik"},
+        {en:"PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently, street lighting control, crane control, a water reactor simulation, a star-delta motor switching circuit, and an industrial wash cycle, each one taken from schematic design through programming to commissioning and documentation", de:"SPS-Praktikum (PC Worx, IEC 61131-3): Fünf eigenständig entwickelte Automatisierungsprojekte (Straßenbeleuchtung, Kransteuerung, Wasserreaktorsimulation, Stern-Dreieck-Schaltung, industrieller Waschzyklus), jeweils von der Schaltplanerstellung über die Programmierung bis zur Inbetriebnahme und Dokumentation"},
+        {en:"Used MATLAB/Simulink to model and simulate dynamic systems, including the water reactor, crane control, and traffic light systems, as a complement to the hands-on PLC work", de:"Nutzung von MATLAB/Simulink zur Modellierung und Simulation dynamischer Systeme (u.a. Wasserreaktor, Kransteuerung, Ampelanlagen) als Ergänzung zur praktischen SPS-Arbeit"}
+      ],
+      tags:[
+        {en:"Power Engineering", de:"Energietechnik"},
+        {en:"Control Systems", de:"Regelungstechnik"},
+        {en:"PLC", de:"SPS"},
+        "PC Worx",
+        "MATLAB",
+        "Simulink"
+      ]
+    }
+  ],
+
+  projects: [
+    {
+      group:"eng",
+      t:{en:"PLC Automation Projects, PC Worx (FH Aachen)", de:"SPS-Automatisierungsprojekte, PC Worx (FH Aachen)"},
+      d:{en:"Five complete automation projects built to IEC 61131-3: street lighting control, crane control, a water reactor simulation, star-delta motor switching, and an industrial wash cycle. Each included schematic design, programming, commissioning, and full documentation.",
+         de:"Fünf vollständige Automatisierungsprojekte nach IEC 61131-3: Straßenbeleuchtungssteuerung, Kransteuerung, Wasserreaktorsimulation, Stern-Dreieck-Motorschaltung und industrieller Waschzyklus. Jeweils mit Schaltplanerstellung, Programmierung, Inbetriebnahme und vollständiger Dokumentation."},
+      stack: {en:"PC Worx · IEC 61131-3 · Commissioned", de:"PC Worx · IEC 61131-3 · In Betrieb genommen"},
+      tags:["PLC","Automation","PC Worx"]
+    },
+    {
+      group:"ai",
+      t:{en:"Acoustic Virtual Reality Lab, RWTH Aachen", de:"Labor Akustische Virtuelle Realität, RWTH Aachen"},
+      d:{en:"Hands-on lab work in spatial audio and virtual acoustics, applying signal processing methods to an XR context using Python and Jupyter Notebook.",
+         de:"Praktische Laborarbeit im Bereich räumliches Audio und virtuelle Akustik. Anwendung von Signalverarbeitungsmethoden in einem XR-Kontext mit Python und Jupyter Notebook."},
+      stack: {en:"Python · Jupyter · Signal Processing", de:"Python · Jupyter · Signalverarbeitung"},
+      tags:["Spatial Audio","XR","Python"]
+    },
+    {
+      group:"ai",
+      t:{en:"AI-assisted tools and automation", de:"KI-gestützte Tools und Automatisierung"},
+      d:{en:"A small but working n8n workflow that monitors a live data feed and fires a notification once defined conditions are met. Cursor, Claude, and Claude Code are part of my regular setup for Python work.",
+         de:"Ein kleiner, aber funktionierender n8n-Workflow, der einen Live-Datenfeed überwacht und bei definierten Bedingungen eine Benachrichtigung auslöst. Cursor, Claude und Claude Code gehören zu meiner regelmäßigen Arbeitsumgebung in Python-Projekten."},
+      stack: {en:"n8n · Python · AI Tools", de:"n8n · Python · KI-Tools"},
+      tags:["n8n","Cursor","Claude"]
+    },
+    {
+      group:"ai",
+      t:{en:"GitHub portfolio", de:"GitHub-Portfolio"},
+      d:{en:"A handful of things built outside coursework: Vinyl Deck, an interactive Spotify web player styled as a vinyl turntable (React, Vite); a bilingual website for a family pharmacy business, built with Antigravity; Manuscripta, a writing environment for authors with character mapping and a timeline tool (React, Tiptap); ChronoVerse, a multi-theme clock widget with AI-generated insights via the Gemini API; and a Streamlit dashboard for social media metrics (Python, Pandas).",
+         de:"Ein paar Projekte außerhalb des Studiums: Vinyl Deck, ein interaktiver Spotify-Webplayer im Vinyl-Design (React, Vite); eine zweisprachige Website für ein Familienunternehmen im Apothekenbereich, umgesetzt mit Antigravity; Manuscripta, eine Schreibumgebung für Autoren mit Charakterkarten und einem Zeitleisten-Tool (React, Tiptap); ChronoVerse, ein Multi-Themen-Uhr-Widget mit KI-gestützten Insights über die Gemini API; sowie ein Streamlit-Dashboard zur Auswertung von Social-Media-Kennzahlen (Python, Pandas)."},
+      stack: {en:"React · Python · APIs", de:"React · Python · APIs"},
+      tags:["React","Python","Web Apps"],
+      repo: "https://github.com/aayushmotwani-dev"
+    }
+  ],
+
+  projectGroups: {
+    ai:    {en:"Software &amp; Tools", de:"Software &amp; Tools"},
+    eng:   {en:"Engineering &amp; Systems", de:"Technik &amp; Systeme"}
+  },
+
+    skills: [
+    {
+      l: {en: "Programming", de: "Programmierung"},
+      items: [
+        {
+          en: "<b>Python (NumPy, pandas, Matplotlib, scikit-learn, Jupyter Notebook)</b> — used across coursework, lab work, and personal projects",
+          de: "<b>Python (NumPy, pandas, Matplotlib, scikit-learn, Jupyter Notebook)</b> — aus Studium, Laborarbeit und eigenen Projekten"
+        },
+        {
+          en: "<b>MATLAB/Simulink</b> — academic use only",
+          de: "<b>MATLAB/Simulink</b> — ausschließlich akademisch"
+        },
+        {
+          en: "<b>HTML/CSS/JavaScript</b> — basic, from an early programming course",
+          de: "<b>HTML/CSS/JavaScript</b> — Grundkenntnisse, aus einem frühen Programmierkurs"
+        }
+      ]
+    },
+    {
+      l: {en: "Electrical Engineering & Automation", de: "Elektrotechnik & Automatisierung"},
+      items: [
+        {
+          en: "<b>PLC programming (PC Worx, IEC 61131-3)</b> — five complete independent projects",
+          de: "<b>SPS-Programmierung (PC Worx, IEC 61131-3)</b> — fünf vollständig eigenständige Projekte"
+        },
+        {
+          en: "<b>Control and regulation engineering, measurement technology</b> — from B.Eng. coursework and lab work",
+          de: "<b>Steuerungs- und Regelungstechnik, Messtechnik</b> — aus dem B.Eng.-Studium und der Laborarbeit"
+        }
+      ]
+    },
+    {
+      l: {en: "XR", de: "XR"},
+      items: [
+        {
+          en: "<b>VR application development, HMD integration</b> — through the Virtual Reality 1 module and ongoing Acoustic VR lab work; not yet built independently outside coursework",
+          de: "<b>VR-Anwendungsentwicklung, HMD-Integration</b> — durch das Modul Virtual Reality 1 und die laufende Laborarbeit Akustische Virtuelle Realität; noch nicht eigenständig außerhalb des Studiums umgesetzt"
+        }
+      ]
+    },
+    {
+      l: {en: "AI & Machine Learning", de: "KI & Machine Learning"},
+      items: [
+        {
+          en: "<b>Supervised learning (classification, regression), data preprocessing, basic neural network concepts</b> — from an ongoing course and one university module",
+          de: "<b>Supervised Learning (Klassifikation, Regression), Datenvorverarbeitung, Grundlagen neuronaler Netze</b> — aus einem laufenden Kurs und einem Hochschulmodul"
+        }
+      ]
+    },
+    {
+      l: {en: "AI Tools — daily use", de: "KI-Tools — regelmäßig genutzt"},
+      tags: [
+        {en: "Cursor", de: "Cursor"},
+        {en: "Claude", de: "Claude"},
+        {en: "Claude Code", de: "Claude Code"}
+      ]
+    },
+    {
+      l: {en: "AI Tools — used for specific projects", de: "KI-Tools — für einzelne Projekte genutzt"},
+      tags: [
+        {en: "Higgsfield", de: "Higgsfield"},
+        {en: "Google AI Studio", de: "Google AI Studio"},
+        {en: "Lovable", de: "Lovable"},
+        {en: "Antigravity (no-code)", de: "Antigravity (No-Code)"},
+        {en: "n8n (workflow automation)", de: "n8n (Workflow-Automatisierung)"}
+      ]
+    },
+    {
+      l: {en: "Software", de: "Software"},
+      tags: [
+        {en: "DaVinci Resolve", de: "DaVinci Resolve"},
+        {en: "Adobe Photoshop", de: "Adobe Photoshop"},
+        {en: "Adobe Firefly", de: "Adobe Firefly"},
+        {en: "CapCut", de: "CapCut"},
+        {en: "Shopware 6", de: "Shopware 6"},
+        {en: "MS Office", de: "MS Office"},
+        {en: "Git (basic)", de: "Git (Grundkenntnisse)"}
+      ]
+    },
+    {
+      l: {en: "Certifications", de: "Zertifikate"},
+      items: [
+        {en: "Introduction to Python Programming (HPC.NRW)", de: "Einführung in die Programmierung mit Python (HPC.NRW)"},
+        {en: "Data Science, AI & Machine Learning (Udemy)", de: "Data Science, KI & Machine Learning (Udemy)"},
+        {en: "IELTS Academic (Band 7.5)", de: "IELTS Academic (Band 7.5)"}
+      ]
+    },
+    {
+      l: {en: "Languages", de: "Sprachen"},
+      items: [
+        {en: "German (B2 certified)", de: "Deutsch (B2-Zertifikat)"},
+        {en: "English (C1, IELTS 7.5)", de: "Englisch (C1, IELTS 7.5)"},
+        {en: "Hindi (native)", de: "Hindi (Muttersprache)"}
+      ]
+    }
+  ],
+  contact: {
+    line:{en:"Open to internships, working student roles, and full-time positions. The fastest way to reach me is email.",
+          de:"Offen für Praktika, Werkstudentenstellen und Festanstellungen. Am schnellsten erreichen Sie mich per E-Mail."},
+    items:[
+      {k:"Email", v:"aayushmotwani@gmail.com", url:"mailto:aayushmotwani@gmail.com"},
+      {k:"LinkedIn", v:"aayush-motwani", url:"https://linkedin.com/in/aayush-motwani-668996103"},
+      {k:"GitHub", v:"aayushmotwani-dev", url:"https://github.com/aayushmotwani-dev"},
+      {k:{en:"Location",de:"Standort"}, v:{en:"Aachen, Germany",de:"Aachen, Deutschland"}, url:"#"}
+    ]
+  }
+};
+
+/* ============================================================
+   RENDER ENGINE & POLYFILLS
+   ============================================================ */
+// Polyfill for NodeList.forEach (Old Safari/iOS)
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+// Polyfill for String.padStart (iOS 10)
+if (!String.prototype.padStart) {
+  String.prototype.padStart = function padStart(targetLength, padString) {
+    targetLength = targetLength >> 0;
+    padString = String(typeof padString !== 'undefined' ? padString : ' ');
+    if (this.length > targetLength) return String(this);
+    else {
+      targetLength = targetLength - this.length;
+      if (targetLength > padString.length) {
+        padString += padString.repeat(targetLength / padString.length);
+      }
+      return padString.slice(0, targetLength) + String(this);
+    }
+  };
+}
+
+let LANG = "en";
+let THEME = "light";
+const $ = (id) => document.getElementById(id);
+const t = (o) => (o && typeof o === "object" && ("en" in o)) ? o[LANG] : o;
+
+function render() {
+  document.documentElement.lang = LANG;
+
+  /* nav */
+  const navItems = Object.entries({
+    "#focus":DATA.ui.nav.focus, "#experience":DATA.ui.nav.exp, "#education":DATA.ui.nav.edu,
+    "#projects":DATA.ui.nav.proj, "#skills":DATA.ui.nav.skills, "#contact":DATA.ui.nav.contact
+  });
+  
+  $("navLinks").innerHTML = navItems.map(([href, label]) => 
+    `<a href="${href}" class="nav-item">${t(label)}</a>`
+  ).join("");
+  
+  if ($("mobileNavLinks")) {
+    $("mobileNavLinks").innerHTML = navItems.map(([href, label]) => 
+      `<a href="${href}" class="mobile-nav-item" onclick="toggleMobileMenu()">${t(label)}</a>`
+    ).join("");
+  }
+
+  /* CV */
+  const cvFile = LANG === "de" ? "Aayush_Motwani_Lebenslauf.pdf" : "Aayush_Motwani_CV.pdf";
+  $("navCv").textContent = t(DATA.ui.cv);
+  $("navCv").href = cvFile;
+  
+  if ($("mobileNavCv")) {
+    $("mobileNavCv").textContent = t(DATA.ui.cv);
+    $("mobileNavCv").href = cvFile;
+  }
+
+  /* hero */
+  $("heroMark").textContent = t(DATA.hero.mark);
+  $("heroTag").innerHTML = t(DATA.hero.tag);
+  $("heroChips").innerHTML = DATA.hero.chips.map(c => `<span class="chip">${t(c)}</span>`).join("");
+  $("heroBtns").innerHTML =
+    `<a class="btn btn--primary" href="#projects">${t(DATA.ui.viewProj)}</a>` +
+    `<a class="btn" href="#contact">${t(DATA.ui.getInTouch)}</a>` +
+    `<a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener">GitHub</a>`;
+
+  /* section titles */
+  $("t-focus").innerHTML   = t(DATA.sections.focus);
+  $("t-exp").innerHTML     = t(DATA.sections.exp);
+  $("t-edu").innerHTML     = t(DATA.sections.edu);
+  $("t-proj").innerHTML    = t(DATA.sections.proj);
+  $("t-skills").innerHTML  = t(DATA.sections.skills);
+  $("t-contact").innerHTML = t(DATA.sections.contact);
+
+  /* focus / profile */
+  $("pillars").innerHTML = DATA.focus.map((p) => `
+    <div class="focus-item">
+      <div class="focus-item__b" style="font-size: 1.05rem; line-height: 1.6; max-width: 75ch;">${t(p.b)}</div>
+    </div>`).join("");
+
+  /* timelines */
+  const tl = (arr) => arr.map(it => `
+    <div class="tl__item">
+      <time class="tl__when">${t(it.when)}</time>
+      <div>
+        <h3 class="tl__org">${it.org}</h3>
+        <div class="tl__role">${t(it.role)}</div>
+        <div class="tl__loc">${t(it.loc)}</div>
+        <ul class="tl__list">${it.bullets.map(b => `<li>${t(b)}</li>`).join("")}</ul>
+        <div class="tags">${(it.tags || []).map(x => `<span class="tag">${typeof x === "string" ? x : t(x)}</span>`).join("")}</div>
+      </div>
+    </div>`).join("");
+  $("experience-list").innerHTML = tl(DATA.experience);
+  $("education-list").innerHTML = tl(DATA.education);
+
+  /* projects — editorial list entries */
+  const order = ["ai", "media", "eng"];
+  $("projects-list").innerHTML = order.map(g => {
+    const items = DATA.projects.filter(p => p.group === g);
+    if (!items.length) return "";
+    const entries = items.map((p, i) => `
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">${String(i + 1).padStart(2, "0")}</span>
+          <h3 class="proj-entry__t">${t(p.t)}</h3>
+        </div>
+        <div class="proj-entry__d">${t(p.d)}</div>
+        <div class="proj-entry__stack">${t(p.stack)}</div>
+        <div class="tags">${p.tags.map(x => `<span class="tag">${x}</span>`).join("")}</div>
+        <div class="proj-entry__links">
+          ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener">Repo ↗</a>` : ""}
+          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Live Demo ↗</a>` : ""}
+        </div>
+      </div>`).join("");
+    return `<div class="proj-group">
+      <div class="proj-group__h">${t(DATA.projectGroups[g])}</div>
+      ${entries}
+    </div>`;
+  }).join("");
+
+  /* skills */
+    $("skills-list").innerHTML = DATA.skills.map(s => `
+    <div class="skill-row">
+      <div class="skill-row__l">${t(s.l)}</div>
+      <div class="skill-row__r">
+        ${s.tags ? `<div class="skill-tags">${s.tags.map(tag => `<span class="tag">${t(tag)}</span>`).join("")}</div>` : ''}
+        ${s.items ? `<ul class="skill-desc-list">${s.items.map(item => `<li>${t(item)}</li>`).join("")}</ul>` : ''}
+      </div>
+    </div>`).join("");
+
+
+
+  /* contact */
+  $("contact-line").textContent = t(DATA.contact.line);
+  $("contact-grid").innerHTML = DATA.contact.items.map(c => {
+    const key = t(c.k); const val = t(c.v);
+    if (c.url === "#") {
+      return `<div class="contact-item"><span class="contact-k">${key}</span><span class="contact-v">${val}</span></div>`;
+    }
+    return `<a href="${c.url}" class="contact-item" ${c.url.startsWith("http") ? 'target="_blank" rel="noopener"' : ''}>
+      <span class="contact-k">${key}</span><span class="contact-v">${val}</span></a>`;
+  }).join("");
+
+  /* work grid */
+  if ($("work-grid")) {
+    $("work-grid").innerHTML = DATA.work.map(w => `
+      <div class="work-plate">
+        <div class="img-slot">
+          <img src="${w.url}" alt="${t(w.alt)}" loading="lazy" />
+        </div>
+        <div class="work-plate__c">${t(w.caption)}</div>
+      </div>
+    `).join("");
+  }
+
+  /* footer */
+  $("foot-note").textContent = t(DATA.ui.foot);
+
+  /* lang toggle */
+  document.querySelectorAll(".lang button").forEach(b => {
+    if (b.getAttribute("data-lang") === LANG) {
+      b.classList.add("active");
+    } else {
+      b.classList.remove("active");
+    }
+  });
+
+  /* observers */
+  try {
+    initObservers();
+  } catch (err) {
+    console.warn("Observers failed to init", err);
+  }
+}
+
+/* ============================================================
+   GATE & THEME
+   ============================================================ */
+function start(lang) {
+  LANG = lang;
+  
+  const gate = $("gate");
+  if (gate) {
+    gate.classList.add("hide");
+    setTimeout(() => gate.remove(), 600);
+  }
+  
+  try {
+    render();
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+  } catch (err) {
+    console.error("Render error:", err);
+    if (gate) gate.remove();
+  }
+}
+
+function initGate() {
+  LANG = (navigator.language || navigator.userLanguage).slice(0, 2) === "de" ? "de" : "en";
+  try { render(); } catch(e) {}
+}
+
+function setLang(lang) {
+  const update = () => {
+    LANG = lang;
+    render();
+  };
+  if (document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.startViewTransition(update);
+  } else {
+    update();
+  }
+}
+
+function initTheme() {
+  const saved = localStorage.getItem("cv-theme");
+  if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    setTheme("dark");
+  } else {
+    setTheme("light");
+  }
+}
+
+function setTheme(theme) {
+  const update = () => {
+    THEME = theme;
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark-theme");
+    } else {
+      document.documentElement.classList.remove("dark-theme");
+    }
+    localStorage.setItem("cv-theme", theme);
+    
+    if ($("meta-theme-color")) {
+      $("meta-theme-color").setAttribute("content", theme === "dark" ? "#1E1C18" : "#F0EAD6");
+    }
+    
+    document.querySelectorAll(".theme-switch button").forEach(b => {
+      const isLightBtn = b.getAttribute("onclick").includes("light");
+      const isDarkBtn = b.getAttribute("onclick").includes("dark");
+      
+      if (isLightBtn) {
+        if (theme === "light") b.classList.add("active");
+        else b.classList.remove("active");
+      }
+      
+      if (isDarkBtn) {
+        if (theme === "dark") b.classList.add("active");
+        else b.classList.remove("active");
+      }
+    });
+  };
+
+  // Skip view transition on initial load (when THEME is default but theme is something else)
+  // Or if it's not supported, or user prefers reduced motion
+  if (!document.documentElement.classList.contains(THEME === "dark" ? "dark-theme" : "light-theme-placeholder") && document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // Actually wait, initial load check is complicated. Just checking if document.body exists and is fully rendered is safer, but running startViewTransition is fine.
+    // However, to prevent flash on load, we just run it. 
+    // Actually, on initial load `initTheme` is called before body is fully parsed? No, it's called at the end of body.
+    document.startViewTransition(update);
+  } else {
+    update();
+  }
+}
+
+/* ============================================================
+   OBSERVERS — heading fade + scroll spy
+   ============================================================ */
+let headingObs, spyObs;
+
+function initObservers() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* 1. Section heading & item fade-up */
+  if (headingObs) headingObs.disconnect();
+
+  const targets = document.querySelectorAll(".sec-marker, .focus-item, .tl__item, .proj-entry, .skill-row");
+  
+  /* Assign stagger index per section for cascading reveal */
+  const sectionMap = new Map();
+  targets.forEach(el => {
+    const section = el.closest("section") || el.closest(".site");
+    if (!sectionMap.has(section)) sectionMap.set(section, 0);
+    const idx = sectionMap.get(section);
+    el.style.setProperty("--stagger", idx);
+    sectionMap.set(section, idx + 1);
+    
+    el.classList.add("fade-up");
+    if (prefersReduced) { el.classList.add("in"); return; }
+    el.classList.remove("in");
+  });
+
+  if (!prefersReduced && typeof IntersectionObserver !== "undefined") {
+    headingObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          headingObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+    targets.forEach(el => headingObs.observe(el));
+  }
+
+  /* 2. Scroll spy */
+  if (spyObs) spyObs.disconnect();
+
+  if (typeof IntersectionObserver !== "undefined") {
+    spyObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          document.querySelectorAll(".nav-item, .mobile-nav-item").forEach(a => {
+            if (a.getAttribute("href") === "#" + e.target.id) {
+              a.classList.add("active");
+            } else {
+              a.classList.remove("active");
+            }
+          });
+        }
+      });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+
+    document.querySelectorAll("section[id]").forEach(s => spyObs.observe(s));
+  }
+}
+
+function initCursor() {
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+  const c = document.createElement("div");
+  c.className = "custom-cursor";
+  document.body.appendChild(c);
+  
+  let positions = [];
+  let enlargeTimeout;
+
+  document.addEventListener("mousemove", e => {
+    let t = e.target.closest("a, button");
+    if (t && !t.classList.contains("contact-item") && !t.classList.contains("proj-entry")) {
+      const rect = t.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const mx = e.clientX + (cx - e.clientX) * 0.3;
+      const my = e.clientY + (cy - e.clientY) * 0.3;
+      c.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+    } else {
+      c.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    }
+    
+    // Throttle the complex shake calculation to 60fps to prevent 1000Hz mouse lag
+    const now = performance.now();
+    if (!positions.length || now - positions[positions.length - 1].time > 16) {
+      positions.push({ x: e.clientX, y: e.clientY, time: now });
+      
+      while (positions.length && now - positions[0].time > 250) {
+        positions.shift();
+      }
+      
+      if (positions.length > 5) {
+        let totalDist = 0;
+        for (let i = 1; i < positions.length; i++) {
+          const dx = positions[i].x - positions[i-1].x;
+          const dy = positions[i].y - positions[i-1].y;
+          totalDist += Math.sqrt(dx*dx + dy*dy);
+        }
+        const dxTot = positions[positions.length-1].x - positions[0].x;
+        const dyTot = positions[positions.length-1].y - positions[0].y;
+        const displacement = Math.sqrt(dxTot*dxTot + dyTot*dyTot);
+        
+        if (totalDist > 500 && displacement < 300) {
+          c.classList.add("shaking");
+          positions = [];
+          clearTimeout(enlargeTimeout);
+          enlargeTimeout = setTimeout(() => c.classList.remove("shaking"), 600);
+        }
+      }
+    }
+  });
+  
+  const textTags = ["P", "H1", "H2", "H3", "LI", "SPAN"];
+
+  document.addEventListener("mouseover", e => {
+    const t = e.target;
+    if (t.closest("a, button")) {
+      c.classList.add("hover");
+      c.classList.remove("text-hover");
+      return;
+    }
+    let isText = false;
+    if (textTags.includes(t.tagName)) {
+      isText = true;
+    } else if (typeof t.className === "string" && t.className) {
+      const cls = t.className;
+      if (cls.includes("focus-item") || cls.includes("tl__") || cls.includes("proj-") || cls.includes("hero__") || cls.includes("gate__") || cls.includes("skill-") || cls.includes("contact-") || cls.includes("sec-marker") || cls.includes("tag")) {
+        isText = true;
+      }
+    }
+    if (isText) c.classList.add("text-hover");
+  });
+  
+  document.addEventListener("mouseout", e => {
+    const t = e.target;
+    if (t.closest("a, button")) {
+      c.classList.remove("hover");
+    } else {
+      c.classList.remove("text-hover");
+    }
+  });
+}
+
+function toggleMobileMenu() {
+  const menu = $("mobileMenu");
+  const btn = $("hamburger");
+  if (!menu || !btn) return;
+  
+  const isOpen = menu.classList.contains("open");
+  if (isOpen) {
+    menu.classList.remove("open");
+    btn.classList.remove("open");
+    document.body.classList.remove("menu-open");
+  } else {
+    menu.classList.add("open");
+    btn.classList.add("open");
+    document.body.classList.add("menu-open");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if ($("hamburger")) {
+    $("hamburger").addEventListener("click", toggleMobileMenu);
+  }
+});
+
+initTheme();
+initCursor();
+initGate();
+</script>
+
+
+</body></html>
