@@ -937,6 +937,12 @@ h1, h2, h3, .hero__name, .gate__name {
   }
 }
 
+
+html.is-transitioning .texture-overlay {
+  opacity: 0 !important;
+  mix-blend-mode: normal !important;
+}
+
 </style>
 <script>
   /* FOUC prevention for Dark Mode */
@@ -1840,7 +1846,7 @@ function setLang(lang) {
     render();
   };
   if (document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.startViewTransition(update);
+    update();
   } else {
     update();
   }
