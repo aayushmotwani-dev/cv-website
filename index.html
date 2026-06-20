@@ -950,7 +950,6 @@ h1, h2, h3, .hero__name, .gate__name {
         <button data-lang="de" onclick="setLang('de')">DE</button>
         <button data-lang="en" onclick="setLang('en')" class="active">EN</button>
       </div>
-      <a class="nav__cv" id="navCv" href="Aayush_Motwani_CV.pdf" target="_blank" rel="noopener">Download CV</a>
     </div>
     
     <!-- Hamburger for Mobile -->
@@ -972,7 +971,6 @@ h1, h2, h3, .hero__name, .gate__name {
         <button data-lang="de" onclick="setLang('de')">DE</button>
         <button data-lang="en" onclick="setLang('en')" class="active">EN</button>
       </div>
-      <a class="nav__cv" id="mobileNavCv" href="Aayush_Motwani_CV.pdf" target="_blank" rel="noopener">Download CV</a>
     </div>
   </div>
 
@@ -1609,15 +1607,7 @@ function render() {
     ).join("");
   }
 
-  /* CV */
-  const cvFile = LANG === "de" ? "Aayush_Motwani_Lebenslauf.pdf" : "Aayush_Motwani_CV.pdf";
-  $("navCv").textContent = t(DATA.ui.cv);
-  $("navCv").href = cvFile;
-  
-  if ($("mobileNavCv")) {
-    $("mobileNavCv").textContent = t(DATA.ui.cv);
-    $("mobileNavCv").href = cvFile;
-  }
+
 
   /* hero */
   $("heroMark").textContent = t(DATA.hero.mark);
