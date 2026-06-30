@@ -948,6 +948,13 @@ h1, h2, h3, .hero__name, .gate__name {
     opacity: 1 !important;
     transition: opacity 0.18s ease;
   }
+
+  /* Disable dimming while user is scrolling */
+  body.is-scrolling .tl .tl__item,
+  body.is-scrolling .proj-group .proj-entry {
+    opacity: 1 !important;
+    transition: none !important;
+  }
 }
 
 /* ============================================================
@@ -2458,6 +2465,14 @@ function toggleMobileMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  /* Scroll-aware hover dimming: disable during scroll so highlights don't stick */
+  let scrollTimer;
+  window.addEventListener("scroll", () => {
+    document.body.classList.add("is-scrolling");
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => document.body.classList.remove("is-scrolling"), 150);
+  }, { passive: true });
+
   /* Music Player */
   const bgm = $("bgm");
   const musicToggle = $("musicToggle");
