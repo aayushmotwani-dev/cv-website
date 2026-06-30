@@ -1171,7 +1171,7 @@ html.is-transitioning .noise-overlay {
         <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"></path></svg>
+          <span style="font-family:'PixelUI', monospace; font-size:0.5rem; letter-spacing:0.05em; padding-top:2px;">8-BIT</span>
         </button>
       </div>
       <div class="lang" id="lang">
@@ -1197,7 +1197,7 @@ html.is-transitioning .noise-overlay {
         <button onclick="setTheme('dark')" aria-label="Dark Theme">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"></path></svg>
+          <span style="font-family:'PixelUI', monospace; font-size:0.5rem; letter-spacing:0.05em; padding-top:2px;">8-BIT</span>
         </button>
       </div>
       <div class="lang">
@@ -2394,9 +2394,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Screensaver Logic */
-  const ss = document.createElement('div');
-  ss.id = 'screensaver';
-  ss.innerHTML = `
+  let ss = document.getElementById('screensaver');
+  if (!ss) {
+    ss = document.createElement('div');
+    ss.id = 'screensaver';
+    ss.innerHTML = `
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
@@ -2426,7 +2428,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </svg>
     <div class="ss-text">taking a break...</div>
   `;
-  document.body.appendChild(ss);
+    document.body.appendChild(ss);
+  }
 
   let idleTimer;
   const IDLE_TIME = 120000; // 2 minutes
@@ -2474,267 +2477,6 @@ initGate();
 </button>
 
 <div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
-    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
-      <style>
-        .v-vapour { fill: var(--paper); opacity: 0; }
-        .v-cup { fill: var(--paper); }
-        .v-bg { fill: var(--ink); }
-        .v-blush { fill: var(--accent); }
-        @keyframes floatUp {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 0.6; }
-          80% { opacity: 0.6; }
-          100% { transform: translateY(-4px); opacity: 0; }
-        }
-        .v1 { animation: floatUp 2s infinite linear; }
-        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
-        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
-      </style>
-      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
-      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
-      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
-      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
-      <path class="v-cup" d="M8 12h16v12H8z"></path>
-      <path class="v-cup" d="M10 24h12v2H10z"></path>
-      <path class="v-cup" d="M12 26h8v2h-8z"></path>
-      <path class="v-bg" d="M10 12h12v2H10z"></path>
-      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
-      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
-    </svg>
-    <div class="ss-text">taking a break...</div>
-  </div><div id="screensaver">
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
