@@ -2496,6 +2496,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* iOS Safari doesn't fire click on body. Use touchstart to clear when touching background */
+  document.addEventListener("touchstart", (e) => {
+    if (!e.target.closest(".tl__item, .proj-entry")) {
+      document.querySelectorAll(".touch-active").forEach(el => el.classList.remove("touch-active"));
+      document.querySelectorAll(".has-touch-active").forEach(el => el.classList.remove("has-touch-active"));
+    }
+  }, { passive: true });
+
   /* Scroll-aware hover dimming: disable during scroll so highlights don't stick */
   let scrollTimer;
   window.addEventListener("scroll", () => {
