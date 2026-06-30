@@ -956,6 +956,18 @@ h1, h2, h3, .hero__name, .gate__name {
   }
 }
 
+/* Touch-specific dimming classes (applied via JS click) */
+.tl.has-touch-active .tl__item,
+.proj-group.has-touch-active .proj-entry {
+  opacity: 0.45;
+  transition: opacity 0.18s ease;
+}
+.tl .tl__item.touch-active,
+.proj-group .proj-entry.touch-active {
+  opacity: 1 !important;
+  transition: opacity 0.18s ease;
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -2464,6 +2476,23 @@ function toggleMobileMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  /* Touch-based dimming logic */
+  document.addEventListener("click", (e) => {
+    const item = e.target.closest(".tl__item, .proj-entry");
+    const wasActive = item ? item.classList.contains("touch-active") : false;
+    
+    // Clear all existing touch-active states
+    document.querySelectorAll(".touch-active").forEach(el => el.classList.remove("touch-active"));
+    document.querySelectorAll(".has-touch-active").forEach(el => el.classList.remove("has-touch-active"));
+    
+    // If we clicked an item and it wasn't already active, activate it
+    if (item && !wasActive) {
+      item.classList.add("touch-active");
+      const parent = item.closest(".tl, .proj-group");
+      if (parent) parent.classList.add("has-touch-active");
+    }
+  });
+
   /* Scroll-aware hover dimming: disable during scroll so highlights don't stick */
   let scrollTimer;
   window.addEventListener("scroll", () => {
