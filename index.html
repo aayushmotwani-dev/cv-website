@@ -109,14 +109,14 @@
   --paper:  #F0EAD6;
   --ink:    #2C241D;
   --ink-2:  #6B5E52;
-  --muted:  #726555;
+  --muted:  #5C4F40;
   --rule:   #D4C9B8;
   --ghost:  rgba(44, 36, 29, 0.25);
   --sel:    rgba(168, 74, 50, 0.15);
   --accent: #A84A32;
 
-  --neo-light: rgba(255, 255, 255, 0.7);
-  --neo-dark:  rgba(0, 0, 0, 0.08);
+  --neo-light: rgba(255, 255, 255, 0.85);
+  --neo-dark:  rgba(0, 0, 0, 0.05);
   --neo-shadow: 4px 4px 10px var(--neo-dark), -4px -4px 10px var(--neo-light);
   --neo-shadow-hover: inset 2px 2px 5px var(--neo-dark), inset -2px -2px 5px var(--neo-light);
 
@@ -133,14 +133,14 @@
   --paper:  #1E1C18;
   --ink:    #E8E0D0;
   --ink-2:  #A89E90;
-  --muted:  #8D8678;
+  --muted:  #A39A8C;
   --rule:   #3B3730;
   --ghost:  rgba(232, 224, 208, 0.25);
   --sel:    rgba(194, 103, 77, 0.2);
   --accent: #C2674D;
 
-  --neo-light: rgba(255, 255, 255, 0.03);
-  --neo-dark:  rgba(0, 0, 0, 0.5);
+  --neo-light: rgba(255, 255, 255, 0.05);
+  --neo-dark:  rgba(0, 0, 0, 0.4);
 }
 :root.dark-theme .noise-overlay { mix-blend-mode: screen; opacity: 0.015; }
 
@@ -432,20 +432,7 @@ section:first-of-type { border-top: none; }
 }
 .fade-up.in { opacity: 1; transform: translateY(0); }
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .fade-up {
-      opacity: 1; transform: none; /* Override JS starting state */
-      animation: revealScroll linear both;
-      animation-timeline: view();
-      animation-range: entry 10% cover 25%;
-    }
-    @keyframes revealScroll {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-  }
-}
+
 .sec-num { color: var(--ink-2); font-variant-numeric: lining-nums tabular-nums; }
 .sec-sep { color: var(--rule); margin: 0 2px; }
 .sec-marker span:last-child {
@@ -690,12 +677,12 @@ section:first-of-type { border-top: none; }
 .proj-entry:last-child { border-bottom-color: transparent; }
 .proj-entry:hover { 
   border-bottom-color: transparent;
-  background: color-mix(in srgb, var(--paper) 40%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px var(--neo-dark);
+  background: color-mix(in srgb, var(--paper) 60%, transparent);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 12px 40px var(--neo-dark), inset 0 1px 0 var(--neo-light);
   border: 1px solid var(--ghost);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   z-index: 10;
   position: relative;
 }
