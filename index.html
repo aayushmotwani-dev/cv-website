@@ -949,11 +949,10 @@ h1, h2, h3, .hero__name, .gate__name {
     transition: opacity 0.18s ease;
   }
 
-  /* Disable dimming while user is scrolling */
-  body.is-scrolling .tl .tl__item,
-  body.is-scrolling .proj-group .proj-entry {
-    opacity: 1 !important;
-    transition: none !important;
+  /* Kill hover during scroll so dimming doesn't stick */
+  body.is-scrolling .tl,
+  body.is-scrolling .proj-group {
+    pointer-events: none;
   }
 }
 
