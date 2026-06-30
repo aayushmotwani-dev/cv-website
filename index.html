@@ -957,15 +957,20 @@ h1, h2, h3, .hero__name, .gate__name {
 }
 
 /* Touch-specific dimming classes (applied via JS click) */
-.tl.has-touch-active .tl__item,
-.proj-group.has-touch-active .proj-entry {
-  opacity: 0.45;
-  transition: opacity 0.18s ease;
-}
-.tl .tl__item.touch-active,
-.proj-group .proj-entry.touch-active {
-  opacity: 1 !important;
-  transition: opacity 0.18s ease;
+@media (hover: none), (pointer: coarse) {
+  /* Fix iOS Safari click delegation by making items 'clickable' */
+  .tl__item, .proj-entry { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  
+  .tl.has-touch-active .tl__item,
+  .proj-group.has-touch-active .proj-entry {
+    opacity: 0.45;
+    transition: opacity 0.18s ease;
+  }
+  .tl .tl__item.touch-active,
+  .proj-group .proj-entry.touch-active {
+    opacity: 1 !important;
+    transition: opacity 0.18s ease;
+  }
 }
 
 /* ============================================================
