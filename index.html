@@ -926,31 +926,18 @@ h1, h2, h3, .hero__name, .gate__name {
 }
 
 /* ============================================================
-   HOVER — CONTEXT DIMMING  (pure CSS :has())
+   HOVER — CONTEXT DIMMING  (JS-driven for reliable scroll clearing)
    ============================================================ */
 @media (hover: hover) and (pointer: fine) {
-  .tl:has(.tl__item:hover) .tl__item {
+  .tl.has-hover-active .tl__item,
+  .proj-group.has-hover-active .proj-entry {
     opacity: 0.45;
     transition: opacity 0.18s ease;
   }
-  .tl .tl__item:hover {
+  .tl .tl__item.hover-active,
+  .proj-group .proj-entry.hover-active {
     opacity: 1 !important;
     transition: opacity 0.18s ease;
-  }
-
-  .proj-group:has(.proj-entry:hover) .proj-entry {
-    opacity: 0.45;
-    transition: opacity 0.18s ease;
-  }
-  .proj-group .proj-entry:hover {
-    opacity: 1 !important;
-    transition: opacity 0.18s ease;
-  }
-
-  /* Kill hover during scroll so dimming doesn't stick */
-  body.is-scrolling .tl,
-  body.is-scrolling .proj-group {
-    pointer-events: none;
   }
 }
 
@@ -2504,10 +2491,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, { passive: true });
 
+  /* Desktop hover dimming (JS based to avoid sticky hover on scroll bug) */
+  document.addEventListener("mouseover", (e) => {
+    if (document.body.classList.contains("is-scrolling")) return;
+    const item = e.target.closest(".tl__item, .proj-entry");
+    if (item) {
+      const parent = item.closest(".tl, .proj-group");
+      if (parent && !parent.classList.contains("has-touch-active")) {
+        parent.classList.add("has-hover-active");
+        item.classList.add("hover-active");
+      }
+    }
+  });
+
+  document.addEventListener("mouseout", (e) => {
+    const item = e.target.closest(".tl__item, .proj-entry");
+    if (item) {
+      if (e.relatedTarget && item.contains(e.relatedTarget)) return;
+      const parent = item.closest(".tl, .proj-group");
+      if (parent) {
+        parent.classList.remove("has-hover-active");
+        item.classList.remove("hover-active");
+      }
+    }
+  });
+
   /* Scroll-aware hover dimming: disable during scroll so highlights don't stick */
   let scrollTimer;
   window.addEventListener("scroll", () => {
     document.body.classList.add("is-scrolling");
+    
+    // Forcefully clear hover states immediately on scroll
+    document.querySelectorAll(".hover-active").forEach(el => el.classList.remove("hover-active"));
+    document.querySelectorAll(".has-hover-active").forEach(el => el.classList.remove("has-hover-active"));
+
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => document.body.classList.remove("is-scrolling"), 150);
   }, { passive: true });
