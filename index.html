@@ -45,6 +45,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&amp;display=swap" rel="stylesheet">
 
 <style>
+@font-face {
+  font-family: 'PixelUI';
+  src: url('press-start-2p.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ============================================================
+   8-BIT MODE
+   ============================================================ */
+:root.theme-8bit {
+  --paper: #0d0d1a;
+  --ink: #f0ead6;
+  --ink-2: #4ecdc4;
+  --muted: #888888;
+  --rule: #f0ead6;
+  --ghost: rgba(240, 234, 214, 0.25);
+  --sel: rgba(255, 217, 61, 0.2);
+  --accent: #ffd93d;
+  
+  --border: var(--ink);
+  --shadow: #000000;
+}
+.theme-8bit h1, .theme-8bit h2, .theme-8bit h3, 
+.theme-8bit nav a, .theme-8bit button, .theme-8bit .pill, .theme-8bit .tag {
+  font-family: 'PixelUI', monospace;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.theme-8bit p, .theme-8bit li { font-family: inherit; }
+
+.theme-8bit .proj-entry, .theme-8bit button, .theme-8bit .tag {
+  border-radius: 0 !important;
+  border: 2px solid var(--border) !important;
+  box-shadow: 2px 2px 0 var(--shadow), 4px 4px 0 var(--shadow) !important;
+  transition: none !important;
+}
+.theme-8bit button:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: none !important;
+}
+.theme-8bit .pixelate {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+.theme-8bit::before {
+  content: ''; position: fixed; inset: 0;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 1px, transparent 1px, transparent 3px);
+  pointer-events: none; z-index: 9998;
+}
+@media (prefers-reduced-motion: reduce), (prefers-contrast: more) {
+  .theme-8bit::before { display: none; }
+}
+
 /* ============================================================
    DESIGN TOKENS — Paper Monograph
    ============================================================ */
@@ -85,7 +139,7 @@
   --neo-light: rgba(255, 255, 255, 0.03);
   --neo-dark:  rgba(0, 0, 0, 0.5);
 }
-:root.dark-theme .noise-overlay { mix-blend-mode: screen; opacity: 0.06; }
+:root.dark-theme .noise-overlay { mix-blend-mode: screen; opacity: 0.03; }
 
 /* ============================================================
    RESET
@@ -228,7 +282,7 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .noise-overlay {
   position: fixed; inset: 0; z-index: 9999;
-  pointer-events: none; opacity: 0.04; mix-blend-mode: multiply;
+  pointer-events: none; opacity: 0.02; mix-blend-mode: multiply;
   overflow: hidden;
 }
 .noise-overlay::before {
@@ -1086,6 +1140,10 @@ html.is-transitioning .noise-overlay {
         <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Light Theme">Paper</button>
         <span class="theme-sep">/</span>
         <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme">Ink</button>
+        <span class="theme-sep" style="margin: 0 4px;">|</span>
+        <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"/></svg>
+        </button>
       </div>
       <div class="lang" id="lang">
         <button data-lang="de" onclick="setLang('de')">DE</button>
@@ -1108,6 +1166,10 @@ html.is-transitioning .noise-overlay {
         <button onclick="setTheme('light')" aria-label="Light Theme">Paper</button>
         <span class="theme-sep">/</span>
         <button onclick="setTheme('dark')" aria-label="Dark Theme">Ink</button>
+        <span class="theme-sep" style="margin: 0 4px;">|</span>
+        <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"/></svg>
+        </button>
       </div>
       <div class="lang">
         <button data-lang="de" onclick="setLang('de')">DE</button>
@@ -1156,8 +1218,9 @@ html.is-transitioning .noise-overlay {
         <h3 class="tl__org">Kellermann GmbH</h3>
         <div class="tl__role">Working Student · Online Marketing</div>
         <div class="tl__loc">Aachen</div>
-        <ul class="tl__list"><li>Create social media content for Instagram, LinkedIn, and Facebook, including photography and video editing.</li><li>Web development on the company's Shopware 6 site, contributing to an ongoing redevelopment.</li><li>Experimenting independently with AI models and pipelines to make parts of the marketing workflow more efficient.</li></ul>
-        <div class="tags"><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span><span class="tag">Adobe Firefly</span><span class="tag">CapCut</span><span class="tag">Adobe Express</span><span class="tag">Shopware 6</span><span class="tag">Web Development</span></div>
+        <ul class="tl__list"><li>Produce social media content (Instagram, LinkedIn, Facebook) including photography, videography, and post-production editing in DaVinci Resolve, including green screen compositing.</li><li>Built and set up a green screen studio for product and content shoots.</li><li>Use AI image tools (e.g. IC-Light) in the photo pipeline for background removal and lighting harmonization on product shots.</li><li>Web development on the company's Shopware 6 site, contributing to an ongoing redevelopment.</li><li>Started learning Blender for early-stage 3D product visualization work, still building skills here.</li></ul>
+        <img src="render.png" class="tl__img" alt="Work Example">
+        <div class="tags"><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span><span class="tag">IC-Light</span><span class="tag">Green Screen Compositing</span><span class="tag">Blender (learning)</span><span class="tag">Shopware 6</span><span class="tag">Web Development</span></div>
       </div>
     </div>
     <div class="tl__item">
@@ -1167,6 +1230,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">Working Student · Outbound Logistics</div>
         <div class="tl__loc">Germany</div>
         <ul class="tl__list"><li>Managed outbound shipments and kept inventory records up to date while studying full-time.</li><li>Worked inside a fully automated warehouse, which gave me a practical, on-the-ground understanding of how Industry 4.0 principles actually get implemented, not just how they're described.</li></ul>
+        
         <div class="tags"><span class="tag">Logistics</span><span class="tag">Inventory</span><span class="tag">Industry 4.0</span><span class="tag">Warehouse Automation</span></div>
       </div>
     </div>
@@ -1177,6 +1241,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">Digital Marketing Intern</div>
         <div class="tl__loc">Remote</div>
         <ul class="tl__list"><li>Analysed campaign data and produced Excel reports for client projects.</li></ul>
+        
         <div class="tags"><span class="tag">Digital Marketing</span><span class="tag">Data Analysis</span><span class="tag">Excel</span></div>
       </div>
     </div>
@@ -1187,6 +1252,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">Internship · Power Distribution</div>
         <div class="tl__loc">India</div>
         <ul class="tl__list"><li>Observed how electricity distribution for a city actually works end to end, from substations through to the distribution network.</li><li>Got exposure to SCADA systems in a live operational setting, seeing how grid monitoring and control actually function in practice rather than just on paper.</li></ul>
+        
         <div class="tags"><span class="tag">Power Distribution</span><span class="tag">SCADA</span><span class="tag">Grid Infrastructure</span></div>
       </div>
     </div>
@@ -1197,6 +1263,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">Customer Advisor</div>
         <div class="tl__loc">Germany</div>
         <ul class="tl__list"><li>Handled sales for Techniker Krankenkasse.</li></ul>
+        
         <div class="tags"><span class="tag">Sales</span><span class="tag">Customer Service</span></div>
       </div>
     </div></div>
@@ -1219,6 +1286,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">M.Sc. Computer &amp; Media Engineering</div>
         <div class="tl__loc">Aachen</div>
         <ul class="tl__list"><li>My specialisations are Extended Reality (VR/AR), AI and machine learning, and audio signal processing.</li><li>In Virtual Reality 1 I worked on immersive application development and interaction techniques, including HMD integration.</li><li>I'm currently doing lab work in Acoustic Virtual Reality, applying spatial audio and signal processing methods in Python and Jupyter Notebook.</li><li>Other relevant modules: Introduction to AI, Digital Image Processing, Robotics &amp; Human-Machine Interaction.</li></ul>
+        
         <div class="tags"><span class="tag">XR</span><span class="tag">Machine Learning</span><span class="tag">Signal Processing</span><span class="tag">Python</span></div>
       </div>
     </div>
@@ -1229,6 +1297,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">B.Eng. Electrical Engineering</div>
         <div class="tl__loc">Campus Jülich</div>
         <ul class="tl__list"><li>Specialisation in power engineering (Energietechnik)</li><li>Thesis on India's energy mix, specifically non-CO₂ emitting sources including nuclear power (grade 2.3)</li><li>Control and regulation engineering, measurement technology, and digital electronics were the modules I actually enjoyed</li><li>Core coursework also included Applied Transmission Line Theory (1.0), Electrical Machines, Measurement Technology 1 &amp; 2, and High Voltage Technology</li><li>PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently, street lighting control, crane control, a water reactor simulation, a star-delta motor switching circuit, and an industrial wash cycle, each one taken from schematic design through programming to commissioning and documentation</li><li>Used MATLAB/Simulink to model and simulate dynamic systems, including the water reactor, crane control, and traffic light systems, as a complement to the hands-on PLC work</li></ul>
+        
         <div class="tags"><span class="tag">Power Engineering</span><span class="tag">Control Systems</span><span class="tag">PLC</span><span class="tag">PC Worx</span><span class="tag">MATLAB</span><span class="tag">Simulink</span></div>
       </div>
     </div></div>
@@ -1345,6 +1414,20 @@ html.is-transitioning .noise-overlay {
       <div class="skill-row__r">
         <div class="skill-tags"><span class="tag">Cursor</span><span class="tag">Claude</span><span class="tag">Claude Code</span></div>
         
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">AI Tools (Media &amp; Content)</div>
+      <div class="skill-row__r">
+        <div class="skill-tags"><span class="tag">IC-Light</span></div>
+        
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">Currently Learning</div>
+      <div class="skill-row__r">
+        
+        <ul class="skill-desc-list"><li><b>Blender</b> — early-stage, started recently; basic 3D product visualization, learning independently outside work deliverables</li></ul>
       </div>
     </div>
     <div class="skill-row">
@@ -1955,6 +2038,39 @@ function setLang(lang) {
   }
 }
 
+function applyEightBit(enabled) {
+  document.documentElement.classList.toggle('theme-8bit', enabled);
+}
+
+function init8BitToggle() {
+  const STORAGE_KEY = 'pref-8bit';
+  const stored = localStorage.getItem(STORAGE_KEY) === 'true';
+  applyEightBit(stored);
+
+  document.querySelectorAll('[data-toggle="8bit"]').forEach(btn => {
+    btn.setAttribute('aria-pressed', String(stored));
+    if(stored) btn.classList.add("active");
+    btn.addEventListener('click', () => {
+      const next = !document.documentElement.classList.contains('theme-8bit');
+      applyEightBit(next);
+      localStorage.setItem(STORAGE_KEY, String(next));
+      document.querySelectorAll('[data-toggle="8bit"]').forEach(b => {
+        b.setAttribute('aria-pressed', String(next));
+        if(next) b.classList.add("active"); else b.classList.remove("active");
+      });
+      playToggleBlip(next);
+    });
+  });
+}
+
+function playToggleBlip(enabled) {
+  try {
+    const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAD//w==');
+    audio.volume = 0.3;
+    audio.play().catch(() => {});
+  } catch (_) {}
+}
+
 function initTheme() {
   const saved = localStorage.getItem("cv-theme");
   if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
@@ -2276,6 +2392,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 initTheme();
+init8BitToggle();
 initCursor();
 initMagneticButtons();
 initParallax();
@@ -2298,6 +2415,35 @@ initGate();
 </button>
 
 <div id="screensaver">
+    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
+      <style>
+        .v-vapour { fill: var(--paper); opacity: 0; }
+        .v-cup { fill: var(--paper); }
+        .v-bg { fill: var(--ink); }
+        .v-blush { fill: var(--accent); }
+        @keyframes floatUp {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 0.6; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(-4px); opacity: 0; }
+        }
+        .v1 { animation: floatUp 2s infinite linear; }
+        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
+        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
+      </style>
+      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
+      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
+      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
+      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
+      <path class="v-cup" d="M8 12h16v12H8z"></path>
+      <path class="v-cup" d="M10 24h12v2H10z"></path>
+      <path class="v-cup" d="M12 26h8v2h-8z"></path>
+      <path class="v-bg" d="M10 12h12v2H10z"></path>
+      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
+      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
+    </svg>
+    <div class="ss-text">taking a break...</div>
+  </div><div id="screensaver">
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
