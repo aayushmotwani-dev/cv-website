@@ -18,4 +18,5 @@ setTimeout(() => {
   } catch (e) {
     console.error("Render failed:", e);
   }
+  process.exit(0);
 }, 500);

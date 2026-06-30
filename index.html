@@ -55,7 +55,7 @@
    8-BIT MODE
    ============================================================ */
 :root.theme-8bit {
-  --paper: #0d0d1a;
+  --paper: #05050a;
   --ink: #f0ead6;
   --ink-2: #4ecdc4;
   --muted: #888888;
@@ -72,6 +72,9 @@
   font-family: 'PixelUI', monospace;
   letter-spacing: 0.5px;
   line-height: 1.6;
+}
+.theme-8bit h1, .theme-8bit h2, .theme-8bit h3 {
+  text-shadow: 2px 2px 0px var(--accent), -1px -1px 0px var(--ink-2);
 }
 .theme-8bit p, .theme-8bit li { font-family: inherit; }
 
@@ -92,7 +95,7 @@
 }
 .theme-8bit::before {
   content: ''; position: fixed; inset: 0;
-  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 1px, transparent 1px, transparent 3px);
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 3px);
   pointer-events: none; z-index: 9998;
 }
 @media (prefers-reduced-motion: reduce), (prefers-contrast: more) {
@@ -139,7 +142,7 @@
   --neo-light: rgba(255, 255, 255, 0.03);
   --neo-dark:  rgba(0, 0, 0, 0.5);
 }
-:root.dark-theme .noise-overlay { mix-blend-mode: screen; opacity: 0.03; }
+:root.dark-theme .noise-overlay { mix-blend-mode: screen; opacity: 0.015; }
 
 /* ============================================================
    RESET
@@ -282,7 +285,7 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .noise-overlay {
   position: fixed; inset: 0; z-index: 9999;
-  pointer-events: none; opacity: 0.02; mix-blend-mode: multiply;
+  pointer-events: none; opacity: 0.01; mix-blend-mode: multiply;
   overflow: hidden;
 }
 .noise-overlay::before {
@@ -1142,7 +1145,7 @@ html.is-transitioning .noise-overlay {
         <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"></path></svg>
         </button>
       </div>
       <div class="lang" id="lang">
@@ -1168,7 +1171,7 @@ html.is-transitioning .noise-overlay {
         <button onclick="setTheme('dark')" aria-label="Dark Theme">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="image-rendering:pixelated;"><path d="M7 11V7h10v4h4v8H3v-8h4zm2-2v4h6V9H9zm-4 6v-2h2v2H5zm12 0v-2h2v2h-2z"></path></svg>
         </button>
       </div>
       <div class="lang">
@@ -1219,7 +1222,7 @@ html.is-transitioning .noise-overlay {
         <div class="tl__role">Working Student · Online Marketing</div>
         <div class="tl__loc">Aachen</div>
         <ul class="tl__list"><li>Produce social media content (Instagram, LinkedIn, Facebook) including photography, videography, and post-production editing in DaVinci Resolve, including green screen compositing.</li><li>Built and set up a green screen studio for product and content shoots.</li><li>Use AI image tools (e.g. IC-Light) in the photo pipeline for background removal and lighting harmonization on product shots.</li><li>Web development on the company's Shopware 6 site, contributing to an ongoing redevelopment.</li><li>Started learning Blender for early-stage 3D product visualization work, still building skills here.</li></ul>
-        <img src="render.png" class="tl__img" alt="Work Example">
+        
         <div class="tags"><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span><span class="tag">IC-Light</span><span class="tag">Green Screen Compositing</span><span class="tag">Blender (learning)</span><span class="tag">Shopware 6</span><span class="tag">Web Development</span></div>
       </div>
     </div>
@@ -1564,8 +1567,7 @@ const DATA = {
         {en: "Blender (learning)", de: "Blender (in Einarbeitung)"},
         {en: "Shopware 6", de: "Shopware 6"},
         {en: "Web Development", de: "Webentwicklung"}
-      ],
-      img: "render.png"
+      ]
     },
     {
       when: {en: "Apr 2025 – Oct 2025", de: "Apr 2025 – Okt 2025"},
@@ -2415,6 +2417,64 @@ initGate();
 </button>
 
 <div id="screensaver">
+    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
+      <style>
+        .v-vapour { fill: var(--paper); opacity: 0; }
+        .v-cup { fill: var(--paper); }
+        .v-bg { fill: var(--ink); }
+        .v-blush { fill: var(--accent); }
+        @keyframes floatUp {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 0.6; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(-4px); opacity: 0; }
+        }
+        .v1 { animation: floatUp 2s infinite linear; }
+        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
+        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
+      </style>
+      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
+      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
+      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
+      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
+      <path class="v-cup" d="M8 12h16v12H8z"></path>
+      <path class="v-cup" d="M10 24h12v2H10z"></path>
+      <path class="v-cup" d="M12 26h8v2h-8z"></path>
+      <path class="v-bg" d="M10 12h12v2H10z"></path>
+      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
+      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
+    </svg>
+    <div class="ss-text">taking a break...</div>
+  </div><div id="screensaver">
+    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
+      <style>
+        .v-vapour { fill: var(--paper); opacity: 0; }
+        .v-cup { fill: var(--paper); }
+        .v-bg { fill: var(--ink); }
+        .v-blush { fill: var(--accent); }
+        @keyframes floatUp {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 0.6; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(-4px); opacity: 0; }
+        }
+        .v1 { animation: floatUp 2s infinite linear; }
+        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
+        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
+      </style>
+      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
+      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
+      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
+      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
+      <path class="v-cup" d="M8 12h16v12H8z"></path>
+      <path class="v-cup" d="M10 24h12v2H10z"></path>
+      <path class="v-cup" d="M12 26h8v2h-8z"></path>
+      <path class="v-bg" d="M10 12h12v2H10z"></path>
+      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
+      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
+    </svg>
+    <div class="ss-text">taking a break...</div>
+  </div><div id="screensaver">
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
