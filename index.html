@@ -55,6 +55,22 @@
    8-BIT MODE
    ============================================================ */
 :root.theme-8bit {
+  /* Subtle 8-bit Paper Mode */
+  --paper: #f2ebd9;
+  --ink: #382e25;
+  --ink-2: #6b8a7f;
+  --muted: #9e9589;
+  --rule: #382e25;
+  --ghost: rgba(56, 46, 37, 0.15);
+  --sel: rgba(210, 121, 121, 0.2);
+  --accent: #d27979;
+  
+  --border: var(--ink);
+  --shadow: rgba(56, 46, 37, 0.3);
+}
+
+:root.dark-theme.theme-8bit {
+  /* 8-bit Ink Mode */
   --paper: #05050a;
   --ink: #f0ead6;
   --ink-2: #4ecdc4;
@@ -1548,7 +1564,7 @@ html.is-transitioning .noise-overlay {
 
   <footer class="foot">
     <span>© 2026 Aayush Motwani</span>
-    <span id="foot-note">Built and designed in Aachen by Aayush Motwani.</span>
+    <span id="foot-note">Built and designed with passion by Aayush Motwani.</span>
   </footer>
 
 </div>
@@ -1571,8 +1587,8 @@ const DATA = {
     viewProj: {en:"View projects", de:"Projekte ansehen"},
     getInTouch:{en:"Get in touch", de:"Kontakt aufnehmen"},
     foot: {
-      en: "Built and designed in Aachen by Aayush Motwani.",
-      de: "Entwickelt und gestaltet in Aachen von Aayush Motwani."
+      en: "Built and designed with passion by Aayush Motwani.",
+      de: "Mit Leidenschaft entwickelt und gestaltet von Aayush Motwani."
     },
   },
 
