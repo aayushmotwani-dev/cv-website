@@ -271,17 +271,24 @@ img { max-width: 100%; display: block; }
 
 .nav__right { display: flex; align-items: center; gap: 16px; }
 .lang {
-  display: flex; font-family: var(--mono); font-size: 0.72rem;
-  border: 1px solid var(--rule); overflow: hidden;
+  display: flex; align-items: center; gap: 2px;
+  font-family: var(--mono); font-size: 0.72rem;
+  background: color-mix(in srgb, var(--paper) 60%, transparent);
+  border-radius: 20px; padding: 2px;
+  box-shadow: inset 1px 1px 3px var(--neo-dark), inset -1px -1px 3px var(--neo-light);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 .lang button {
   appearance: none; -webkit-appearance: none;
   background: transparent; border: none; color: var(--muted); cursor: pointer;
-  padding: 5px 11px; font-family: inherit; font-size: inherit;
+  padding: 4px 10px; font-family: inherit; font-size: inherit;
   letter-spacing: 0.06em; transition: all 0.25s;
+  border-radius: 16px;
 }
-.lang button.active { background: var(--ink); color: var(--paper); }
-
+.lang button.active { 
+  background: var(--paper); color: var(--ink); 
+  box-shadow: 2px 2px 4px var(--neo-dark), -2px -2px 4px var(--neo-light);
+}
 /* ============================================================
    THEME SWITCH & TEXTURE
    ============================================================ */
@@ -313,25 +320,29 @@ body::after {
   background: radial-gradient(ellipse at center, transparent 60%, rgba(44, 36, 29, 0.06) 100%);
 }
 .theme-switch {
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 2px;
   font-family: var(--mono); font-size: 0.72rem;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted); margin-right: 12px;
+  margin-right: 12px;
+  background: color-mix(in srgb, var(--paper) 60%, transparent);
+  border-radius: 20px; padding: 2px;
+  box-shadow: inset 1px 1px 3px var(--neo-dark), inset -1px -1px 3px var(--neo-light);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 .theme-switch button {
   appearance: none; -webkit-appearance: none;
-  background: transparent; border: none; color: inherit; cursor: pointer;
+  background: transparent; border: none; color: var(--muted); cursor: pointer;
   font-family: inherit; font-size: inherit; letter-spacing: inherit;
-  padding: 0; transition: color 0.3s;
+  padding: 4px 10px; transition: all 0.3s;
+  border-radius: 16px; display: flex; align-items: center;
 }
 .theme-switch button:hover { color: var(--ink); }
 .theme-switch button.active {
   color: var(--accent);
-  text-decoration: line-through;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 1px;
+  background: var(--paper);
+  box-shadow: 2px 2px 4px var(--neo-dark), -2px -2px 4px var(--neo-light);
 }
-.theme-sep { color: var(--rule); }
+.theme-sep { display: none; }
 
 .nav__cv {
   font-family: var(--mono); font-size: 0.72rem;
@@ -669,13 +680,25 @@ section:first-of-type { border-top: none; }
 }
 
 .proj-entry {
-  padding: 22px 0;
+  padding: 22px 16px;
+  margin: 0 -16px;
+  border-radius: 12px;
   border-bottom: 1px solid var(--rule);
-  transition: border-color 0.3s;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, background-color, box-shadow;
 }
-.proj-entry:last-child { border-bottom: none; }
-.proj-entry:hover { border-bottom-color: var(--ink-2); }
-
+.proj-entry:last-child { border-bottom-color: transparent; }
+.proj-entry:hover { 
+  border-bottom-color: transparent;
+  background: color-mix(in srgb, var(--paper) 40%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px var(--neo-dark);
+  border: 1px solid var(--ghost);
+  transform: translateY(-2px);
+  z-index: 10;
+  position: relative;
+}
 .proj-entry__head {
   display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px;
 }
@@ -2451,6 +2474,35 @@ initGate();
 </button>
 
 <div id="screensaver">
+    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
+      <style>
+        .v-vapour { fill: var(--paper); opacity: 0; }
+        .v-cup { fill: var(--paper); }
+        .v-bg { fill: var(--ink); }
+        .v-blush { fill: var(--accent); }
+        @keyframes floatUp {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 0.6; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(-4px); opacity: 0; }
+        }
+        .v1 { animation: floatUp 2s infinite linear; }
+        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
+        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
+      </style>
+      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
+      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
+      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
+      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
+      <path class="v-cup" d="M8 12h16v12H8z"></path>
+      <path class="v-cup" d="M10 24h12v2H10z"></path>
+      <path class="v-cup" d="M12 26h8v2h-8z"></path>
+      <path class="v-bg" d="M10 12h12v2H10z"></path>
+      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
+      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
+    </svg>
+    <div class="ss-text">taking a break...</div>
+  </div><div id="screensaver">
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
