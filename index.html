@@ -930,7 +930,7 @@ h1, h2, h3, .hero__name, .gate__name {
 /* ============================================================
    HOVER — CONTEXT DIMMING  (pure CSS :has())
    ============================================================ */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .tl:has(.tl__item:hover) .tl__item {
     opacity: 0.45;
     transition: opacity 0.18s ease;
