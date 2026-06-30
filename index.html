@@ -1182,17 +1182,17 @@ html.is-transitioning .noise-overlay {
     <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Focus</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
     <div class="nav__right">
       <div class="theme-switch" id="themeSwitch">
-        <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Light Theme">Paper</button>
+        <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Light Theme" aria-pressed="true">Paper</button>
         <span class="theme-sep">/</span>
-        <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme">Ink</button>
+        <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme" aria-pressed="false">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
           <span style="font-family:'PixelUI', monospace; font-size:0.5rem; letter-spacing:0.05em; padding-top:2px;">8-BIT</span>
         </button>
       </div>
       <div class="lang" id="lang">
-        <button data-lang="de" onclick="setLang('de')">DE</button>
-        <button data-lang="en" onclick="setLang('en')" class="active">EN</button>
+        <button data-lang="de" onclick="setLang('de')" aria-pressed="false">DE</button>
+        <button data-lang="en" onclick="setLang('en')" class="active" aria-pressed="true">EN</button>
       </div>
     </div>
     
@@ -1208,17 +1208,17 @@ html.is-transitioning .noise-overlay {
     <nav class="mobile-menu__links" id="mobileNavLinks"><a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Focus</a><a href="#experience" class="mobile-nav-item" onclick="toggleMobileMenu()">Experience</a><a href="#education" class="mobile-nav-item" onclick="toggleMobileMenu()">Education</a><a href="#projects" class="mobile-nav-item" onclick="toggleMobileMenu()">Projects</a><a href="#skills" class="mobile-nav-item" onclick="toggleMobileMenu()">Skills</a><a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu()">Contact</a></nav>
     <div class="mobile-menu__bottom">
       <div class="theme-switch">
-        <button onclick="setTheme('light')" aria-label="Light Theme">Paper</button>
+        <button onclick="setTheme('light')" aria-label="Light Theme" aria-pressed="true">Paper</button>
         <span class="theme-sep">/</span>
-        <button onclick="setTheme('dark')" aria-label="Dark Theme">Ink</button>
+        <button onclick="setTheme('dark')" aria-label="Dark Theme" aria-pressed="false">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
           <span style="font-family:'PixelUI', monospace; font-size:0.5rem; letter-spacing:0.05em; padding-top:2px;">8-BIT</span>
         </button>
       </div>
       <div class="lang">
-        <button data-lang="de" onclick="setLang('de')">DE</button>
-        <button data-lang="en" onclick="setLang('en')" class="active">EN</button>
+        <button data-lang="de" onclick="setLang('de')" aria-pressed="false">DE</button>
+        <button data-lang="en" onclick="setLang('en')" class="active" aria-pressed="true">EN</button>
       </div>
     </div>
   </div>
@@ -2028,8 +2028,10 @@ function render() {
   document.querySelectorAll(".lang button").forEach(b => {
     if (b.getAttribute("data-lang") === LANG) {
       b.classList.add("active");
+      b.setAttribute("aria-pressed", "true");
     } else {
       b.classList.remove("active");
+      b.setAttribute("aria-pressed", "false");
     }
   });
 
@@ -2144,13 +2146,13 @@ function setTheme(theme) {
       const isDarkBtn = onclickAttr.includes("dark");
       
       if (isLightBtn) {
-        if (theme === "light") b.classList.add("active");
-        else b.classList.remove("active");
+        if (theme === "light") { b.classList.add("active"); b.setAttribute("aria-pressed", "true"); }
+        else { b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); }
       }
       
       if (isDarkBtn) {
-        if (theme === "dark") b.classList.add("active");
-        else b.classList.remove("active");
+        if (theme === "dark") { b.classList.add("active"); b.setAttribute("aria-pressed", "true"); }
+        else { b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); }
       }
     });
   };
