@@ -247,6 +247,8 @@ img { max-width: 100%; display: block; }
   background: color-mix(in srgb, var(--paper) 70%, transparent);
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
+  will-change: transform;
+  transform: translateZ(0);
   border-bottom: 1px solid var(--rule);
 }
 .nav__name {
@@ -292,6 +294,7 @@ img { max-width: 100%; display: block; }
   content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   animation: noise 0.2s infinite steps(2);
+  will-change: transform;
 }
 @keyframes noise {
   0% { transform: translate(0, 0); }
@@ -2190,13 +2193,24 @@ function initMagneticButtons() {
   if (window.matchMedia("(pointer: coarse)").matches) return;
   const magnets = document.querySelectorAll(".btn, .gate__btn, .contact-item");
   magnets.forEach(magnet => {
+    magnet.style.willChange = "transform";
+    let ticking = false;
+    let mouseX = 0, mouseY = 0;
     magnet.addEventListener("mousemove", function(e) {
-      const rect = this.getBoundingClientRect();
-      const h = rect.width / 2;
-      const v = rect.height / 2;
-      const x = e.clientX - rect.left - h;
-      const y = e.clientY - rect.top - v;
-      this.style.transform = `translate(${x * 0.3}px, ${y * 0.4}px)`;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = this.getBoundingClientRect();
+          const h = rect.width / 2;
+          const v = rect.height / 2;
+          const x = mouseX - rect.left - h;
+          const y = mouseY - rect.top - v;
+          this.style.transform = `translate(${x * 0.3}px, ${y * 0.4}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
     magnet.addEventListener("mouseleave", function() {
       this.style.transform = "";
@@ -2208,10 +2222,18 @@ function initParallax() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const hero = document.getElementById("hero");
   if (!hero) return;
+  hero.style.willChange = "transform, opacity";
+  let ticking = false;
   window.addEventListener("scroll", () => {
-    const scroll = window.scrollY;
-    hero.style.transform = `translateY(${scroll * 0.4}px)`;
-    hero.style.opacity = 1 - (scroll / 600);
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scroll = window.scrollY;
+        hero.style.transform = `translate3d(0, ${scroll * 0.4}px, 0)`;
+        hero.style.opacity = 1 - (scroll / 600);
+        ticking = false;
+      });
+      ticking = true;
+    }
   }, { passive: true });
 }
 
@@ -2219,22 +2241,34 @@ function initCursor() {
   if (window.matchMedia("(pointer: coarse)").matches) return;
   const c = document.createElement("div");
   c.className = "custom-cursor";
+  c.style.willChange = "transform, width, height";
   document.body.appendChild(c);
   
   let positions = [];
   let enlargeTimeout;
+  let ticking = false;
+  let mouseX = 0, mouseY = 0, targetElem = null;
 
   document.addEventListener("mousemove", e => {
-    let t = e.target.closest("a, button");
-    if (t && !t.classList.contains("contact-item") && !t.classList.contains("proj-entry")) {
-      const rect = t.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const mx = e.clientX + (cx - e.clientX) * 0.3;
-      const my = e.clientY + (cy - e.clientY) * 0.3;
-      c.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
-    } else {
-      c.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    targetElem = e.target.closest("a, button");
+    
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        if (targetElem && !targetElem.classList.contains("contact-item") && !targetElem.classList.contains("proj-entry")) {
+          const rect = targetElem.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const mx = mouseX + (cx - mouseX) * 0.3;
+          const my = mouseY + (cy - mouseY) * 0.3;
+          c.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+        } else {
+          c.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
     
     // Throttle the complex shake calculation to 60fps to prevent 1000Hz mouse lag
@@ -2417,6 +2451,35 @@ initGate();
 </button>
 
 <div id="screensaver">
+    <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
+      <style>
+        .v-vapour { fill: var(--paper); opacity: 0; }
+        .v-cup { fill: var(--paper); }
+        .v-bg { fill: var(--ink); }
+        .v-blush { fill: var(--accent); }
+        @keyframes floatUp {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 0.6; }
+          80% { opacity: 0.6; }
+          100% { transform: translateY(-4px); opacity: 0; }
+        }
+        .v1 { animation: floatUp 2s infinite linear; }
+        .v2 { animation: floatUp 2.4s infinite linear 0.8s; }
+        .v3 { animation: floatUp 2.2s infinite linear 0.4s; }
+      </style>
+      <path class="v-vapour v1" d="M11 8h2v2h-2z M11 4h2v2h-2z"></path>
+      <path class="v-vapour v2" d="M15 6h2v2h-2z M15 2h2v2h-2z"></path>
+      <path class="v-vapour v3" d="M19 9h2v2h-2z M19 5h2v2h-2z"></path>
+      <path class="v-cup" d="M24 16h4v2h-4z M26 18h2v4h-2z M24 22h4v2h-4z"></path>
+      <path class="v-cup" d="M8 12h16v12H8z"></path>
+      <path class="v-cup" d="M10 24h12v2H10z"></path>
+      <path class="v-cup" d="M12 26h8v2h-8z"></path>
+      <path class="v-bg" d="M10 12h12v2H10z"></path>
+      <path class="v-bg" d="M12 18h2v2h-2z M18 18h2v2h-2z M15 20h2v2h-2z"></path>
+      <path class="v-blush" d="M10 20h2v2h-2z M20 20h2v2h-2z"></path>
+    </svg>
+    <div class="ss-text">taking a break...</div>
+  </div><div id="screensaver">
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
