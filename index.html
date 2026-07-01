@@ -2521,9 +2521,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     document.body.classList.add("is-scrolling");
     
-    // Forcefully clear hover states immediately on scroll
+    // Forcefully clear hover and touch states immediately on scroll
     document.querySelectorAll(".hover-active").forEach(el => el.classList.remove("hover-active"));
     document.querySelectorAll(".has-hover-active").forEach(el => el.classList.remove("has-hover-active"));
+    document.querySelectorAll(".touch-active").forEach(el => el.classList.remove("touch-active"));
+    document.querySelectorAll(".has-touch-active").forEach(el => el.classList.remove("has-touch-active"));
 
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => document.body.classList.remove("is-scrolling"), 150);
