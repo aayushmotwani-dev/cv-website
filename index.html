@@ -1062,6 +1062,17 @@ h1, h2, h3, .hero__name, .gate__name {
 }
 
 /* Small phone breakpoint (≤400px) */
+@media (max-width: 480px) {
+  .focus-item { padding: 20px; }
+}
+
+/* ============================================================
+   SCROLL FIXES
+   ============================================================ */
+body.is-scrolling {
+  pointer-events: none !important;
+}
+
 @media (max-width: 400px) {
   :root { --pad: 16px; }
   .hero__name { font-size: 1.9rem; letter-spacing: -0.02em; }
