@@ -1324,7 +1324,7 @@ html.is-transitioning .noise-overlay {
       <h1 class="hero__name">Aayush Motwani</h1>
       <p class="hero__tag" id="heroTag">Master's student in Computer &amp; Media Engineering at RWTH Aachen, working across <em>Extended Reality, AI, and audio signal processing</em>.</p>
       <div class="hero__chips" id="heroChips"><span class="chip"><b>M.Sc.</b> RWTH Aachen</span><span class="chip"><b>Werkstudent</b> Online Marketing · Kellermann GmbH</span><span class="chip"><b>B.Eng.</b> Electrical Engineering · FH Aachen</span></div>
-      <div class="hero__btns" id="heroBtns"><a class="btn btn--primary" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a><a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener">GitHub</a></div>
+      <div class="hero__btns" id="heroBtns"><a class="btn btn--primary" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a><a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener noreferrer">GitHub</a></div>
     </section>
 
     <!-- FOCUS -->
@@ -1487,7 +1487,7 @@ html.is-transitioning .noise-overlay {
         <div class="proj-entry__stack">React · Python · APIs</div>
         <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">Web Apps</span></div>
         <div class="proj-entry__links">
-          <a href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener">Repo ↗</a>
+          <a href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener noreferrer">Repo ↗</a>
           
         </div>
       </div>
@@ -1610,9 +1610,9 @@ html.is-transitioning .noise-overlay {
         <div class="sec-body">
           <p class="contact-line" id="contact-line">Open to internships, working student roles, and full-time positions. The fastest way to reach me is email.</p>
           <div class="contact-list" id="contact-grid"><a href="mailto:aayushmotwani@gmail.com" class="contact-item">
-      <span class="contact-k">Email</span><span class="contact-v">aayushmotwani@gmail.com</span></a><a href="https://linkedin.com/in/aayush-motwani-668996103" class="contact-item" target="_blank" rel="noopener">
-      <span class="contact-k">LinkedIn</span><span class="contact-v">aayush-motwani</span></a><a href="https://github.com/aayushmotwani-dev" class="contact-item" target="_blank" rel="noopener">
-      <span class="contact-k">GitHub</span><span class="contact-v">aayushmotwani-dev</span></a><a href="https://aayushmotwani.vercel.app" class="contact-item" target="_blank" rel="noopener">
+      <span class="contact-k">Email</span><span class="contact-v">aayushmotwani@gmail.com</span></a><a href="https://linkedin.com/in/aayush-motwani-668996103" class="contact-item" target="_blank" rel="noopener noreferrer">
+      <span class="contact-k">LinkedIn</span><span class="contact-v">aayush-motwani</span></a><a href="https://github.com/aayushmotwani-dev" class="contact-item" target="_blank" rel="noopener noreferrer">
+      <span class="contact-k">GitHub</span><span class="contact-v">aayushmotwani-dev</span></a><a href="https://aayushmotwani.vercel.app" class="contact-item" target="_blank" rel="noopener noreferrer">
       <span class="contact-k">Website</span><span class="contact-v">aayushmotwani.vercel.app</span></a><div class="contact-item"><span class="contact-k">Location</span><span class="contact-v">Aachen, Germany</span></div></div>
         </div>
       </div>
@@ -1991,7 +1991,17 @@ if (!String.prototype.padStart) {
 let LANG = "en";
 let THEME = "light";
 const $ = (id) => document.getElementById(id);
-const t = (o) => (o && typeof o === "object" && ("en" in o)) ? o[LANG] : o;
+const sanitize = (html) => {
+  if (typeof html !== "string") return html;
+  return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+             .replace(/on\w+="[^"]*"/g, "")
+             .replace(/on\w+='[^']*'/g, "")
+             .replace(/javascript:/gi, "");
+};
+const t = (o) => {
+  let val = (o && typeof o === "object" && ("en" in o)) ? o[LANG] : o;
+  return sanitize(val);
+};
 
 function render() {
   document.documentElement.lang = LANG;
@@ -2021,7 +2031,7 @@ function render() {
   $("heroBtns").innerHTML =
     `<a class="btn btn--primary" href="#projects">${t(DATA.ui.viewProj)}</a>` +
     `<a class="btn" href="#contact">${t(DATA.ui.getInTouch)}</a>` +
-    `<a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener">GitHub</a>`;
+    `<a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener noreferrer">GitHub</a>`;
 
   /* section titles */
   $("t-focus").innerHTML   = t(DATA.sections.focus);
@@ -2068,8 +2078,8 @@ function render() {
         <div class="proj-entry__stack">${t(p.stack)}</div>
         <div class="tags">${p.tags.map(x => `<span class="tag">${x}</span>`).join("")}</div>
         <div class="proj-entry__links">
-          ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener">Repo ↗</a>` : ""}
-          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Live Demo ↗</a>` : ""}
+          ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener noreferrer">Repo ↗</a>` : ""}
+          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>` : ""}
         </div>
       </div>`).join("");
     return `<div class="proj-group">
@@ -2097,7 +2107,7 @@ function render() {
     if (c.url === "#") {
       return `<div class="contact-item"><span class="contact-k">${key}</span><span class="contact-v">${val}</span></div>`;
     }
-    return `<a href="${c.url}" class="contact-item" ${c.url.startsWith("http") ? 'target="_blank" rel="noopener"' : ''}>
+    return `<a href="${c.url}" class="contact-item" ${c.url.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ''}>
       <span class="contact-k">${key}</span><span class="contact-v">${val}</span></a>`;
   }).join("");
 
