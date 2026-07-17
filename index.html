@@ -112,6 +112,10 @@
   box-shadow: 4px 4px 0 var(--shadow) !important;
   transition: none !important;
 }
+.theme-8bit button.active {
+  background: var(--accent) !important;
+  color: var(--shadow) !important;
+}
 .theme-8bit button:active, .theme-8bit .proj-entry:active {
   transform: translate(2px, 2px) !important;
   box-shadow: 2px 2px 0 var(--shadow) !important;
@@ -1267,7 +1271,7 @@ html.is-transitioning .noise-overlay {
   <div class="gate__glass">
     <div class="gate__mark">Aachen · Deutschland</div>
     <div class="gate__name">Aayush Motwani</div>
-    <p class="gate__sub" id="gateSub">Electrical engineer &amp; M.Sc. student · automation, AI, and media.</p>
+    <p class="gate__sub" id="gateSub">Electrical engineer &amp; M.Sc. student · <span style="color: var(--accent);">Automation, AI, and Media.</span></p>
     <div class="gate__q">Sprache wählen / Choose your language</div>
     <div class="gate__btns">
       <button class="gate__btn" onclick="start('de')">Deutsch</button>
@@ -1286,9 +1290,9 @@ html.is-transitioning .noise-overlay {
     <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Focus</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
     <div class="nav__right">
       <div class="theme-switch" id="themeSwitch">
-        <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Light Theme" aria-pressed="true">Paper</button>
+        <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Paper (Light Theme)" aria-pressed="true">Paper</button>
         <span class="theme-sep">/</span>
-        <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Dark Theme" aria-pressed="false">Ink</button>
+        <button id="btn-dark" onclick="setTheme('dark')" aria-label="Switch to Ink (Dark Theme)" aria-pressed="false">Ink</button>
         <span class="theme-sep" style="margin: 0 4px;">|</span>
         <button data-toggle="8bit" aria-label="Toggle 8-bit mode" aria-pressed="false" style="display:flex;align-items:center;">
           <span style="font-family:'PixelUI', monospace; font-size:0.5rem; letter-spacing:0.05em; padding-top:2px;">8-BIT</span>
