@@ -4,7 +4,7 @@ Welcome to the repository for my personal CV and portfolio website. This is a hi
 
 ## 🚀 Live Demo
 
-**[View the live site here](https://cv-website-taupe.vercel.app/)** *(Replace with actual Vercel URL if different)*
+**[aayushmotwani.vercel.app](https://aayushmotwani.vercel.app)**
 
 ## ✨ Features
 
@@ -14,7 +14,7 @@ Welcome to the repository for my personal CV and portfolio website. This is a hi
   - 🖋️ **Ink**: A sleek, dark mode with reduced eye strain.
   - 👾 **8-Bit**: A fun, retro-inspired mode with pixelated fonts and CRT-style scanlines.
 - **Bilingual Support (EN/DE)**: Seamlessly toggle between English and German translations for all content.
-- **Interactive Screensaver**: A WebGL/Three.js-powered interactive 3D screensaver that activates after a period of inactivity.
+- **Interactive Screensaver**: A screensaver that activates after a period of inactivity, written in vanilla JavaScript and CSS.
 - **Background Music Player**: Integrated lo-fi BGM with a custom toggle for a more immersive browsing experience.
 - **Responsive Layout**: Carefully tuned for all device sizes, featuring a custom mobile navigation overlay and optimized touch-based dimming interactions.
 
@@ -25,14 +25,13 @@ This project was built intentionally without heavy frameworks to ensure lightnin
 - **HTML5**: Semantic structure and accessibility.
 - **CSS3**: Vanilla CSS with custom properties (variables), Flexbox/Grid layouts, and modern pseudo-classes (e.g., `:has()`, `:target`).
 - **JavaScript (Vanilla)**: For theme switching, language toggling, scroll progress tracking, and interactive states.
-- **Three.js**: Used for rendering the interactive 3D screensaver.
 - **Hosting**: Deployed seamlessly via [Vercel](https://vercel.com).
 
 ## 📂 Project Structure
 
 - `index.html`: The core file containing all structure, inline styles, and logic.
 - `bgm.mp3`: Background music track.
-- `texture.png` & `render.png`: Assets used for the UI and screensaver.
+- `vercel.json`: Security headers (CSP, HSTS, X-Frame-Options and others).
 - `press-start-2p.woff2`: Custom pixel font for the 8-Bit mode.
 
 ## ⚙️ Development
