@@ -1310,7 +1310,6 @@ html.is-transitioning .noise-overlay {
   <header class="nav">
     <a href="#hero" class="nav__name">Aayush Motwani</a>
     <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Focus</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
-    <a href="/cv_AayushMotwani.pdf" target="_blank" rel="noopener noreferrer" class="nav__cv" id="navCv">Download CV <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
     <div class="nav__right">
       <div class="theme-switch" id="themeSwitch">
         <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Paper (Light Theme)" aria-pressed="true">Paper</button>
@@ -1344,9 +1343,6 @@ html.is-transitioning .noise-overlay {
       <a href="#skills" class="mobile-nav-item" onclick="toggleMobileMenu()">Skills</a>
       <a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu()">Contact</a>
     </nav>
-    <div class="mobile-menu__bottom">
-      <a href="/cv_AayushMotwani.pdf" target="_blank" rel="noopener noreferrer" class="nav__cv" id="mobileNavCv" style="display:flex;">Download CV <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
-    </div>
   </div>
 
   <div class="wrap">
@@ -2149,14 +2145,6 @@ function render() {
     $("mobileNavLinks").innerHTML = navItems.map(([href, label]) => 
       `<a href="${href}" class="mobile-nav-item" onclick="toggleMobileMenu()">${t(label)}</a>`
     ).join("");
-  }
-
-  if ($("navCv")) {
-    $("navCv").innerHTML = t(DATA.ui.cv) + ` <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
-  }
-
-  if ($("mobileNavCv")) {
-    $("mobileNavCv").innerHTML = t(DATA.ui.cv) + ` <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
   }
 
   /* hero */
