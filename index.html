@@ -983,29 +983,41 @@ h1, h2, h3, .hero__name, .gate__name {
   .nav__links { display: none; }
   .nav__cv { display: none; }
   
-  /* Show toggles on mobile home screen, place them below the header */
   .nav__right {
     display: flex;
+    order: 2;
+    z-index: 1002; position: relative;
+    gap: 16px;
+  }
+  
+  .hamburger {
+    order: 3;
+    margin-left: 16px;
+  }
+
+  .nav__right .theme-switch { margin-right: 0; }
+  .nav__right .theme-switch button, .nav__right .lang button {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav__right {
     width: 100%;
     order: 3;
     justify-content: space-between;
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid var(--rule);
-    z-index: 1002; position: relative;
   }
-  .nav__right .theme-switch { margin-right: 0; }
-  .nav__right .theme-switch button, .nav__right .lang button {
-    font-size: 0.65rem;
-    padding: 4px 8px;
-  }
+  .hamburger { order: 2; margin-left: 0; }
 
   /* Hamburger Button */
   .hamburger {
     display: flex;
     z-index: 1002;
     position: relative;
-    order: 2;
   }
 
   /* Mobile Menu Overlay */
@@ -1298,6 +1310,7 @@ html.is-transitioning .noise-overlay {
   <header class="nav">
     <a href="#hero" class="nav__name">Aayush Motwani</a>
     <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Focus</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
+    <a href="/cv_AayushMotwani.pdf" target="_blank" rel="noopener noreferrer" class="nav__cv" id="navCv">Download CV <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
     <div class="nav__right">
       <div class="theme-switch" id="themeSwitch">
         <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Paper (Light Theme)" aria-pressed="true">Paper</button>
@@ -1323,7 +1336,17 @@ html.is-transitioning .noise-overlay {
   <!-- Mobile Overlay Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu__close" onclick="toggleMobileMenu()" aria-label="Close Menu">×</button>
-    <nav class="mobile-menu__links" id="mobileNavLinks"><a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Focus</a><a href="#experience" class="mobile-nav-item" onclick="toggleMobileMenu()">Experience</a><a href="#education" class="mobile-nav-item" onclick="toggleMobileMenu()">Education</a><a href="#projects" class="mobile-nav-item" onclick="toggleMobileMenu()">Projects</a><a href="#skills" class="mobile-nav-item" onclick="toggleMobileMenu()">Skills</a><a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu()">Contact</a></nav>
+    <nav class="mobile-menu__links" id="mobileNavLinks">
+      <a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Focus</a>
+      <a href="#experience" class="mobile-nav-item" onclick="toggleMobileMenu()">Experience</a>
+      <a href="#education" class="mobile-nav-item" onclick="toggleMobileMenu()">Education</a>
+      <a href="#projects" class="mobile-nav-item" onclick="toggleMobileMenu()">Projects</a>
+      <a href="#skills" class="mobile-nav-item" onclick="toggleMobileMenu()">Skills</a>
+      <a href="#contact" class="mobile-nav-item" onclick="toggleMobileMenu()">Contact</a>
+    </nav>
+    <div class="mobile-menu__bottom">
+      <a href="/cv_AayushMotwani.pdf" target="_blank" rel="noopener noreferrer" class="nav__cv" id="mobileNavCv" style="display:flex;">Download CV <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
+    </div>
   </div>
 
   <div class="wrap">
@@ -2128,7 +2151,13 @@ function render() {
     ).join("");
   }
 
+  if ($("navCv")) {
+    $("navCv").innerHTML = t(DATA.ui.cv) + ` <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
+  }
 
+  if ($("mobileNavCv")) {
+    $("mobileNavCv").innerHTML = t(DATA.ui.cv) + ` <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
+  }
 
   /* hero */
   $("heroMark").textContent = t(DATA.hero.mark);
