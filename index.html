@@ -10,8 +10,7 @@
 <meta property="og:description" content="Electrical engineer and Computer &amp; Media Engineering M.Sc. student. Automation, AI, and media technology.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://aayushmotwani.com/">
-<meta property="og:image" content="/images/og-share.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 
 <!-- SEO & Icons -->
 <link rel="canonical" href="https://aayushmotwani.com/">
@@ -1233,10 +1232,21 @@ html.is-transitioning .noise-overlay {
   opacity: 0.6;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 </style>
 <script>
   /* FOUC prevention for Dark Mode */
-  if (localStorage.getItem("cv-theme") === "dark" || (!localStorage.getItem("cv-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+  let initialTheme = null;
+  try { initialTheme = window.localStorage.getItem("cv-theme"); } catch (_) {}
+  if (initialTheme === "dark" || (!initialTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     document.documentElement.classList.add("dark-theme");
   }
   
@@ -1305,7 +1315,7 @@ html.is-transitioning .noise-overlay {
     </div>
     
     <!-- Hamburger for Mobile -->
-    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span>
     </button>
   </header>
@@ -2079,6 +2089,14 @@ if (!String.prototype.padStart) {
 let LANG = "en";
 let THEME = "light";
 const $ = (id) => document.getElementById(id);
+const storage = {
+  get(key) {
+    try { return window.localStorage.getItem(key); } catch (_) { return null; }
+  },
+  set(key, value) {
+    try { window.localStorage.setItem(key, value); } catch (_) {}
+  }
+};
 const sanitize = (html) => {
   if (typeof html !== "string") return html;
   return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
@@ -2144,7 +2162,7 @@ function render() {
         <div class="tl__role">${t(it.role)}</div>
         <div class="tl__loc">${t(it.loc)}</div>
         <ul class="tl__list">${it.bullets.map(b => `<li>${t(b)}</li>`).join("")}</ul>
-        ${it.img ? `<img src="${it.img}" class="tl__img" alt="Work Example">` : ""}
+        ${it.img ? `<img src="${it.img}" class="tl__img" alt="Work Example" loading="lazy" decoding="async">` : ""}
         <div class="tags">${(it.tags || []).map(x => `<span class="tag">${typeof x === "string" ? x : t(x)}</span>`).join("")}</div>
       </div>
     </div>`).join("");
@@ -2204,7 +2222,7 @@ function render() {
     $("work-grid").innerHTML = DATA.work.map(w => `
       <div class="work-plate">
         <div class="img-slot">
-          <img src="${w.url}" alt="${t(w.alt)}" loading="lazy" />
+          <img src="${w.url}" alt="${t(w.alt)}" loading="lazy" decoding="async" />
         </div>
         <div class="work-plate__c">${t(w.caption)}</div>
       </div>
@@ -2280,7 +2298,7 @@ function applyEightBit(enabled) {
 
 function init8BitToggle() {
   const STORAGE_KEY = 'pref-8bit';
-  const stored = localStorage.getItem(STORAGE_KEY) === 'true';
+  const stored = storage.get(STORAGE_KEY) === 'true';
   applyEightBit(stored);
 
   document.querySelectorAll('[data-toggle="8bit"]').forEach(btn => {
@@ -2289,7 +2307,7 @@ function init8BitToggle() {
     btn.addEventListener('click', () => {
       const next = !document.documentElement.classList.contains('theme-8bit');
       applyEightBit(next);
-      localStorage.setItem(STORAGE_KEY, String(next));
+      storage.set(STORAGE_KEY, String(next));
       document.querySelectorAll('[data-toggle="8bit"]').forEach(b => {
         b.setAttribute('aria-pressed', String(next));
         if(next) b.classList.add("active"); else b.classList.remove("active");
@@ -2308,7 +2326,7 @@ function playToggleBlip(enabled) {
 }
 
 function initTheme() {
-  const saved = localStorage.getItem("cv-theme");
+  const saved = storage.get("cv-theme");
   if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     setTheme("dark");
   } else {
@@ -2324,7 +2342,7 @@ function setTheme(theme) {
     } else {
       document.documentElement.classList.remove("dark-theme");
     }
-    localStorage.setItem("cv-theme", theme);
+    storage.set("cv-theme", theme);
     
     if ($("meta-theme-color")) {
       $("meta-theme-color").setAttribute("content", theme === "dark" ? "#1E1C18" : "#F0EAD6");
@@ -2422,7 +2440,7 @@ function initObservers() {
 }
 
 function initMagneticButtons() {
-  if (window.matchMedia("(pointer: coarse)").matches) return;
+  if (window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)").matches) return;
   const magnets = document.querySelectorAll(".btn, .gate__btn, .contact-item");
   magnets.forEach(magnet => {
     magnet.style.willChange = "transform";
@@ -2470,7 +2488,7 @@ function initParallax() {
 }
 
 function initCursor() {
-  if (window.matchMedia("(pointer: coarse)").matches) return;
+  if (window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)").matches) return;
   const c = document.createElement("div");
   c.className = "custom-cursor";
   c.style.willChange = "transform, width, height";
@@ -2573,23 +2591,30 @@ function toggleMobileMenu() {
   if (isOpen) {
     menu.classList.remove("open");
     btn.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
     document.body.classList.remove("menu-open");
   } else {
     menu.classList.add("open");
     btn.classList.add("open");
+    btn.setAttribute("aria-expanded", "true");
     document.body.classList.add("menu-open");
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const clearDimmingStates = () => {
+    document.querySelectorAll(".hover-active, .has-hover-active, .touch-active, .has-touch-active").forEach(el => {
+      el.classList.remove("hover-active", "has-hover-active", "touch-active", "has-touch-active");
+    });
+  };
+
   /* Touch-based dimming logic */
   document.addEventListener("click", (e) => {
     const item = e.target.closest(".tl__item, .proj-entry");
     const wasActive = item ? item.classList.contains("touch-active") : false;
     
     // Clear all existing touch-active states
-    document.querySelectorAll(".touch-active").forEach(el => el.classList.remove("touch-active"));
-    document.querySelectorAll(".has-touch-active").forEach(el => el.classList.remove("has-touch-active"));
+    clearDimmingStates();
     
     // If we clicked an item and it wasn't already active, activate it
     if (item && !wasActive) {
@@ -2602,8 +2627,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* iOS Safari doesn't fire click on body. Use touchstart to clear when touching background */
   document.addEventListener("touchstart", (e) => {
     if (!e.target.closest(".tl__item, .proj-entry")) {
-      document.querySelectorAll(".touch-active").forEach(el => el.classList.remove("touch-active"));
-      document.querySelectorAll(".has-touch-active").forEach(el => el.classList.remove("has-touch-active"));
+      clearDimmingStates();
     }
   }, { passive: true });
 
@@ -2634,14 +2658,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Scroll-aware hover dimming: disable during scroll so highlights don't stick */
   let scrollTimer;
+  let scrollFrame = 0;
   window.addEventListener("scroll", () => {
     document.body.classList.add("is-scrolling");
-    
-    // Forcefully clear hover and touch states immediately on scroll
-    document.querySelectorAll(".hover-active").forEach(el => el.classList.remove("hover-active"));
-    document.querySelectorAll(".has-hover-active").forEach(el => el.classList.remove("has-hover-active"));
-    document.querySelectorAll(".touch-active").forEach(el => el.classList.remove("touch-active"));
-    document.querySelectorAll(".has-touch-active").forEach(el => el.classList.remove("has-touch-active"));
+
+    // Clear interaction states once per frame instead of once per scroll event.
+    if (!scrollFrame) {
+      scrollFrame = requestAnimationFrame(() => {
+        clearDimmingStates();
+        scrollFrame = 0;
+      });
+    }
 
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => document.body.classList.remove("is-scrolling"), 150);
@@ -2650,28 +2677,35 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Music Player */
   const bgm = $("bgm");
   const musicToggle = $("musicToggle");
-  const iconPlay = musicToggle.querySelector(".icon-play");
-  const iconPause = musicToggle.querySelector(".icon-pause");
-  let isPlaying = false;
+  if (bgm && musicToggle) {
+    const iconPlay = musicToggle.querySelector(".icon-play");
+    const iconPause = musicToggle.querySelector(".icon-pause");
+    let isPlaying = false;
 
-  musicToggle.addEventListener("click", () => {
-    if (isPlaying) {
-      bgm.pause();
-      iconPlay.style.display = "block";
-      iconPause.style.display = "none";
-    } else {
-      bgm.play().catch(e => console.error("Audio play failed:", e));
-      iconPlay.style.display = "none";
-      iconPause.style.display = "block";
-    }
-    isPlaying = !isPlaying;
-  });
+    musicToggle.addEventListener("click", () => {
+      if (isPlaying) {
+        bgm.pause();
+        iconPlay.style.display = "block";
+        iconPause.style.display = "none";
+      } else {
+        bgm.play().catch(() => {
+          isPlaying = false;
+          iconPlay.style.display = "block";
+          iconPause.style.display = "none";
+        });
+        iconPlay.style.display = "none";
+        iconPause.style.display = "block";
+      }
+      isPlaying = !isPlaying;
+    });
+  }
 
   /* Screensaver Logic */
   let ss = document.getElementById('screensaver');
   if (!ss) {
     ss = document.createElement('div');
     ss.id = 'screensaver';
+    ss.setAttribute('aria-hidden', 'true');
     ss.innerHTML = `
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
@@ -2729,10 +2763,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 initTheme();
 init8BitToggle();
-initCursor();
-initMagneticButtons();
-initParallax();
 initGate();
+
+// Defer non-essential pointer effects until the first render is complete.
+const initEnhancements = window.requestIdleCallback || ((callback) => window.setTimeout(callback, 0));
+initEnhancements(() => {
+  initCursor();
+  initMagneticButtons();
+  initParallax();
+});
 </script>
 
 
@@ -2750,7 +2789,7 @@ initGate();
   </svg>
 </button>
 
-<div id="screensaver">
+<div id="screensaver" aria-hidden="true">
     <svg width="160" height="160" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
       <style>
         .v-vapour { fill: var(--paper); opacity: 0; }
