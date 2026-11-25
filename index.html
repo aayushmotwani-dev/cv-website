@@ -2,18 +2,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Aayush Motwani</title>
-<meta name="description" content="Aayush Motwani · Electrical engineer and Computer &amp; Media Engineering M.Sc. student. Automation, AI, and media technology.">
+<meta name="description" content="Aayush Motwani · Electrical Engineer (B.Eng.) &amp; M.Sc. Computer &amp; Media Engineering student. Software, XR, and Automation.">
 <meta name="theme-color" id="meta-theme-color" content="#F0EAD6">
 
 <!-- Open Graph & Twitter Cards -->
 <meta property="og:title" content="Aayush Motwani">
-<meta property="og:description" content="Electrical engineer and Computer &amp; Media Engineering M.Sc. student. Automation, AI, and media technology.">
+<meta property="og:description" content="Electrical Engineer (B.Eng.) &amp; M.Sc. Computer &amp; Media Engineering student. Software, XR, and Automation.">
 <meta property="og:type" content="profile">
-<meta property="og:url" content="https://aayushmotwani.com/">
+<meta property="og:url" content="https://aayushmotwani.vercel.app/">
 <meta name="twitter:card" content="summary">
 
 <!-- SEO & Icons -->
-<link rel="canonical" href="https://aayushmotwani.com/">
+<link rel="canonical" href="https://aayushmotwani.vercel.app/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F0EAD6'/><text y='75' x='15' font-size='80'>⚡</text></svg>">
 
@@ -23,17 +23,20 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Aayush Motwani",
-  "jobTitle": "Electrical Engineer & M.Sc. Student",
-  "url": "https://aayushmotwani.com/",
+  "jobTitle": "Electrical Engineer (B.Eng.) | Software, XR & Automation",
+  "url": "https://aayushmotwani.vercel.app/",
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "RWTH Aachen University" },
     { "@type": "CollegeOrUniversity", "name": "FH Aachen University of Applied Sciences" }
   ],
-  "worksFor": { "@type": "Organization", "name": "Kellermann GmbH" },
+  "worksFor": [
+    { "@type": "Organization", "name": "2Sync GmbH" },
+    { "@type": "Organization", "name": "Kellermann Lighting GmbH & Co. KG" }
+  ],
   "knowsLanguage": ["en", "de", "hi"],
   "sameAs": [
     "https://github.com/aayushmotwani-dev",
-    "https://linkedin.com/in/aayushmotwani"
+    "https://linkedin.com/in/aayush-motwani-668996103"
   ]
 }
 </script>
@@ -58,11 +61,11 @@
   --paper: #f2ebd9;
   --ink: #382e25;
   --ink-2: #496b5f;
-  --muted: #695f54;
+  --muted: #5e544a;
   --rule: #382e25;
   --ghost: rgba(56, 46, 37, 0.15);
   --sel: rgba(210, 121, 121, 0.2);
-  --accent: #a34f4f;
+  --accent: #9c3f3f !important;
   
   --border: var(--ink);
   --shadow: rgba(56, 46, 37, 0.3);
@@ -73,11 +76,11 @@
   --paper: #05050a;
   --ink: #f0ead6;
   --ink-2: #4ecdc4;
-  --muted: #888888;
+  --muted: #a6a6a6;
   --rule: #f0ead6;
   --ghost: rgba(240, 234, 214, 0.25);
   --sel: rgba(255, 217, 61, 0.2);
-  --accent: #ffd93d;
+  --accent: #ffd93d !important;
   
   --border: var(--ink);
   --shadow: #000000;
@@ -92,30 +95,42 @@
 .theme-8bit h1, .theme-8bit h2, .theme-8bit h3, 
 .theme-8bit nav a, .theme-8bit button, .theme-8bit .pill, .theme-8bit .tag {
   font-family: 'PixelUI', monospace;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   line-height: 1.6;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: never;
 }
-.theme-8bit h1, .theme-8bit h2, .theme-8bit h3 {
-  text-shadow: 3px 0 0 rgba(0, 255, 255, 0.6), -3px 0 0 rgba(255, 0, 0, 0.6);
+.theme-8bit .hero__name {
+  font-size: clamp(1.75rem, 6.2vw, 4.4rem);
+  line-height: 1.15;
+}
+.theme-8bit h1 {
+  text-shadow: 2px 0 0 rgba(0, 200, 220, 0.45), -2px 0 0 rgba(220, 50, 50, 0.45);
+}
+.theme-8bit h2, .theme-8bit h3 {
+  text-shadow: 1.5px 0 0 rgba(0, 200, 220, 0.3), -1.5px 0 0 rgba(220, 50, 50, 0.3);
 }
 .theme-8bit p, .theme-8bit li { 
   font-family: inherit; 
 }
 
-.theme-8bit .proj-entry, .theme-8bit button, .theme-8bit .tag {
+.theme-8bit .custom-cursor { display: none !important; }
+.theme-8bit .proj-entry, .theme-8bit button, .theme-8bit .btn, .theme-8bit .chip, .theme-8bit .tag {
   border-radius: 8px !important;
   border: 2px solid var(--border) !important;
   box-shadow: 4px 4px 0 var(--shadow) !important;
   transition: none !important;
 }
+.theme-8bit .proj-entry { margin-bottom: 16px; }
+.theme-8bit .proj-entry:last-child { margin-bottom: 0; }
+.theme-8bit .proj-entry::after { display: none; }
+.theme-8bit .chip, .theme-8bit .tag { box-shadow: 2px 2px 0 var(--shadow) !important; }
 .theme-8bit button.active {
   background: var(--accent) !important;
   color: var(--paper) !important;
 }
-.theme-8bit button:active, .theme-8bit .proj-entry:active {
+.theme-8bit button:active, .theme-8bit .btn:active, .theme-8bit .proj-entry:active {
   transform: translate(2px, 2px) !important;
   box-shadow: 2px 2px 0 var(--shadow) !important;
 }
@@ -224,6 +239,8 @@ img { max-width: 100%; display: block; }
   position: fixed; inset: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: center;
   padding: var(--pad);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   
   /* Animated Ambient Background */
   background: linear-gradient(-45deg, var(--paper), var(--ghost), var(--paper), rgba(255, 217, 61, 0.15));
@@ -894,7 +911,7 @@ h1, h2, h3, .hero__name, .gate__name {
    FOOTER
    ============================================================ */
 .foot {
-  padding: 36px var(--pad);
+  padding: 36px var(--pad) max(76px, env(safe-area-inset-bottom) + 56px);
   border-top: 1px solid var(--rule);
   display: flex; justify-content: space-between;
   flex-wrap: wrap; gap: 10px;
@@ -964,6 +981,11 @@ h1, h2, h3, .hero__name, .gate__name {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* Word wrapping safety across ultra-narrow & foldable screens */
+.contact-v, .proj-entry__t, .tl__org, .skill-desc-list li, .proj-entry__stack, .hero__tag, .focus-item__b {
+  overflow-wrap: anywhere;
+}
+
 /* Tablet breakpoint */
 @media (max-width: 1024px) {
   .sec-grid { grid-template-columns: 160px 1fr; gap: 24px; }
@@ -972,12 +994,12 @@ h1, h2, h3, .hero__name, .gate__name {
   .nav__links a { font-size: 0.65rem; }
 }
 
-/* Mobile breakpoint */
+/* Tablet portrait, unfolded foldables & mobile breakpoint */
 @media (max-width: 860px) {
-  /* --- NAV: declutter for mobile --- */
+  /* --- NAV: declutter for tablets & mobile --- */
   .nav {
     padding: 12px var(--pad);
-    flex-wrap: wrap; /* Allow toggles to drop to new line */
+    flex-wrap: wrap;
   }
   .nav__name { font-size: 0.95rem; z-index: 1002; position: relative; order: 1; }
   .nav__links { display: none; }
@@ -987,13 +1009,46 @@ h1, h2, h3, .hero__name, .gate__name {
     display: flex;
     order: 2;
     z-index: 1002; position: relative;
-    gap: 16px;
+    gap: 12px;
+    align-items: center;
   }
   
   .hamburger {
+    display: flex;
     order: 3;
-    margin-left: 16px;
+    margin-left: 12px;
+    z-index: 1002;
+    position: relative;
   }
+
+  /* Mobile / Tablet Menu Overlay */
+  .mobile-menu {
+    display: flex;
+    overflow-y: auto;
+    padding: max(88px, env(safe-area-inset-top) + 64px) var(--pad) max(48px, env(safe-area-inset-bottom) + 24px);
+  }
+  .mobile-menu.open {
+    opacity: 1; pointer-events: auto;
+    transform: translateY(0);
+  }
+  .mobile-menu__close {
+    position: absolute;
+    top: max(18px, env(safe-area-inset-top));
+    right: var(--pad);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+  }
+  body.menu-open { overflow: hidden; }
 
   .nav__right .theme-switch { margin-right: 0; }
   .nav__right .theme-switch button, .nav__right .lang button {
@@ -1007,40 +1062,13 @@ h1, h2, h3, .hero__name, .gate__name {
     width: 100%;
     order: 3;
     justify-content: space-between;
-    margin-top: 12px;
-    padding-top: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
     border-top: 1px solid var(--rule);
   }
   .hamburger { order: 2; margin-left: 0; }
-
-  /* Hamburger Button */
-  .hamburger {
-    display: flex;
-    z-index: 1002;
-    position: relative;
-  }
-
-  /* Mobile Menu Overlay */
-  .mobile-menu {
-    display: flex;
-  }
-  .mobile-menu.open {
-    opacity: 1; pointer-events: auto;
-    transform: translateY(0);
-  }
-  .mobile-menu__close {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    background: transparent;
-    border: none;
-    font-size: 2.5rem;
-    color: var(--ink);
-    cursor: pointer;
-    line-height: 1;
-    padding: 0;
-  }
-  body.menu-open { overflow: hidden; }
 
   /* --- LAYOUT --- */
   .sec-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -1057,26 +1085,27 @@ h1, h2, h3, .hero__name, .gate__name {
 
   /* --- TYPOGRAPHY --- */
   body { font-size: 16px; line-height: 1.6; }
-  .hero__name { font-size: clamp(3rem, 12vw, 4.2rem); margin-bottom: 16px; letter-spacing: -0.03em; }
-  .hero__tag { font-size: clamp(1.1rem, 4vw, 1.4rem); margin-bottom: 20px; }
+  .hero__name { font-size: clamp(2.6rem, 11.5vw, 4.2rem); margin-bottom: 16px; letter-spacing: -0.03em; }
+  .hero__tag { font-size: clamp(1.08rem, 4vw, 1.4rem); margin-bottom: 20px; }
   .hero__mark { font-size: 0.68rem; margin-bottom: 16px; }
-  #hero { padding-top: clamp(40px, 8vw, 80px); padding-bottom: clamp(40px, 6vw, 64px); }
+  #hero { padding-top: clamp(36px, 8vw, 80px); padding-bottom: clamp(40px, 6vw, 64px); }
   section { padding: clamp(40px, 7vw, 72px) 0; }
 
   /* --- SECTION HEADERS --- */
-  .sec-marker { font-size: 0.72rem; margin-bottom: 20px; }
-  .sec-marker span:last-child { font-size: 2rem; margin-top: 4px; }
+  .sec-marker { font-size: 0.72rem; margin-bottom: 16px; }
+  .sec-marker span:last-child { font-size: 1.9rem; margin-top: 4px; }
 
   /* --- TOUCH TARGETS (Apple HIG: 44px) --- */
   .gate__btn { min-height: 48px; min-width: 120px; font-size: 1rem; padding: 14px 32px; }
   .btn { min-height: 44px; padding: 12px 20px; }
   .contact-item { min-height: 48px; padding: 14px 0; }
   /* --- TEXT READABILITY --- */
-  .focus-item__b { font-size: 0.88rem; }
-  .tl__list li { font-size: 0.88rem; line-height: 1.55; }
-  .proj-entry__d { font-size: 0.88rem; }
-  .proj-entry { padding: 18px 20px; }
-  .proj-entry__head { margin-bottom: 6px; }
+  .focus-item__b { font-size: 0.9rem; }
+  .tl__list li { font-size: 0.9rem; line-height: 1.55; }
+  .proj-entry__d { font-size: 0.9rem; }
+  .proj-entry { padding: 18px 14px; }
+  .proj-entry::after { left: 14px; right: 14px; }
+  .proj-entry__head { margin-bottom: 6px; gap: 10px; }
 
   /* --- CHIPS & TAGS --- */
   .hero__chips { gap: 6px; margin-bottom: 24px; }
@@ -1090,48 +1119,51 @@ h1, h2, h3, .hero__name, .gate__name {
   .foot {
     flex-direction: column; align-items: center;
     text-align: center; gap: 6px;
-    padding: 28px var(--pad);
+    padding: 28px var(--pad) max(68px, env(safe-area-inset-bottom) + 52px);
   }
 }
 
-/* Small phone breakpoint (≤400px) */
+/* Small phone & foldable outer cover screen support */
 @media (max-width: 480px) {
-  .focus-item { padding: 20px; }
-}
-
-/* ============================================================
-   SCROLL FIXES
-   ============================================================ */
-body.is-scrolling {
-  pointer-events: none !important;
+  .gate__glass { padding: 38px 22px; border-radius: 24px; }
+  .gate__sub { margin-bottom: 32px; }
+  .focus-item { padding: 0; }
 }
 
 @media (max-width: 400px) {
   :root { --pad: 16px; }
-  .hero__name { font-size: 1.9rem; letter-spacing: -0.02em; }
-  .hero__tag { font-size: 1.05rem; }
-  .gate__name { font-size: 2rem; }
-  .gate__sub { font-size: 0.85rem; }
+  .hero__name { font-size: clamp(1.85rem, 9.5vw, 2.3rem); letter-spacing: -0.02em; }
+  .theme-8bit .hero__name { font-size: clamp(1.35rem, 6.8vw, 1.75rem); }
+  .hero__tag { font-size: 1.02rem; }
+  .gate__name { font-size: 1.9rem; }
+  .gate__sub { font-size: 0.85rem; margin-bottom: 24px; }
   .hero__btns { flex-direction: column; }
   .hero__btns .btn { width: 100%; text-align: center; }
-  .nav__name { font-size: 0.85rem; }
-  .theme-switch { font-size: 0.6rem; }
-  .lang { font-size: 0.6rem; }
+  .nav__name { font-size: 0.88rem; }
+  .nav__right .theme-switch button, .nav__right .lang button {
+    font-size: 0.6rem;
+    padding: 4px 7px;
+  }
   .focus-item__t { font-size: 1.05rem; }
   .tl__org { font-size: 1.05rem; }
   .proj-entry__t { font-size: 1rem; }
   .work-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
-/* iPad / Tablet portrait (768px–1024px) */
+@media (max-height: 600px) {
+  .gate { align-items: flex-start; padding-top: 20px; padding-bottom: 20px; }
+  .gate__glass { padding: 28px 24px; }
+  .gate__sub { margin-bottom: 24px; }
+}
+
+/* iPad / Tablet portrait & unfolded foldables (641px–860px) */
 @media (min-width: 641px) and (max-width: 860px) {
-  .sec-grid { grid-template-columns: 140px 1fr; gap: 20px; }
+  .sec-grid { grid-template-columns: 150px 1fr; gap: 22px; }
   .focus-grid { display: block; }
   .focus-item { border-left: none; border-bottom: none; }
   .focus-item:first-child { border-left: none; }
-  .focus-item:nth-child(3) { display: none; }
-  .skill-row { grid-template-columns: 140px 1fr; }
-  .tl__item { grid-template-columns: 120px 1fr; gap: 16px; }
+  .skill-row { grid-template-columns: 150px 1fr; }
+  .tl__item { grid-template-columns: 130px 1fr; gap: 18px; }
 }
 
 /* ============================================================
@@ -1182,12 +1214,14 @@ body.is-scrolling {
 /* Music Toggle */
 .music-toggle {
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+  left: max(1.5rem, env(safe-area-inset-left));
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: var(--surface);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--ink);
   border: 1px solid var(--ink);
   display: flex;
@@ -1208,10 +1242,10 @@ body.is-scrolling {
 }
 @media (max-width: 768px) {
   .music-toggle {
-    bottom: 1rem;
-    left: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: max(1rem, env(safe-area-inset-left));
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
 
@@ -1293,7 +1327,7 @@ html.is-transitioning .noise-overlay {
   <div class="gate__glass">
     <div class="gate__mark">Aachen · Deutschland</div>
     <div class="gate__name">Aayush Motwani</div>
-    <p class="gate__sub" id="gateSub">Electrical engineer &amp; M.Sc. student · <span style="color: var(--accent);">Automation, AI, and Media.</span></p>
+    <p class="gate__sub" id="gateSub">Electrical Engineer (B.Eng.) &amp; M.Sc. student · <span style="color: var(--accent);">Software, XR, and Automation.</span></p>
     <div class="gate__q">Sprache wählen / Choose your language</div>
     <div class="gate__btns">
       <button class="gate__btn" onclick="start('de')">Deutsch</button>
@@ -1309,7 +1343,7 @@ html.is-transitioning .noise-overlay {
 
   <header class="nav">
     <a href="#hero" class="nav__name">Aayush Motwani</a>
-    <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Focus</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
+    <nav class="nav__links" id="navLinks"><a href="#focus" class="nav-item">Profile</a><a href="#experience" class="nav-item">Experience</a><a href="#education" class="nav-item">Education</a><a href="#projects" class="nav-item">Projects</a><a href="#skills" class="nav-item">Skills</a><a href="#contact" class="nav-item">Contact</a></nav>
     <div class="nav__right">
       <div class="theme-switch" id="themeSwitch">
         <button id="btn-light" onclick="setTheme('light')" class="active" aria-label="Switch to Paper (Light Theme)" aria-pressed="true">Paper</button>
@@ -1336,7 +1370,7 @@ html.is-transitioning .noise-overlay {
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu__close" onclick="toggleMobileMenu()" aria-label="Close Menu">×</button>
     <nav class="mobile-menu__links" id="mobileNavLinks">
-      <a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Focus</a>
+      <a href="#focus" class="mobile-nav-item" onclick="toggleMobileMenu()">Profile</a>
       <a href="#experience" class="mobile-nav-item" onclick="toggleMobileMenu()">Experience</a>
       <a href="#education" class="mobile-nav-item" onclick="toggleMobileMenu()">Education</a>
       <a href="#projects" class="mobile-nav-item" onclick="toggleMobileMenu()">Projects</a>
@@ -1351,8 +1385,8 @@ html.is-transitioning .noise-overlay {
     <section id="hero">
       <div class="hero__mark" id="heroMark">Aachen · Germany</div>
       <h1 class="hero__name">Aayush Motwani</h1>
-      <p class="hero__tag" id="heroTag">Master's student in Computer &amp; Media Engineering at RWTH Aachen, working across <em>Extended Reality, AI, and audio signal processing</em>.</p>
-      <div class="hero__chips" id="heroChips"><span class="chip"><b>M.Sc.</b> RWTH Aachen</span><span class="chip"><b>Working Student</b> Web Dev & AI · Kellermann Lighting</span><span class="chip"><b>B.Eng.</b> Electrical Engineering · FH Aachen</span></div>
+      <p class="hero__tag" id="heroTag">Electrical Engineer (B.Eng., FH Aachen) and Computer &amp; Media Engineering M.Sc. student at RWTH Aachen, working across <em>Software, XR, and Automation</em>.</p>
+      <div class="hero__chips" id="heroChips"><span class="chip"><b>B.Eng.</b> Electrical Engineering · FH Aachen</span><span class="chip"><b>M.Sc.</b> Computer &amp; Media Eng. · RWTH Aachen</span><span class="chip"><b>XR Intern</b> 2Sync GmbH</span><span class="chip"><b>Web &amp; AI Tools</b> Kellermann Lighting</span></div>
       <div class="hero__btns" id="heroBtns"><a class="btn btn--primary" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a><a class="btn" href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener noreferrer">GitHub</a></div>
     </section>
 
@@ -1365,7 +1399,7 @@ html.is-transitioning .noise-overlay {
         <div class="sec-body">
           <div class="focus-grid" id="pillars">
     <div class="focus-item">
-      <div class="focus-item__b" style="font-size: 1.05rem; line-height: 1.6; max-width: 75ch;">Master’s student in Electrical and Computer Engineering at RWTH Aachen, with a focus on immersive technologies, AI and machine learning, and audio signal processing. I hold a German-taught Bachelor’s degree in Electrical Engineering from FH Aachen, where I developed strong foundations in control engineering, measurement technology, automation, and technical problem-solving.<br><br>During my Bachelor’s studies, I gained hands-on experience in PLC-based automation and independently completed five automation projects, taking each one from schematic design through to commissioning. This strengthened my ability to understand technical systems, work methodically, and translate engineering concepts into functioning solutions.<br><br>Alongside my studies, I work as a working student at Kellermann Lighting GmbH & Co. KG, where I develop custom AI-powered automation tools for content production and maintain the Shopware 6 website. This role allows me to combine technical engineering with creative execution, streamlining marketing workflows through AI.<br><br>I am particularly interested in roles where engineering, AI, immersive technologies, and digital media come together, and where I can apply both my technical background and creative skills to develop useful, engaging, and well-executed solutions.</div>
+      <div class="focus-item__b" style="font-size: 1.05rem; line-height: 1.6; max-width: 75ch;">Electrical engineer (B.Eng., FH Aachen, taught in German), now pursuing a Master’s in Computer &amp; Media Engineering at RWTH Aachen. My background is in PLC programming, control engineering, and power systems — in my bachelor’s I independently took five IEC 61131-3 automation projects from circuit design to commissioning, and later built a CODESYS circuit breaker control with interlocking over IEC 60870-5-104 to study how substations reject unsafe remote commands.<br><br>In 2026 I expanded into production software and AI tooling: at Kellermann Lighting I built a Python/Gradio BiRefNet tool to stay clear of EU AI Act Article 50 product-alteration rules, an offline German video pipeline (whisper.cpp, Ollama, Remotion), and the Kellermann Content Studio (React, TypeScript, Supabase). Alongside that, I completed a remote Backend AI Engineering internship at FlyRank Corp. building documented Node.js, PostgreSQL, Docker, and Inngest services.<br><br>Since October 2026 I have been working as an XR Development Intern at the Potsdam VR startup 2Sync, where I designed and built “Take One” — a controller-free VR film studio for Meta Quest — from scratch in about four weeks for the Meta VR Hackathon. I am looking for a full-time role in automation, software development, or XR (available four weeks after an offer, willing to relocate anywhere in Germany).</div>
     </div></div>
         </div>
       </div>
@@ -1380,57 +1414,72 @@ html.is-transitioning .noise-overlay {
         <div class="sec-body">
           <div class="tl" id="experience-list">
     <div class="tl__item">
-      <time class="tl__when">Apr 2026 – present · 21 h/week</time>
+      <time class="tl__when">Oct 2026 – present</time>
       <div>
-        <h3 class="tl__org">Kellermann GmbH</h3>
-        <div class="tl__role">Working Student · Online Marketing</div>
-        <div class="tl__loc">Aachen</div>
-        <ul class="tl__list"><li>Produce social media content (Instagram, LinkedIn, Facebook) including photography, videography, and post-production editing in DaVinci Resolve, including green screen compositing.</li><li>Built and set up a green screen studio for product and content shoots.</li><li>Use AI image tools (e.g. IC-Light) in the photo pipeline for background removal and lighting harmonization on product shots.</li><li>Web development on the company's Shopware 6 site, contributing to an ongoing redevelopment.</li><li>Started learning Blender for early-stage 3D product visualization work, still building skills here.</li></ul>
-        
-        <div class="tags"><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span><span class="tag">IC-Light</span><span class="tag">Green Screen Compositing</span><span class="tag">Blender (learning)</span><span class="tag">Shopware 6</span><span class="tag">Web Development</span></div>
+        <h3 class="tl__org">2Sync GmbH</h3>
+        <div class="tl__role">XR Development Intern</div>
+        <div class="tl__loc">Potsdam, Germany · VR startup (first month on site, now remote)</div>
+        <ul class="tl__list"><li>Designed and built “Take One” in about four weeks, a VR film studio for Meta Quest where film students set up rooms, props, characters, cameras and lights, then play the shot back on a timeline. One of three ideas pitched to the co-founder, submitted by 2Sync to the Meta VR Hackathon.</li><li>Built controller-free interaction with hand tracking and hand interaction powered by Meta XR SDK, OpenXR and the XR Interaction Toolkit.</li><li>Conducted quality analysis on three of 2Sync’s games and built a VR IMAX cinema, with extensive on-device Quest debugging and every change managed through Git.</li></ul>
+        <div class="tags"><span class="tag">Meta Quest</span><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Meta XR SDK</span><span class="tag">OpenXR</span><span class="tag">XR Interaction Toolkit</span><span class="tag">Hand Tracking</span><span class="tag">Git</span></div>
       </div>
     </div>
     <div class="tl__item">
-      <time class="tl__when">Apr 2025 – Oct 2025</time>
+      <time class="tl__when">Apr 2026 – present · Working Student / Mini-job</time>
+      <div>
+        <h3 class="tl__org">Kellermann Lighting GmbH &amp; Co. KG</h3>
+        <div class="tl__role">Online Marketing &amp; Web Development (Focus on AI Automation)</div>
+        <div class="tl__loc">Würselen, Germany · Motorcycle lighting</div>
+        <ul class="tl__list"><li>Hired to build the brand’s Instagram, LinkedIn and Facebook presence from nothing; shot and edited product photos and videos in DaVinci Resolve and Photoshop, set up a green screen studio, wrote bilingual scripts for “Der Kellermann Podcast” and worked on the Shopware 6 shop.</li><li>Built a Python/Gradio prototype using BiRefNet to isolate products and change only the background, keeping the product untouched to stay clear of the EU AI Act’s labelling rules (Article 50).</li><li>Wrote a local offline Node.js pipeline that drops product photos into German videos at the moment they are mentioned, using whisper.cpp for transcription, Ollama models for captioning and matching, and Remotion for rendering.</li><li>Built the Kellermann Content Studio (React, TypeScript, Supabase) for shoot plans, script review and the teleprompter, and set up a SolidWorks STEP-to-Blender rendering workflow for Axera and Blisk indicators.</li></ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Gradio</span><span class="tag">BiRefNet</span><span class="tag">Node.js</span><span class="tag">whisper.cpp</span><span class="tag">Ollama</span><span class="tag">Remotion</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Blender</span><span class="tag">Shopware 6</span><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">Jul 2026 – Oct 2026</time>
+      <div>
+        <h3 class="tl__org">FlyRank Corp.</h3>
+        <div class="tl__role">Backend AI Engineering Intern (Remote)</div>
+        <div class="tl__loc">USA · Remote</div>
+        <ul class="tl__list"><li>14 weeks, 35 assignments, two accepted capstone projects. Built backend services in Node.js and Express with PostgreSQL, SQLite and Docker, documented well enough that another developer could run them straight from the README.</li><li>Enforced input and AI-output validation on every REST endpoint before persistence, and built idempotent background jobs (Inngest) that retry without processing data twice.</li><li>Completed the AI Fluency track covering prompting, workflow design, personal agents, MCP concepts, PDF report generation and React Flow decision workflows.</li></ul>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span class="tag">Docker</span><span class="tag">Inngest</span><span class="tag">React Flow</span><span class="tag">REST APIs</span><span class="tag">AI APIs</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">Apr 2025 – Mar 2026</time>
       <div>
         <h3 class="tl__org">API GmbH</h3>
-        <div class="tl__role">Working Student · Outbound Logistics</div>
+        <div class="tl__role">Working Student, Outbound Goods</div>
         <div class="tl__loc">Germany</div>
-        <ul class="tl__list"><li>Managed outbound shipments and kept inventory records up to date while studying full-time.</li><li>Worked inside a fully automated warehouse, which gave me a practical, on-the-ground understanding of how Industry 4.0 principles actually get implemented, not just how they're described.</li></ul>
-        
-        <div class="tags"><span class="tag">Logistics</span><span class="tag">Inventory</span><span class="tag">Industry 4.0</span><span class="tag">Warehouse Automation</span></div>
+        <ul class="tl__list"><li>Worked part-time during my studies inside a fully automated Industry 4.0 warehouse, handling outbound goods and stock directly alongside the automated material flow and warehouse management system.</li></ul>
+        <div class="tags"><span class="tag">Industry 4.0</span><span class="tag">Material Flow</span><span class="tag">WMS</span><span class="tag">Outbound Goods</span><span class="tag">Warehouse Automation</span></div>
       </div>
     </div>
     <div class="tl__item">
-      <time class="tl__when">Jun 2020 – Jul 2022 · Part-time</time>
+      <time class="tl__when">Nov 2021 · 2 weeks</time>
+      <div>
+        <h3 class="tl__org">MP Poorv Kshetra Vidyut Vitaran Co. Ltd.</h3>
+        <div class="tl__role">Intern, Power Transmission and Distribution</div>
+        <div class="tl__loc">Jabalpur, India · State power utility</div>
+        <ul class="tl__list"><li>Two weeks at the utility’s Central Training Institute, observing how the electrical grid is monitored and switched in live operation with SCADA.</li></ul>
+        <div class="tags"><span class="tag">SCADA</span><span class="tag">Power Transmission</span><span class="tag">Power Distribution</span><span class="tag">Grid Infrastructure</span></div>
+      </div>
+    </div>
+    <div class="tl__item">
+      <time class="tl__when">2020 – 2022 · Part-time</time>
       <div>
         <h3 class="tl__org">TSD Corporation Limited</h3>
         <div class="tl__role">Digital Marketing Intern</div>
         <div class="tl__loc">Remote</div>
         <ul class="tl__list"><li>Analysed campaign data and produced Excel reports for client projects.</li></ul>
-        
         <div class="tags"><span class="tag">Digital Marketing</span><span class="tag">Data Analysis</span><span class="tag">Excel</span></div>
       </div>
     </div>
     <div class="tl__item">
-      <time class="tl__when">2021 · 3-week internship</time>
-      <div>
-        <h3 class="tl__org">Madhya Pradesh Electricity Board</h3>
-        <div class="tl__role">Internship · Power Distribution</div>
-        <div class="tl__loc">India</div>
-        <ul class="tl__list"><li>Observed how electricity distribution for a city actually works end to end, from substations through to the distribution network.</li><li>Got exposure to SCADA systems in a live operational setting, seeing how grid monitoring and control actually function in practice rather than just on paper.</li></ul>
-        
-        <div class="tags"><span class="tag">Power Distribution</span><span class="tag">SCADA</span><span class="tag">Grid Infrastructure</span></div>
-      </div>
-    </div>
-    <div class="tl__item">
-      <time class="tl__when">Dec 2018 – Feb 2019</time>
+      <time class="tl__when">2018 – 2019</time>
       <div>
         <h3 class="tl__org">Techniker Krankenkasse (TK)</h3>
         <div class="tl__role">Customer Advisor</div>
         <div class="tl__loc">Germany</div>
-        <ul class="tl__list"><li>Handled sales for Techniker Krankenkasse.</li></ul>
-        
+        <ul class="tl__list"><li>Customer advisory and sales support for Techniker Krankenkasse.</li></ul>
         <div class="tags"><span class="tag">Sales</span><span class="tag">Customer Service</span></div>
       </div>
     </div></div>
@@ -1447,25 +1496,23 @@ html.is-transitioning .noise-overlay {
         <div class="sec-body">
           <div class="tl" id="education-list">
     <div class="tl__item">
-      <time class="tl__when">Since April 2024</time>
+      <time class="tl__when">Apr 2024 – present</time>
       <div>
         <h3 class="tl__org">RWTH Aachen University</h3>
         <div class="tl__role">M.Sc. Computer &amp; Media Engineering</div>
         <div class="tl__loc">Aachen</div>
-        <ul class="tl__list"><li>My specialisations are Extended Reality (VR/AR), AI and machine learning, and audio signal processing.</li><li>In Virtual Reality 1 I worked on immersive application development and interaction techniques, including HMD integration.</li><li>I'm currently doing lab work in Acoustic Virtual Reality, applying spatial audio and signal processing methods in Python and Jupyter Notebook.</li><li>Other relevant modules: Introduction to AI, Digital Image Processing, Robotics &amp; Human-Machine Interaction.</li></ul>
-        
-        <div class="tags"><span class="tag">XR</span><span class="tag">Machine Learning</span><span class="tag">Signal Processing</span><span class="tag">Python</span></div>
+        <ul class="tl__list"><li>Focus on XR, AI/ML and audio signal processing. Modules include Virtual Reality I and II (VR II oral exam: 1.3), Acoustic Virtual Reality, Digital Image Processing and Introduction to Artificial Intelligence.</li><li>Seminar on VLA-JEPA, a vision-language-action model for robots, with a written report and a talk — while checking the maths I found two mistakes in the paper itself.</li><li>Acoustic Virtual Reality lab work: binaural synthesis with HRTFs, crosstalk cancellation and VBAP in Python (pyfar, NumPy, SciPy), and room acoustics with the image source model in MATLAB and RAVEN.</li></ul>
+        <div class="tags"><span class="tag">XR</span><span class="tag">AI / ML</span><span class="tag">Audio Signal Processing</span><span class="tag">Virtual Reality</span><span class="tag">Python</span><span class="tag">VLA-JEPA</span><span class="tag">MATLAB</span></div>
       </div>
     </div>
     <div class="tl__item">
-      <time class="tl__when">Sep 2018 – Dec 2023 · Grade 2.8</time>
+      <time class="tl__when">Sep 2018 – Dec 2023</time>
       <div>
         <h3 class="tl__org">FH Aachen University of Applied Sciences</h3>
         <div class="tl__role">B.Eng. Electrical Engineering</div>
         <div class="tl__loc">Campus Jülich</div>
-        <ul class="tl__list"><li>Specialisation in power engineering (Energietechnik)</li><li>Thesis on India's energy mix, specifically non-CO₂ emitting sources including nuclear power (grade 2.3)</li><li>Control and regulation engineering, measurement technology, and digital electronics were the modules I actually enjoyed</li><li>Core coursework also included Applied Transmission Line Theory (1.0), Electrical Machines, Measurement Technology 1 &amp; 2, and High Voltage Technology</li><li>PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently, street lighting control, crane control, a water reactor simulation, a star-delta motor switching circuit, and an industrial wash cycle, each one taken from schematic design through programming to commissioning and documentation</li><li>Used MATLAB/Simulink to model and simulate dynamic systems, including the water reactor, crane control, and traffic light systems, as a complement to the hands-on PLC work</li></ul>
-        
-        <div class="tags"><span class="tag">Power Engineering</span><span class="tag">Control Systems</span><span class="tag">PLC</span><span class="tag">PC Worx</span><span class="tag">MATLAB</span><span class="tag">Simulink</span></div>
+        <ul class="tl__list"><li>Taught entirely in German, specialisation in power engineering (Energietechnik). Modules include Control Engineering, Automation and Process Control, Electrical Drives and Machines, Measurement Technology, Power Distribution and High-Voltage Engineering.</li><li>PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently from circuit design through commissioning and documentation, plus PID and state-space controllers in MATLAB/Simulink.</li><li>Bachelor thesis on India’s energy mix and the potential of nuclear power (grade: good).</li></ul>
+        <div class="tags"><span class="tag">Power Engineering</span><span class="tag">Control Systems</span><span class="tag">PLC</span><span class="tag">PC Worx</span><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">High-Voltage Engineering</span></div>
       </div>
     </div></div>
         </div>
@@ -1479,62 +1526,170 @@ html.is-transitioning .noise-overlay {
           <span class="sec-num">05</span><span class="sec-sep"> / </span><span id="t-proj">Selected projects</span>
         </h2>
         <div class="sec-body" id="projects-list"><div class="proj-group">
-      <div class="proj-group__h">Software &amp; Tools</div>
-      
+      <div class="proj-group__h">Automation &amp; Electrical Engineering</div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">01</span>
+          <h3 class="proj-entry__t">Circuit Breaker Control with Telecontrol Link</h3>
+        </div>
+        <div class="proj-entry__d">Personal project exploring how a substation refuses an unsafe remote command: built breaker control with interlocking logic in CODESYS and linked it to a Python control centre over IEC 60870-5-104 with a small browser-based HMI.</div>
+        <div class="proj-entry__stack">CODESYS · IEC 60870-5-104 · Python · Browser HMI</div>
+        <div class="tags"><span class="tag">CODESYS</span><span class="tag">IEC 60870-5-104</span><span class="tag">Python</span><span class="tag">HMI</span></div>
+        <div class="proj-entry__links"></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">02</span>
+          <h3 class="proj-entry__t">Five PLC Automation Projects, PC Worx (FH Aachen)</h3>
+        </div>
+        <div class="proj-entry__d">A crane, star-delta motor switching, an industrial wash cycle, street lighting, and a water reactor simulation programmed to IEC 61131-3 in PC Worx (LD, FBD, IL) from circuit design through commissioning, fault finding, and documentation — alongside Siemens TIA Portal basics and PID/state-space controllers in MATLAB/Simulink.</div>
+        <div class="proj-entry__stack">PC Worx · IEC 61131-3 · TIA Portal (basics) · MATLAB/Simulink</div>
+        <div class="tags"><span class="tag">PLC</span><span class="tag">Automation</span><span class="tag">PC Worx</span><span class="tag">TIA Portal</span></div>
+        <div class="proj-entry__links"></div>
+      </div>
+    </div><div class="proj-group">
+      <div class="proj-group__h">XR, Audio &amp; Interactive Prototypes</div>
       <div class="proj-entry">
         <div class="proj-entry__head">
           <span class="proj-entry__num">01</span>
           <h3 class="proj-entry__t">Acoustic Virtual Reality Lab, RWTH Aachen</h3>
         </div>
-        <div class="proj-entry__d">Hands-on lab work in spatial audio and virtual acoustics, applying signal processing methods to an XR context using Python and Jupyter Notebook.</div>
-        <div class="proj-entry__stack">Python · Jupyter · Signal Processing</div>
-        <div class="tags"><span class="tag">Spatial Audio</span><span class="tag">XR</span><span class="tag">Python</span></div>
-        <div class="proj-entry__links">
-          
-          
-        </div>
+        <div class="proj-entry__d">Binaural synthesis with HRTFs, crosstalk cancellation, and VBAP in Python (pyfar, NumPy, SciPy), alongside room acoustics simulation with the image source model in MATLAB and RAVEN.</div>
+        <div class="proj-entry__stack">Python · pyfar · NumPy · SciPy · MATLAB · RAVEN</div>
+        <div class="tags"><span class="tag">Spatial Audio</span><span class="tag">XR</span><span class="tag">pyfar</span><span class="tag">MATLAB</span></div>
+        <div class="proj-entry__links"></div>
       </div>
       <div class="proj-entry">
         <div class="proj-entry__head">
           <span class="proj-entry__num">02</span>
-          <h3 class="proj-entry__t">AI-assisted tools and automation</h3>
+          <h3 class="proj-entry__t">NeonRiftArena</h3>
         </div>
-        <div class="proj-entry__d">A small but working n8n workflow that monitors a live data feed and fires a notification once defined conditions are met. Cursor, Claude, and Claude Code are part of my regular setup for Python work.</div>
-        <div class="proj-entry__stack">n8n · Python · AI Tools</div>
-        <div class="tags"><span class="tag">n8n</span><span class="tag">Cursor</span><span class="tag">Claude</span></div>
-        <div class="proj-entry__links">
-          
-          
-        </div>
+        <div class="proj-entry__d">A Unity 6.5 desktop/XR-ready combat arena that rebuilds playable spaces from simulated room scans, constraints, and safe-area data.</div>
+        <div class="proj-entry__stack">Unity · C# · XR</div>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">XR</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/NeonRiftArena" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
       </div>
       <div class="proj-entry">
         <div class="proj-entry__head">
           <span class="proj-entry__num">03</span>
-          <h3 class="proj-entry__t">GitHub portfolio</h3>
+          <h3 class="proj-entry__t">RedlineRenegades</h3>
         </div>
-        <div class="proj-entry__d">A handful of things built outside coursework: Vinyl Deck, an interactive Spotify web player styled as a vinyl turntable (React, Vite); a bilingual website for a family pharmacy business, built with Antigravity; Manuscripta, a writing environment for authors with character mapping and a timeline tool (React, Tiptap); ChronoVerse, a multi-theme clock widget with AI-generated insights via the Gemini API; and a Streamlit dashboard for social media metrics (Python, Pandas).</div>
-        <div class="proj-entry__stack">React · Python · APIs</div>
-        <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">Web Apps</span></div>
-        <div class="proj-entry__links">
-          <a href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener noreferrer">Repo ↗</a>
-          
-        </div>
+        <div class="proj-entry__d">A Unity 6.5 3D arcade motorcycle-combat racer inspired by Road Rash, featuring procedural mountain roads, directional melee, rivals, traffic, and a Windows vertical slice.</div>
+        <div class="proj-entry__stack">Unity · C#</div>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Gaming</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/RedlineRenegades" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
       </div>
     </div><div class="proj-group">
-      <div class="proj-group__h">Engineering &amp; Systems</div>
-      
+      <div class="proj-group__h">Software, Backend &amp; AI Tools</div>
       <div class="proj-entry">
         <div class="proj-entry__head">
           <span class="proj-entry__num">01</span>
-          <h3 class="proj-entry__t">PLC Automation Projects, PC Worx (FH Aachen)</h3>
+          <h3 class="proj-entry__t">Quire — Cross-Platform EPUB Reader</h3>
         </div>
-        <div class="proj-entry__d">Five complete automation projects built to IEC 61131-3: street lighting control, crane control, a water reactor simulation, star-delta motor switching, and an industrial wash cycle. Each included schematic design, programming, commissioning, and full documentation.</div>
-        <div class="proj-entry__stack">PC Worx · IEC 61131-3 · Commissioned</div>
-        <div class="tags"><span class="tag">PLC</span><span class="tag">Automation</span><span class="tag">PC Worx</span></div>
-        <div class="proj-entry__links">
-          
-          
+        <div class="proj-entry__d">An offline-first EPUB, comic, and PDF reader for Windows, macOS, iPhone, and Android built with foliate-js, Electron, Capacitor 8, WebGL page curl, an offline WordNet dictionary, and automated GitHub Actions builds (still in active development).</div>
+        <div class="proj-entry__stack">JavaScript · Electron · Capacitor 8 · WebGL · GitHub Actions</div>
+        <div class="tags"><span class="tag">Electron</span><span class="tag">Capacitor</span><span class="tag">WebGL</span><span class="tag">GitHub Actions</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/Quire-Epub-Reader" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">02</span>
+          <h3 class="proj-entry__t">FlyRank AI — Backend Engineering Portfolio</h3>
         </div>
+        <div class="proj-entry__d">Structured 9-week repository of Node.js and Express backend services covering SQLite, PostgreSQL, authentication, Docker, polite scraping, idempotent Inngest workers, AI output validation, PDF report generation, and React Flow decision workflows.</div>
+        <div class="proj-entry__stack">Node.js · Express · PostgreSQL · SQLite · Docker · Inngest</div>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Inngest</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/flyrank-internship" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">03</span>
+          <h3 class="proj-entry__t">Kellermann Studio App</h3>
+        </div>
+        <div class="proj-entry__d">A bilingual React/Vite production workspace for planning shooting schedules, reviewing EN/DE scripts, and approving teleprompter content in real time with Supabase.</div>
+        <div class="proj-entry__stack">React · Vite · TypeScript · Supabase</div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Supabase</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/Kellermann-studioapp" target="_blank" rel="noopener noreferrer">Repo ↗</a><a href="https://kellermann-studio.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">04</span>
+          <h3 class="proj-entry__t">Automated Job Search Pipeline</h3>
+        </div>
+        <div class="proj-entry__d">Automated pipeline that pulls new job listings daily from the Bundesagentur für Arbeit API into Supabase for structured filtering and tracking.</div>
+        <div class="proj-entry__stack">Bundesagentur für Arbeit API · Supabase · Automation</div>
+        <div class="tags"><span class="tag">REST API</span><span class="tag">Supabase</span><span class="tag">Automation</span></div>
+        <div class="proj-entry__links"></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">05</span>
+          <h3 class="proj-entry__t">Kellermann AI Marketing Dashboard</h3>
+        </div>
+        <div class="proj-entry__d">A Python/Streamlit social media command center for Kellermann GmbH, comparing platform, product, format, and AI-vs-human caption performance from a simulated dataset.</div>
+        <div class="proj-entry__stack">Python · Streamlit</div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Data Science</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/kellermann-ai-marketing-dashboard-for-interview" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">06</span>
+          <h3 class="proj-entry__t">Manuscripta (Writing App)</h3>
+        </div>
+        <div class="proj-entry__d">A Next.js writing environment for authors, combining distraction-free editing with story graphs, timelines, lookbooks, and project organization.</div>
+        <div class="proj-entry__stack">Next.js · TypeScript · React</div>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/writing-app" target="_blank" rel="noopener noreferrer">Repo ↗</a><a href="https://writingapp-aayush.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">07</span>
+          <h3 class="proj-entry__t">Vinyl Deck (Spotify Web Player)</h3>
+        </div>
+        <div class="proj-entry__d">A React/Vite Spotify web player that turns playlists and albums into a tactile retro vinyl collection with animated browsing and nostalgic visual design.</div>
+        <div class="proj-entry__stack">React · Vite · TypeScript</div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Spotify API</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/Vinyl-Spotify-app-" target="_blank" rel="noopener noreferrer">Repo ↗</a><a href="https://web-aayush-s-projectss.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">08</span>
+          <h3 class="proj-entry__t">Bilingual Pharmacy Storefront</h3>
+        </div>
+        <div class="proj-entry__d">A bilingual generic-medicine storefront for Jabalpur with customer shopping, inventory, loyalty, bulk uploads, and a simple admin workflow.</div>
+        <div class="proj-entry__stack">TypeScript</div>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">E-Commerce</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/Pharmacy-Website" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">09</span>
+          <h3 class="proj-entry__t">ChronoVerse (Clock Widget)</h3>
+        </div>
+        <div class="proj-entry__d">A multi-theme clock widget with live time, alarms, cultural and OS-inspired designs, and AI-powered contextual insights.</div>
+        <div class="proj-entry__stack">TypeScript</div>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">Widget</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev/Clock-Widget" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">10</span>
+          <h3 class="proj-entry__t">AI Tools &amp; Local Media Pipelines</h3>
+        </div>
+        <div class="proj-entry__d">Daily engineering workflows with Claude Code, ChatGPT/Codex, and Cursor — reading and testing generated code like a colleague’s work — alongside local AI media pipelines (whisper.cpp, Ollama, Remotion) and MCP connections to Unity, Blender, and DaVinci Resolve.</div>
+        <div class="proj-entry__stack">Claude Code · Codex · Cursor · Ollama · whisper.cpp · MCP</div>
+        <div class="tags"><span class="tag">Claude Code</span><span class="tag">MCP</span><span class="tag">Ollama</span></div>
+        <div class="proj-entry__links"></div>
+      </div>
+      <div class="proj-entry">
+        <div class="proj-entry__head">
+          <span class="proj-entry__num">11</span>
+          <h3 class="proj-entry__t">GitHub portfolio</h3>
+        </div>
+        <div class="proj-entry__d">Complete overview of public repositories and side projects including Quire, FlyRank Backend Engineering, Unity XR/game prototypes, Manuscripta, Vinyl Deck, ChronoVerse, Kellermann Studio, and automation tooling.</div>
+        <div class="proj-entry__stack">Python · TypeScript · Node.js · C# · APIs</div>
+        <div class="tags"><span class="tag">GitHub</span><span class="tag">Open Source</span><span class="tag">Full-Stack</span></div>
+        <div class="proj-entry__links"><a href="https://github.com/aayushmotwani-dev" target="_blank" rel="noopener noreferrer">Repo ↗</a></div>
       </div>
     </div></div>
       </div>
@@ -1549,80 +1704,45 @@ html.is-transitioning .noise-overlay {
         <div class="sec-body">
           <div class="skills-list" id="skills-list">
     <div class="skill-row">
-      <div class="skill-row__l">Programming</div>
+      <div class="skill-row__l">Automation &amp; Electrical</div>
       <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li><b>Python (NumPy, pandas, Matplotlib, scikit-learn, Jupyter Notebook)</b> — used across coursework, lab work, and personal projects</li><li><b>MATLAB/Simulink</b> — academic use only</li><li><b>HTML/CSS/JavaScript</b> — basic, from an early programming course</li></ul>
+        <div class="skill-tags"><span class="tag">IEC 61131-3</span><span class="tag">CODESYS</span><span class="tag">PC Worx</span><span class="tag">Siemens TIA Portal (basics)</span><span class="tag">B&amp;R Automation Studio (basic)</span><span class="tag">Commissioning &amp; Fault Finding</span><span class="tag">IEC 60870-5-104</span><span class="tag">SCADA (basics)</span><span class="tag">MATLAB / Simulink</span></div>
       </div>
     </div>
     <div class="skill-row">
-      <div class="skill-row__l">Electrical Engineering &amp; Automation</div>
+      <div class="skill-row__l">Software &amp; Backend</div>
       <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li><b>PLC programming (PC Worx, IEC 61131-3)</b> — five complete independent projects</li><li><b>Control and regulation engineering, measurement technology</b> — from B.Eng. coursework and lab work</li></ul>
+        <div class="skill-tags"><span class="tag">Python (NumPy, pandas, SciPy, Gradio)</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span class="tag">Supabase</span><span class="tag">REST APIs</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub Actions</span></div>
       </div>
     </div>
     <div class="skill-row">
-      <div class="skill-row__l">XR</div>
+      <div class="skill-row__l">XR, 3D &amp; Media</div>
       <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li><b>VR application development, HMD integration</b> — through the Virtual Reality 1 module and ongoing Acoustic VR lab work; not yet built independently outside coursework</li></ul>
+        <div class="skill-tags"><span class="tag">Unity &amp; C# (beginner)</span><span class="tag">Meta XR SDK</span><span class="tag">OpenXR</span><span class="tag">XR Interaction Toolkit</span><span class="tag">Meta Quest</span><span class="tag">pyfar</span><span class="tag">Blender (basic)</span><span class="tag">DaVinci Resolve</span><span class="tag">Photoshop</span></div>
       </div>
     </div>
     <div class="skill-row">
-      <div class="skill-row__l">AI &amp; Machine Learning</div>
+      <div class="skill-row__l">AI Tools &amp; Workflows</div>
       <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li><b>Supervised learning (classification, regression), data preprocessing, basic neural network concepts</b> — from an ongoing course and one university module</li></ul>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-row__l">AI Tools (Daily)</div>
-      <div class="skill-row__r">
-        <div class="skill-tags"><span class="tag">Cursor</span><span class="tag">Claude</span><span class="tag">Claude Code</span></div>
-        
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-row__l">AI Tools (Media &amp; Content)</div>
-      <div class="skill-row__r">
-        <div class="skill-tags"><span class="tag">IC-Light</span></div>
-        
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-row__l">Currently Learning</div>
-      <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li><b>Blender</b> — early-stage, started recently; basic 3D product visualization, learning independently outside work deliverables</li></ul>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-row__l">AI Tools (Projects)</div>
-      <div class="skill-row__r">
-        <div class="skill-tags"><span class="tag">Higgsfield</span><span class="tag">Google AI Studio</span><span class="tag">Lovable</span><span class="tag">Antigravity (no-code)</span><span class="tag">n8n (workflow automation)</span></div>
-        
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-row__l">Software</div>
-      <div class="skill-row__r">
-        <div class="skill-tags"><span class="tag">DaVinci Resolve</span><span class="tag">Adobe Photoshop</span><span class="tag">Adobe Firefly</span><span class="tag">CapCut</span><span class="tag">Shopware 6</span><span class="tag">MS Office</span><span class="tag">Git (basic)</span></div>
-        
+        <div class="skill-tags"><span class="tag">Claude Code</span><span class="tag">ChatGPT / Codex</span><span class="tag">Cursor</span><span class="tag">Ollama</span><span class="tag">whisper.cpp</span><span class="tag">MCP (Unity, Blender, DaVinci Resolve)</span><span class="tag">BiRefNet</span><span class="tag">Remotion</span><span class="tag">n8n</span></div>
       </div>
     </div>
     <div class="skill-row">
       <div class="skill-row__l">Certifications</div>
       <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li>Introduction to Python Programming (HPC.NRW)</li><li>Data Science, AI &amp; Machine Learning (Udemy)</li><li>IELTS Academic (Band 7.5)</li></ul>
+        <ul class="skill-desc-list"><li><b>FlyRank Internship Certificates</b> — Backend AI Engineering and AI Fluency (10/2026)</li><li><b>Introduction to Programming with Python</b> — University of Bonn / HPC.NRW (11/2025)</li><li><b>IELTS Academic</b> — Band 7.5 (C1)</li></ul>
       </div>
     </div>
     <div class="skill-row">
       <div class="skill-row__l">Languages</div>
       <div class="skill-row__r">
-        
-        <ul class="skill-desc-list"><li>German (B2 certified)</li><li>English (C1, IELTS 7.5)</li><li>Hindi (native)</li></ul>
+        <ul class="skill-desc-list"><li><b>German</b> — B2 certified (Bachelor’s degree completed in German)</li><li><b>English</b> — C1 (IELTS Academic 7.5)</li><li><b>Hindi</b> — Native</li></ul>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-row__l">Interests &amp; Availability</div>
+      <div class="skill-row__r">
+        <ul class="skill-desc-list"><li><b>Interests</b> — Filmmaking and screenwriting, writing short stories, building PCs, VR and AR hardware</li><li><b>Availability</b> — Full-time, start four weeks after an offer · willing to relocate anywhere in Germany · driving licence Class B in progress</li></ul>
       </div>
     </div></div>
         </div>
@@ -1637,12 +1757,12 @@ html.is-transitioning .noise-overlay {
           <span class="sec-num">07</span><span class="sec-sep"> / </span><span id="t-contact">Get in touch</span>
         </h2>
         <div class="sec-body">
-          <p class="contact-line" id="contact-line">Open to internships, working student roles, and full-time positions. The fastest way to reach me is email.</p>
+          <p class="contact-line" id="contact-line">Looking for a full-time position in automation, software development, or XR — available four weeks after an offer and willing to relocate anywhere in Germany. The fastest way to reach me is email.</p>
           <div class="contact-list" id="contact-grid"><a href="mailto:aayushmotwani@gmail.com" class="contact-item">
       <span class="contact-k">Email</span><span class="contact-v">aayushmotwani@gmail.com</span></a><a href="https://linkedin.com/in/aayush-motwani-668996103" class="contact-item" target="_blank" rel="noopener noreferrer">
       <span class="contact-k">LinkedIn</span><span class="contact-v">aayush-motwani</span></a><a href="https://github.com/aayushmotwani-dev" class="contact-item" target="_blank" rel="noopener noreferrer">
       <span class="contact-k">GitHub</span><span class="contact-v">aayushmotwani-dev</span></a><a href="https://aayushmotwani.vercel.app" class="contact-item" target="_blank" rel="noopener noreferrer">
-      <span class="contact-k">Website</span><span class="contact-v">aayushmotwani.vercel.app</span></a><div class="contact-item"><span class="contact-k">Location</span><span class="contact-v">Aachen, Germany</span></div></div>
+      <span class="contact-k">Website</span><span class="contact-v">aayushmotwani.vercel.app</span></a><div class="contact-item"><span class="contact-k">Location</span><span class="contact-v">Aachen, Germany (open to relocate nationwide)</span></div></div>
         </div>
       </div>
     </section>
@@ -1663,14 +1783,13 @@ html.is-transitioning .noise-overlay {
 const DATA = {
   ui: {
     nav: {
-      focus:   {en:"Focus", de:"Schwerpunkte"},
+      focus:   {en:"Profile", de:"Profil"},
       exp:     {en:"Experience", de:"Erfahrung"},
       edu:     {en:"Education", de:"Ausbildung"},
       proj:    {en:"Projects", de:"Projekte"},
       skills:  {en:"Skills", de:"Kenntnisse"},
       contact: {en:"Contact", de:"Kontakt"}
     },
-    cv:       {en:"Download CV", de:"Lebenslauf"},
     viewProj: {en:"View projects", de:"Projekte ansehen"},
     getInTouch:{en:"Get in touch", de:"Kontakt aufnehmen"},
     foot: {
@@ -1682,19 +1801,20 @@ const DATA = {
   hero: {
     mark: {en:"Aachen · Germany", de:"Aachen · Deutschland"},
     tag: {
-      en:"Master's student in Computer & Media Engineering at RWTH Aachen, working across <em>Extended Reality, AI, and audio signal processing</em>.",
-      de:"Masterstudent (Computer & Media Engineering) an der RWTH Aachen, tätig in den Bereichen <em>Extended Reality, KI und Audiosignalverarbeitung</em>."
+      en:"Electrical Engineer (B.Eng., FH Aachen) and Computer &amp; Media Engineering M.Sc. student at RWTH Aachen, working across <em>Software, XR, and Automation</em>.",
+      de:"Elektroingenieur (B.Eng., FH Aachen) und Masterstudent in Computer &amp; Media Engineering an der RWTH Aachen — tätig in den Bereichen <em>Software, XR und Automatisierung</em>."
     },
     chips: [
-      {en:"<b>M.Sc.</b> RWTH Aachen", de:"<b>M.Sc.</b> RWTH Aachen"},
-      {en:"<b>Working Student</b> Web Dev & AI · Kellermann Lighting", de:"<b>Werkstudent</b> Web Dev & KI · Kellermann Lighting"},
-      {en:"<b>B.Eng.</b> Electrical Engineering · FH Aachen", de:"<b>B.Eng.</b> Elektrotechnik · FH Aachen"}
+      {en:"<b>B.Eng.</b> Electrical Engineering · FH Aachen", de:"<b>B.Eng.</b> Elektrotechnik · FH Aachen"},
+      {en:"<b>M.Sc.</b> Computer &amp; Media Eng. · RWTH Aachen", de:"<b>M.Sc.</b> Computer &amp; Media Eng. · RWTH Aachen"},
+      {en:"<b>XR Intern</b> 2Sync GmbH", de:"<b>Praktikant XR</b> 2Sync GmbH"},
+      {en:"<b>Web &amp; AI Tools</b> Kellermann Lighting", de:"<b>Web &amp; KI-Tools</b> Kellermann Lighting"}
     ]
   },
 
   sections: {
     focus:   {en:"Profile", de:"Profil"},
-    exp:     {en:"Experience", de:"Erfahrung"},
+    exp:     {en:"Experience", de:"Berufserfahrung"},
     edu:     {en:"Education", de:"Ausbildung"},
     proj:    {en:"Selected projects", de:"Ausgewählte Projekte"},
     skills:  {en:"Skills &amp; tools", de:"Kenntnisse &amp; Tools"},
@@ -1705,65 +1825,94 @@ const DATA = {
   focus: [
     {
       t:{en:"Profile", de:"Profil"},
-      b:{en:"Master’s student in Electrical and Computer Engineering at RWTH Aachen, with a focus on immersive technologies, AI and machine learning, and audio signal processing. I hold a German-taught Bachelor’s degree in Electrical Engineering from FH Aachen, where I developed strong foundations in control engineering, measurement technology, automation, and technical problem-solving.<br><br>During my Bachelor’s studies, I gained hands-on experience in PLC-based automation and independently completed five automation projects, taking each one from schematic design through to commissioning. This strengthened my ability to understand technical systems, work methodically, and translate engineering concepts into functioning solutions.<br><br>Alongside my studies, I work as a working student at Kellermann Lighting GmbH & Co. KG, where I develop custom AI-powered automation tools for content production and maintain the Shopware 6 website. This role allows me to combine technical engineering with creative execution, streamlining marketing workflows through AI.<br><br>I am particularly interested in roles where engineering, AI, immersive technologies, and digital media come together, and where I can apply both my technical background and creative skills to develop useful, engaging, and well-executed solutions.",
-         de:"Masterstudent im Bereich Electrical and Computer Engineering an der RWTH Aachen mit einem Schwerpunkt auf Immersive Technologies, KI und maschinellem Lernen sowie Audiosignalverarbeitung. Zuvor habe ich meinen deutschsprachigen Bachelor in Elektrotechnik an der FH Aachen absolviert, wo ich fundierte Grundlagen in Regelungstechnik, Messtechnik, Automatisierung und technischem Problemlösen aufgebaut habe.<br><br>Während meines Bachelorstudiums konnte ich praktische Erfahrung in der SPS-basierten Automatisierung sammeln und fünf Automatisierungsprojekte eigenständig umsetzen — von der Schaltplananalyse bis zur Inbetriebnahme. Dadurch habe ich gelernt, technische Systeme strukturiert zu verstehen, methodisch zu arbeiten und technische Konzepte in funktionierende Lösungen zu übertragen.<br><br>Neben meinem Studium arbeite ich als Werkstudent bei der Kellermann Lighting GmbH & Co. KG. Dort entwickle ich maßgeschneiderte KI-gestützte Automatisierungswerkzeuge für die Content-Produktion und betreue die Shopware-6-Website. Diese Tätigkeit ermöglicht es mir, technisches Denken mit kreativer Umsetzung zu verbinden und Marketingprozesse durch KI zu optimieren.<br><br>Besonders interessieren mich Positionen, in denen Engineering, KI, immersive Technologien und digitale Medien zusammenkommen. Ich möchte meine technischen Grundlagen und kreativen Fähigkeiten einsetzen, um nützliche, ansprechende und technisch überzeugende Lösungen zu entwickeln."}
+      b:{en:"Electrical engineer (B.Eng., FH Aachen, taught in German), now pursuing a Master’s in Computer &amp; Media Engineering at RWTH Aachen. My background is in PLC programming, control engineering, and power systems — in my bachelor’s I independently took five IEC 61131-3 automation projects from circuit design to commissioning, and later built a CODESYS circuit breaker control with interlocking over IEC 60870-5-104 to study how substations reject unsafe remote commands.<br><br>In 2026 I expanded into production software and AI tooling: at Kellermann Lighting I built a Python/Gradio BiRefNet tool to stay clear of EU AI Act Article 50 product-alteration rules, an offline German video pipeline (whisper.cpp, Ollama, Remotion), and the Kellermann Content Studio (React, TypeScript, Supabase). Alongside that, I completed a remote Backend AI Engineering internship at FlyRank Corp. building documented Node.js, PostgreSQL, Docker, and Inngest services.<br><br>Since October 2026 I have been working as an XR Development Intern at the Potsdam VR startup 2Sync, where I designed and built “Take One” — a controller-free VR film studio for Meta Quest — from scratch in about four weeks for the Meta VR Hackathon. I am looking for a full-time role in automation, software development, or XR (available four weeks after an offer, willing to relocate anywhere in Germany).",
+         de:"Elektroingenieur (B.Eng., FH Aachen, Studium komplett auf Deutsch), zurzeit im Master Computer &amp; Media Engineering an der RWTH Aachen. Mein Hintergrund liegt in der SPS-Programmierung, Regelungstechnik und Energietechnik — im Bachelor habe ich fünf Automatisierungsprojekte nach IEC 61131-3 eigenständig vom Schaltplan bis zur Inbetriebnahme umgesetzt und später in CODESYS eine Leistungsschalter-Steuerung mit Verriegelungslogik über IEC 60870-5-104 gebaut, um zu untersuchen, wie ein Umspannwerk unzulässige Fernbefehle ablehnt.<br><br>2026 kamen Softwareentwicklung und KI-Werkzeuge in der Praxis dazu: Bei Kellermann Lighting entwickelte ich einen Python/Gradio-Prototyp mit BiRefNet (um Produkte unverändert zu lassen und keine Kennzeichnungspflicht nach Artikel 50 des EU AI Act auszulösen), eine offline laufende Node.js-Videopipeline (whisper.cpp, Ollama, Remotion) sowie das Kellermann Content Studio (React, TypeScript, Supabase). Parallel absolvierte ich ein Remote-Praktikum im Backend AI Engineering bei FlyRank Corp. mit dokumentierten Diensten in Node.js, PostgreSQL, Docker und Inngest.<br><br>Seit Oktober 2026 arbeite ich als Praktikant in der XR-Entwicklung beim Potsdamer VR-Start-up 2Sync. Dort habe ich „Take One“ — ein controllerfreies VR-Filmstudio für die Meta Quest — in rund vier Wochen für den Meta VR Hackathon konzipiert und umgesetzt. Ich suche eine Vollzeitstelle in der Automatisierung, Softwareentwicklung oder im Bereich XR (verfügbar vier Wochen nach Zusage, deutschlandweit umzugsbereit)."}
     }
   ],
 
-      experience: [
+  experience: [
     {
-      when: {en: "Apr 2026 – present · 7 mos", de: "Apr 2026 – heute · 7 Monate"},
-      org: "Kellermann Lighting GmbH & Co. KG",
-      role: {en: "Working Student · Online Marketing, Web Dev & AI Automation", de: "Werkstudent · Online Marketing, Web Development & AI Automation"},
-      loc: {en: "Würselen, Germany", de: "Würselen, Deutschland"},
+      when: {en: "Oct 2026 – present", de: "seit Okt 2026"},
+      org: "2Sync GmbH",
+      role: {en: "XR Development Intern", de: "Praktikant XR-Entwicklung"},
+      loc: {en: "Potsdam, Germany · VR startup (first month on site, now remote)", de: "Potsdam, Deutschland · VR-Start-up (erster Monat vor Ort, jetzt remote)"},
       bullets: [
-        {en: "Identified and eliminated manual bottlenecks in content production by developing custom AI-powered automation tools.", de: "Identifikation und Beseitigung manueller Engpässe in der Content-Produktion durch die Entwicklung maßgeschneiderter KI-gestützter Automatisierungswerkzeuge."},
-        {en: "Built a Python/Gradio pipeline to automatically replace backgrounds in product photos for marketing campaigns.", de: "Entwicklung einer Python/Gradio-Pipeline zum automatischen Austausch von Hintergründen in Produktfotos für Marketingkampagnen."},
-        {en: "Developed a Node.js video automation pipeline using Remotion and local LLMs (Ollama) to transcribe German speech and automatically insert corresponding B-roll photos at the correct timestamps.", de: "Entwicklung einer Node.js-Videoautomatisierungs-Pipeline mit Remotion und lokalen Sprachmodellen (Ollama), um deutsche Sprache zu transkribieren und B-Roll-Fotos automatisch zum exakten Zeitpunkt einzufügen."},
-        {en: "Created the 'Kellermann Content Studio' to centralize scripts, teleprompter management, and podcast production, alongside a custom Content Dashboard for a clear team-wide overview.", de: "Erstellung des 'Kellermann Content Studios' zur Bündelung von Skripten, Teleprompter-Management und Podcast-Produktion, ergänzt durch ein benutzerdefiniertes Content-Dashboard für den Team-Überblick."},
-        {en: "Develop and maintain the company's Shopware 6 e-commerce website and built the social media presence from the ground up.", de: "Entwicklung und Pflege der Shopware 6 E-Commerce-Website sowie vollständiger Aufbau der Social-Media-Präsenz des Unternehmens von Grund auf."}
+        {en: "Designed and built “Take One” in about four weeks, a VR film studio for Meta Quest where film students set up rooms, props, characters, cameras and lights, then play the shot back on a timeline. One of three ideas pitched to the co-founder, submitted by 2Sync to the Meta VR Hackathon.",
+         de: "„Take One“ in rund vier Wochen konzipiert und gebaut — ein VR-Filmstudio für die Meta Quest, in dem Filmstudierende Räume, Requisiten, Figuren, Kameras und Licht aufstellen und die Szene auf einer Zeitleiste abspielen. Eine von drei Ideen für den Mitgründer; von 2Sync beim Meta VR Hackathon eingereicht."},
+        {en: "Built controller-free interaction with hand tracking and hand interaction powered by Meta XR SDK, OpenXR and the XR Interaction Toolkit.",
+         de: "Die App kommt ohne Controller aus: Handtracking und Hand-Interaktion laufen über das Meta XR SDK, OpenXR und das XR Interaction Toolkit."},
+        {en: "Conducted quality analysis on three of 2Sync’s games and built a VR IMAX cinema, with extensive on-device Quest debugging and every change managed through Git.",
+         de: "Qualitätsanalyse für drei Spiele von 2Sync durchgeführt sowie ein VR-IMAX-Kino gebaut; intensive Fehlersuche direkt auf der Quest, jede Änderung läuft über Git."}
       ],
-      tags: [
-        "Python", "Gradio", "Node.js", "Remotion", "Ollama", "Shopware 6", "AI Automation", "DaVinci Resolve", "Photoshop"
-      ]
+      tags: ["Meta Quest", "Unity", "C#", "Meta XR SDK", "OpenXR", "XR Interaction Toolkit", "Hand Tracking", "Git"]
+    },
+    {
+      when: {en: "Apr 2026 – present · Working Student / Mini-job", de: "seit Apr 2026 · Werkstudent, seit Herbst 2026 Minijob"},
+      org: "Kellermann Lighting GmbH &amp; Co. KG",
+      role: {en: "Online Marketing &amp; Web Development (Focus on AI Automation)", de: "Online-Marketing &amp; Webentwicklung (Schwerpunkt KI-Automatisierung)"},
+      loc: {en: "Würselen, Germany · Motorcycle lighting", de: "Würselen, Deutschland · Motorradbeleuchtung"},
+      bullets: [
+        {en: "Hired to build the brand’s Instagram, LinkedIn and Facebook presence from nothing; shot and edited product photos and videos in DaVinci Resolve and Photoshop, set up a green screen studio, wrote bilingual scripts for “Der Kellermann Podcast” and worked on the Shopware 6 shop.",
+         de: "Eingestellt, um Instagram, LinkedIn und Facebook der Marke von null aufzubauen; Produktfotos und Videos aufgenommen und in DaVinci Resolve sowie Photoshop bearbeitet, Greenscreen-Studio eingerichtet, zweisprachige Skripte für „Der Kellermann Podcast“ geschrieben und am Shopware-6-Shop mitgearbeitet."},
+        {en: "Built a Python/Gradio prototype using BiRefNet to isolate products and change only the background, keeping the product untouched to stay clear of the EU AI Act’s labelling rules (Article 50).",
+         de: "Einen Python/Gradio-Prototyp mit BiRefNet entwickelt, der das Produkt freistellt und ausschließlich den Hintergrund ändert — so bleibt das Produkt unverändert und es entsteht keine Kennzeichnungspflicht nach dem EU AI Act (Artikel 50)."},
+        {en: "Wrote a local offline Node.js pipeline that drops product photos into German videos at the moment they are mentioned, using whisper.cpp for transcription, Ollama models for captioning and matching, and Remotion for rendering.",
+         de: "Eine lokale Offline-Pipeline in Node.js gebaut, die Produktfotos genau dann in deutsche Videos einblendet, wenn das Produkt erwähnt wird (Transkription über whisper.cpp, Bildbeschreibung und -zuordnung durch Ollama-Modelle, Rendering in Remotion)."},
+        {en: "Built the Kellermann Content Studio (React, TypeScript, Supabase) for shoot plans, script review and the teleprompter, and set up a SolidWorks STEP-to-Blender rendering workflow for Axera and Blisk indicators.",
+         de: "Das Kellermann Content Studio (React, TypeScript, Supabase) für Drehpläne, Skriptprüfung und Teleprompter gebaut sowie einen Ablauf von SolidWorks-STEP-Dateien der Blinker Axera und Blisk zu Produkt-Renderings in Blender eingerichtet."}
+      ],
+      tags: ["Python", "Gradio", "BiRefNet", "Node.js", "whisper.cpp", "Ollama", "Remotion", "React", "TypeScript", "Supabase", "Blender", "Shopware 6", "DaVinci Resolve", "Photoshop"]
     },
     {
       when: {en: "Jul 2026 – Oct 2026", de: "Jul 2026 – Okt 2026"},
-      org: "FlyRank AI",
-      role: {en: "Backend AI Developer · Internship", de: "Backend AI Developer · Praktikum"},
-      loc: {en: "Remote", de: "Remote"},
+      org: "FlyRank Corp.",
+      role: {en: "Backend AI Engineering Intern (Remote)", de: "Praktikant Backend AI Engineering (Remote)"},
+      loc: {en: "USA · Remote", de: "USA · Remote"},
       bullets: [
-        {en: "Built and documented practical backend systems using Node.js, Express, SQLite, PostgreSQL, React Flow, Inngest, Docker, and external AI APIs. Work included CRUD APIs, database persistence, authentication, containerized services, polite web scraping, background jobs with retries and idempotency, PDF report generation, AI response validation, and an interactive decision-flow application.",
-         de: "Entwicklung und Dokumentation praktischer Backend-Systeme mit Node.js, Express, SQLite, PostgreSQL, React Flow, Inngest, Docker und externen KI-APIs. Die Arbeit umfasste CRUD-APIs, Datenbankpersistenz, Authentifizierung, containerisierte Dienste, Web-Scraping, Hintergrundjobs mit Retries und Idempotenz, PDF-Generierung, KI-Antwortvalidierung und eine interaktive Entscheidungsfluss-Anwendung."},
-        {en: "For my capstone, I combined authentication, project management, SQLite persistence, background report jobs, PDF generation, and caching into one small evidence hub.",
-         de: "Im Rahmen meines Abschlussprojekts (Capstone) wurden Authentifizierung, Projektmanagement, SQLite-Persistenz, Hintergrundjobs für Berichte, PDF-Generierung und Caching in einem kompakten Evidence-Hub zusammengeführt."},
-        {en: "Alongside the backend track, I completed AI Fluency assignments focused on prompting, workflow design, personal agents, MCP concepts, portfolio development, documentation, testing, and presenting technical work clearly.",
-         de: "Parallel zum Backend-Track absolvierte ich KI-Fluency-Aufgaben mit Fokus auf Prompting, Workflow-Design, persönliche Agenten, MCP-Konzepte, Portfolio-Entwicklung, Dokumentation, Testing und die klare Präsentation technischer Arbeit."},
-        {en: "Focused on writing maintainable code, validating inputs, testing failure cases, documenting limitations, and making each project easy for another developer to understand and run.",
-         de: "Schwerpunkt auf der Entwicklung wartbaren Codes, Eingabevalidierung, Testen von Fehlerfällen, Dokumentation von Einschränkungen und der Sicherstellung, dass jedes Projekt für andere Entwickler leicht verständlich und ausführbar ist."}
+        {en: "14 weeks, 35 assignments, two accepted capstone projects. Built backend services in Node.js and Express with PostgreSQL, SQLite and Docker, documented well enough that another developer could run them straight from the README.",
+         de: "14 Wochen, 35 Aufgaben, zwei angenommene Abschlussprojekte. Backend-Dienste in Node.js und Express mit PostgreSQL, SQLite und Docker geschrieben und so dokumentiert, dass andere Entwickler sie direkt über die README starten können."},
+        {en: "Enforced input and AI-output validation on every REST endpoint before persistence, and built idempotent background jobs (Inngest) that retry without processing data twice.",
+         de: "Eingabe- und KI-Antwort-Validierung an jedem REST-Endpunkt vor dem Speichern umgesetzt sowie Hintergrundjobs (Inngest) gebaut, die neu starten können, ohne Daten doppelt zu verarbeiten."},
+        {en: "Completed the AI Fluency track covering prompting, workflow design, personal agents, MCP concepts, PDF report generation and React Flow decision workflows.",
+         de: "Abschluss des AI-Fluency-Tracks mit Fokus auf Prompting, Workflow-Design, persönliche Agenten, MCP-Konzepte, PDF-Berichtsgenerierung und React-Flow-Entscheidungsworkflows."}
       ],
-      tags: [
-        "Node.js", "Express", "SQLite", "PostgreSQL", "Docker", "Inngest", "AI APIs"
-      ]
+      tags: ["Node.js", "Express", "PostgreSQL", "SQLite", "Docker", "Inngest", "React Flow", "REST APIs", "AI APIs"]
     },
     {
-      when: {en: "Apr 2025 – Oct 2025", de: "Apr 2025 – Okt 2025"},
+      when: {en: "Apr 2025 – Mar 2026", de: "Apr 2025 – Mär 2026"},
       org: "API GmbH",
-      role: {en: "Working Student · Outbound Logistics", de: "Werkstudent · Warenausgangslogistik"},
+      role: {en: "Working Student, Outbound Goods", de: "Werkstudent Warenausgang"},
       loc: {en: "Germany", de: "Deutschland"},
       bullets: [
-        {en: "Managed outbound shipments and kept inventory records up to date while studying full-time.", de: "Verwaltung ausgehender Sendungen und Pflege der Bestandsaufzeichnungen neben einem Vollzeitstudium."},
-        {en: "Worked inside a fully automated warehouse, which gave me a practical, on-the-ground understanding of how Industry 4.0 principles actually get implemented, not just how they're described.", de: "Arbeit in einem vollautomatisierten Lager, was mir ein praktisches, praxisnahes Verständnis dafür vermittelte, wie Industrie 4.0-Prinzipien tatsächlich umgesetzt werden – weit über die reine Theorie hinaus."}
+        {en: "Worked part-time during my studies inside a fully automated Industry 4.0 warehouse, handling outbound goods and stock directly alongside the automated material flow and warehouse management system.",
+         de: "Neben dem Studium im Warenausgang eines vollautomatisierten Industrie-4.0-Lagers gearbeitet — direkt am automatischen Materialfluss und am Lagerverwaltungssystem."}
       ],
       tags: [
-        {en: "Logistics", de: "Logistik"},
-        {en: "Inventory", de: "Bestandsverwaltung"},
         {en: "Industry 4.0", de: "Industrie 4.0"},
+        {en: "Material Flow", de: "Materialfluss"},
+        {en: "WMS", de: "Lagerverwaltung (LVS)"},
+        {en: "Outbound Goods", de: "Warenausgang"},
         {en: "Warehouse Automation", de: "Lagerautomatisierung"}
       ]
     },
-        {
-      when: {en: "Jun 2020 – Jul 2022 · Part-time", de: "Jun 2020 – Jul 2022 · Teilzeit"},
+    {
+      when: {en: "Nov 2021 · 2 weeks", de: "Nov 2021 · 2 Wochen"},
+      org: "MP Poorv Kshetra Vidyut Vitaran Co. Ltd.",
+      role: {en: "Intern, Power Transmission and Distribution", de: "Praktikant Energieübertragung und -verteilung"},
+      loc: {en: "Jabalpur, India · State power utility", de: "Jabalpur, Indien · Staatlicher Stromversorger"},
+      bullets: [
+        {en: "Two weeks at the utility’s Central Training Institute, observing how the electrical grid is monitored and switched in live operation with SCADA.",
+         de: "Zwei Wochen am zentralen Ausbildungsinstitut des Versorgers; dabei gesehen, wie das Stromnetz im Live-Betrieb mit SCADA überwacht und geschaltet wird."}
+      ],
+      tags: [
+        "SCADA",
+        {en: "Power Transmission", de: "Energieübertragung"},
+        {en: "Power Distribution", de: "Energieverteilung"},
+        {en: "Grid Infrastructure", de: "Netzinfrastruktur"}
+      ]
+    },
+    {
+      when: {en: "2020 – 2022 · Part-time", de: "2020 – 2022 · Teilzeit"},
       org: "TSD Corporation Limited",
       role: {en: "Digital Marketing Intern", de: "Praktikant Digital Marketing"},
       loc: {en: "Remote", de: "Remote"},
@@ -1771,32 +1920,18 @@ const DATA = {
         {en: "Analysed campaign data and produced Excel reports for client projects.", de: "Analyse von Kampagnendaten und Erstellung von Excel-Berichten für Kundenprojekte."}
       ],
       tags: [
-        "Digital Marketing", 
-        {en: "Data Analysis", de: "Datenanalyse"}, 
+        "Digital Marketing",
+        {en: "Data Analysis", de: "Datenanalyse"},
         "Excel"
       ]
     },
     {
-      when: {en: "2021 · 3-week internship", de: "2021 · 3-wöchiges Praktikum"},
-      org: "Madhya Pradesh Electricity Board",
-      role: {en: "Internship · Power Distribution", de: "Praktikum · Energieverteilung"},
-      loc: {en: "India", de: "Indien"},
-      bullets: [
-        {en: "Observed how electricity distribution for a city actually works end to end, from substations through to the distribution network.", de: "Einblick in die vollständige Stromverteilung einer Stadt – vom Umspannwerk bis zum Verteilungsnetz."},
-        {en: "Got exposure to SCADA systems in a live operational setting, seeing how grid monitoring and control actually function in practice rather than just on paper.", de: "Praxisnahe Erfahrungen mit SCADA-Systemen im realen Betriebsumfeld gesammelt und beobachtet, wie Netzüberwachung und -steuerung tatsächlich funktionieren."}
-      ],
-      tags: [
-        {en: "Power Distribution", de: "Energieverteilung"},
-        "SCADA",
-        {en: "Grid Infrastructure", de: "Netzinfrastruktur"}
-      ]    },
-    {
-      when: {en: "Dec 2018 – Feb 2019", de: "Dez 2018 – Feb 2019"},
+      when: {en: "2018 – 2019", de: "2018 – 2019"},
       org: "Techniker Krankenkasse (TK)",
       role: {en: "Customer Advisor", de: "Kundenberater"},
       loc: {en: "Germany", de: "Deutschland"},
       bullets: [
-        {en: "Handled sales for Techniker Krankenkasse.", de: "Zuständig für den Vertrieb der Techniker Krankenkasse."}
+        {en: "Customer advisory and sales support for Techniker Krankenkasse.", de: "Kundenberatung und Vertriebsunterstützung für die Techniker Krankenkasse."}
       ],
       tags: [
         {en: "Sales", de: "Vertrieb"},
@@ -1804,32 +1939,35 @@ const DATA = {
       ]
     }
   ],
+
   education: [
     {
       org:"RWTH Aachen University",
       role:{en:"M.Sc. Computer &amp; Media Engineering", de:"M.Sc. Computer &amp; Media Engineering"},
-      when:{en:"Since April 2024", de:"seit April 2024"},
+      when:{en:"Apr 2024 – present", de:"seit Apr 2024"},
       loc:{en:"Aachen", de:"Aachen"},
       bullets:[
-        {en:"My specialisations are Extended Reality (VR/AR), AI and machine learning, and audio signal processing.", de:"Meine Schwerpunkte sind Extended Reality (VR/AR), Künstliche Intelligenz und Machine Learning sowie Audiosignalverarbeitung."},
-        {en:"In Virtual Reality 1 I worked on immersive application development and interaction techniques, including HMD integration.", de:"Im Modul Virtual Reality 1 habe ich an immersiver Anwendungsentwicklung und Interaktionstechniken gearbeitet, einschließlich HMD-Integration."},
-        {en:"I'm currently doing lab work in Acoustic Virtual Reality, applying spatial audio and signal processing methods in Python and Jupyter Notebook.", de:"Aktuell bin ich im Labor Akustische Virtuelle Realität, wo ich räumliches Audio und Signalverarbeitungsmethoden mit Python und Jupyter Notebook praktisch anwende."},
-        {en:"Other relevant modules: Introduction to AI, Digital Image Processing, Robotics &amp; Human-Machine Interaction.", de:"Weitere relevante Module: Einführung in die KI, Digital Image Processing, Robotik &amp; Mensch-Maschine-Interaktion."}
+        {en:"Focus on XR, AI/ML and audio signal processing. Modules include Virtual Reality I and II (VR II oral exam: 1.3), Acoustic Virtual Reality, Digital Image Processing and Introduction to Artificial Intelligence.",
+         de:"Schwerpunkte XR, KI/ML und Audiosignalverarbeitung. Module u. a. Virtual Reality I und II (mündliche Prüfung VR II: 1,3), Acoustic Virtual Reality, Digitale Bildverarbeitung und Einführung in die Künstliche Intelligenz."},
+        {en:"Seminar on VLA-JEPA, a vision-language-action model for robots, with a written report and a talk — while checking the maths I found two mistakes in the paper itself.",
+         de:"Seminar zu VLA-JEPA, einem Vision-Language-Action-Modell für Roboter, mit schriftlicher Ausarbeitung und Vortrag — beim Nachrechnen habe ich zwei Fehler im Paper selbst gefunden."},
+        {en:"Acoustic Virtual Reality lab work: binaural synthesis with HRTFs, crosstalk cancellation and VBAP in Python (pyfar, NumPy, SciPy), and room acoustics with the image source model in MATLAB and RAVEN.",
+         de:"Laborarbeit Acoustic Virtual Reality: binaurale Synthese mit HRTFs, Übersprechkompensation (Crosstalk Cancellation) und VBAP in Python (pyfar, NumPy, SciPy) sowie Raumakustik mit dem Spiegelschallquellenverfahren in MATLAB und RAVEN."}
       ],
-      tags:["XR","Machine Learning","Signal Processing","Python"]
+      tags:["XR","AI / ML","Audio Signal Processing","Virtual Reality","Python","VLA-JEPA","MATLAB"]
     },
-        {
+    {
       org:"FH Aachen University of Applied Sciences",
       role:{en:"B.Eng. Electrical Engineering", de:"B.Eng. Elektrotechnik"},
-      when:{en:"Sep 2018 – Dec 2023 · Grade 2.8", de:"Sep 2018 – Dez 2023 · Note 2,8"},
+      when:{en:"Sep 2018 – Dec 2023", de:"Sep 2018 – Dez 2023"},
       loc:{en:"Campus Jülich", de:"Campus Jülich"},
       bullets:[
-        {en:"Specialisation in power engineering (Energietechnik)", de:"Schwerpunkt Energietechnik"},
-        {en:"Thesis on India's energy mix, specifically non-CO₂ emitting sources including nuclear power (grade 2.3)", de:"Bachelorarbeit über den indischen Energiemix, speziell zu CO₂-freien Energiequellen einschließlich Kernenergie (Note 2,3)"},
-        {en:"Control and regulation engineering, measurement technology, and digital electronics were the modules I actually enjoyed", de:"Steuerungs- und Regelungstechnik, Messtechnik und Digitaltechnik waren die Module, die mir am meisten Freude bereitet haben"},
-        {en:"Core coursework also included Applied Transmission Line Theory (1.0), Electrical Machines, Measurement Technology 1 & 2, and High Voltage Technology", de:"Zu den weiteren Kernfächern zählten Angewandte Leitungstheorie (1,0), Elektrische Maschinen, Messtechnik 1 & 2 sowie Hochspannungstechnik"},
-        {en:"PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently, street lighting control, crane control, a water reactor simulation, a star-delta motor switching circuit, and an industrial wash cycle, each one taken from schematic design through programming to commissioning and documentation", de:"SPS-Praktikum (PC Worx, IEC 61131-3): Fünf eigenständig entwickelte Automatisierungsprojekte (Straßenbeleuchtung, Kransteuerung, Wasserreaktorsimulation, Stern-Dreieck-Schaltung, industrieller Waschzyklus), jeweils von der Schaltplanerstellung über die Programmierung bis zur Inbetriebnahme und Dokumentation"},
-        {en:"Used MATLAB/Simulink to model and simulate dynamic systems, including the water reactor, crane control, and traffic light systems, as a complement to the hands-on PLC work", de:"Nutzung von MATLAB/Simulink zur Modellierung und Simulation dynamischer Systeme (u.a. Wasserreaktor, Kransteuerung, Ampelanlagen) als Ergänzung zur praktischen SPS-Arbeit"}
+        {en:"Taught entirely in German, specialisation in power engineering (Energietechnik). Modules include Control Engineering, Automation and Process Control, Electrical Drives and Machines, Measurement Technology, Power Distribution and High-Voltage Engineering.",
+         de:"Studium komplett auf Deutsch, Vertiefung Energietechnik. Module u. a. Regelungstechnik, Automatisierungs- und Leittechnik, Elektrische Antriebe und Maschinen, Messtechnik, Energieverteilung und Hochspannungstechnik."},
+        {en:"PLC lab (PC Worx, IEC 61131-3): five complete automation projects built independently from circuit design through commissioning and documentation, plus PID and state-space controllers in MATLAB/Simulink.",
+         de:"SPS-Praktikum (PC Worx, IEC 61131-3): fünf eigenständige Automatisierungsprojekte vom Schaltplan bis zur Inbetriebnahme und Dokumentation, ergänzt durch PID- und Zustandsregler in MATLAB/Simulink."},
+        {en:"Bachelor thesis on India’s energy mix and the potential of nuclear power (grade: good).",
+         de:"Bachelorarbeit zum indischen Energiemix und zum Potenzial der Kernenergie (Note: gut)."}
       ],
       tags:[
         {en:"Power Engineering", de:"Energietechnik"},
@@ -1837,7 +1975,8 @@ const DATA = {
         {en:"PLC", de:"SPS"},
         "PC Worx",
         "MATLAB",
-        "Simulink"
+        "Simulink",
+        {en:"High-Voltage Engineering", de:"Hochspannungstechnik"}
       ]
     }
   ],
@@ -1845,27 +1984,90 @@ const DATA = {
   projects: [
     {
       group:"eng",
-      t:{en:"PLC Automation Projects, PC Worx (FH Aachen)", de:"SPS-Automatisierungsprojekte, PC Worx (FH Aachen)"},
-      d:{en:"Five complete automation projects built to IEC 61131-3: street lighting control, crane control, a water reactor simulation, star-delta motor switching, and an industrial wash cycle. Each included schematic design, programming, commissioning, and full documentation.",
-         de:"Fünf vollständige Automatisierungsprojekte nach IEC 61131-3: Straßenbeleuchtungssteuerung, Kransteuerung, Wasserreaktorsimulation, Stern-Dreieck-Motorschaltung und industrieller Waschzyklus. Jeweils mit Schaltplanerstellung, Programmierung, Inbetriebnahme und vollständiger Dokumentation."},
-      stack: {en:"PC Worx · IEC 61131-3 · Commissioned", de:"PC Worx · IEC 61131-3 · In Betrieb genommen"},
-      tags:["PLC","Automation","PC Worx"]
+      t:{en:"Circuit Breaker Control with Telecontrol Link", de:"Leistungsschalter-Steuerung mit Fernwirk-Anbindung"},
+      d:{en:"Personal project exploring how a substation refuses an unsafe remote command: built breaker control with interlocking logic in CODESYS and linked it to a Python control centre over IEC 60870-5-104 with a small browser-based HMI.",
+         de:"Eigenprojekt zur Untersuchung, wie ein Umspannwerk einen unzulässigen Fernbefehl ablehnt: Leistungsschalter-Steuerung mit Verriegelungslogik in CODESYS umgesetzt und über IEC 60870-5-104 mit einer Leitstelle in Python sowie einer kleinen Browser-HMI verbunden."},
+      stack: {en:"CODESYS · IEC 60870-5-104 · Python · Browser HMI", de:"CODESYS · IEC 60870-5-104 · Python · Browser-HMI"},
+      tags:["CODESYS","IEC 60870-5-104","Python","HMI"]
+    },
+    {
+      group:"eng",
+      t:{en:"Five PLC Automation Projects, PC Worx (FH Aachen)", de:"Fünf SPS-Automatisierungsprojekte, PC Worx (FH Aachen)"},
+      d:{en:"A crane, star-delta motor switching, an industrial wash cycle, street lighting, and a water reactor simulation programmed to IEC 61131-3 in PC Worx (LD, FBD, IL) from circuit design through commissioning, fault finding, and documentation — alongside Siemens TIA Portal basics and PID/state-space controllers in MATLAB/Simulink.",
+         de:"Kran, Stern-Dreieck-Motorschaltung, industrieller Waschzyklus, Straßenbeleuchtung und Wasserreaktor-Simulation nach IEC 61131-3 in PC Worx (KOP, FUP, AWL), jeweils vom Schaltplan über Inbetriebnahme und Fehlersuche bis zur Dokumentation — ergänzt durch Siemens TIA Portal (Grundlagen) sowie PID- und Zustandsregler in MATLAB/Simulink."},
+      stack: {en:"PC Worx · IEC 61131-3 · TIA Portal (basics) · MATLAB/Simulink", de:"PC Worx · IEC 61131-3 · TIA Portal (Grundlagen) · MATLAB/Simulink"},
+      tags:["PLC","Automation","PC Worx","TIA Portal"]
+    },
+    {
+      group:"xr",
+      t:{en:"Acoustic Virtual Reality Lab, RWTH Aachen", de:"Labor Acoustic Virtual Reality, RWTH Aachen"},
+      d:{en:"Binaural synthesis with HRTFs, crosstalk cancellation, and VBAP in Python (pyfar, NumPy, SciPy), alongside room acoustics simulation with the image source model in MATLAB and RAVEN.",
+         de:"Binaurale Synthese mit HRTFs, Übersprechkompensation (Crosstalk Cancellation) und VBAP in Python (pyfar, NumPy, SciPy) sowie Raumakustik mit dem Spiegelschallquellenverfahren in MATLAB und RAVEN."},
+      stack: {en:"Python · pyfar · NumPy · SciPy · MATLAB · RAVEN", de:"Python · pyfar · NumPy · SciPy · MATLAB · RAVEN"},
+      tags:["Spatial Audio","XR","pyfar","MATLAB"]
+    },
+    {
+      group:"xr",
+      t:{en:"NeonRiftArena", de:"NeonRiftArena"},
+      d:{en:"A Unity 6.5 desktop/XR-ready combat arena that rebuilds playable spaces from simulated room scans, constraints, and safe-area data.",
+         de:"Eine Unity 6.5 Desktop/XR-fähige Kampfarena, die spielbare Räume aus simulierten Raumscans, Einschränkungen und Sicherheitszonen-Daten rekonstruiert."},
+      stack: {en:"Unity · C# · XR", de:"Unity · C# · XR"},
+      tags:["Unity","C#","XR"],
+      repo: "https://github.com/aayushmotwani-dev/NeonRiftArena"
+    },
+    {
+      group:"xr",
+      t:{en:"RedlineRenegades", de:"RedlineRenegades"},
+      d:{en:"A Unity 6.5 3D arcade motorcycle-combat racer inspired by Road Rash, featuring procedural mountain roads, directional melee, rivals, traffic, and a Windows vertical slice.",
+         de:"Ein Unity 6.5 3D-Arcade-Motorrad-Kampfrennspiel nach dem Vorbild von Road Rash mit prozeduralen Bergstraßen, direktionalem Nahkampf, Rivalen, Verkehr und einem Windows-Vertical-Slice."},
+      stack: {en:"Unity · C#", de:"Unity · C#"},
+      tags:["Unity","C#","Gaming"],
+      repo: "https://github.com/aayushmotwani-dev/RedlineRenegades"
     },
     {
       group:"ai",
-      t:{en:"Acoustic Virtual Reality Lab, RWTH Aachen", de:"Labor Akustische Virtuelle Realität, RWTH Aachen"},
-      d:{en:"Hands-on lab work in spatial audio and virtual acoustics, applying signal processing methods to an XR context using Python and Jupyter Notebook.",
-         de:"Praktische Laborarbeit im Bereich räumliches Audio und virtuelle Akustik. Anwendung von Signalverarbeitungsmethoden in einem XR-Kontext mit Python und Jupyter Notebook."},
-      stack: {en:"Python · Jupyter · Signal Processing", de:"Python · Jupyter · Signalverarbeitung"},
-      tags:["Spatial Audio","XR","Python"]
+      t:{en:"Quire — Cross-Platform EPUB Reader", de:"Quire — Plattformübergreifender EPUB-Reader"},
+      d:{en:"An offline-first EPUB, comic, and PDF reader for Windows, macOS, iPhone, and Android built with foliate-js, Electron, Capacitor 8, WebGL page curl, an offline WordNet dictionary, and automated GitHub Actions builds (still in active development).",
+         de:"Ein lokaler E-Book-Reader (EPUB, Comics, PDF) für Windows, macOS, iPhone und Android auf Basis von foliate-js, Electron, Capacitor 8, WebGL-Seitenumblättern, Offline-Wörterbuch und automatisierten GitHub-Actions-Builds (noch in aktiver Entwicklung)."},
+      stack: {en:"JavaScript · Electron · Capacitor 8 · WebGL · GitHub Actions", de:"JavaScript · Electron · Capacitor 8 · WebGL · GitHub Actions"},
+      tags:["Electron","Capacitor","WebGL","GitHub Actions"],
+      repo: "https://github.com/aayushmotwani-dev/Quire-Epub-Reader"
     },
     {
       group:"ai",
-      t:{en:"AI-assisted tools and automation", de:"KI-gestützte Tools und Automatisierung"},
-      d:{en:"A small but working n8n workflow that monitors a live data feed and fires a notification once defined conditions are met. Cursor, Claude, and Claude Code are part of my regular setup for Python work.",
-         de:"Ein kleiner, aber funktionierender n8n-Workflow, der einen Live-Datenfeed überwacht und bei definierten Bedingungen eine Benachrichtigung auslöst. Cursor, Claude und Claude Code gehören zu meiner regelmäßigen Arbeitsumgebung in Python-Projekten."},
-      stack: {en:"n8n · Python · AI Tools", de:"n8n · Python · KI-Tools"},
-      tags:["n8n","Cursor","Claude"]
+      t:{en:"FlyRank AI — Backend Engineering Portfolio", de:"FlyRank AI — Backend-Engineering-Portfolio"},
+      d:{en:"Structured 9-week repository of Node.js and Express backend services covering SQLite, PostgreSQL, authentication, Docker, polite scraping, idempotent Inngest workers, AI output validation, PDF report generation, and React Flow decision workflows.",
+         de:"Strukturiertes 9-Wochen-Repository mit Backend-Diensten in Node.js und Express zu SQLite, PostgreSQL, Authentifizierung, Docker, Web-Scraping, idempotenten Inngest-Workern, KI-Antwortvalidierung, PDF-Berichten und React-Flow-Entscheidungsworkflows."},
+      stack: {en:"Node.js · Express · PostgreSQL · SQLite · Docker · Inngest", de:"Node.js · Express · PostgreSQL · SQLite · Docker · Inngest"},
+      tags:["Node.js","PostgreSQL","Docker","Inngest"],
+      repo: "https://github.com/aayushmotwani-dev/flyrank-internship"
+    },
+    {
+      group:"ai",
+      t:{en:"Kellermann Studio App", de:"Kellermann Studio App"},
+      d:{en:"A bilingual React/Vite production workspace for planning shooting schedules, reviewing EN/DE scripts, and approving teleprompter content in real time with Supabase.",
+         de:"Ein zweisprachiger React/Vite-Produktionsarbeitsbereich für die Planung von Drehplänen, die Überprüfung von EN/DE-Skripten und die Freigabe von Teleprompter-Inhalten in Echtzeit mit Supabase."},
+      stack: {en:"React · Vite · TypeScript · Supabase", de:"React · Vite · TypeScript · Supabase"},
+      tags:["React","Vite","Supabase"],
+      repo: "https://github.com/aayushmotwani-dev/Kellermann-studioapp",
+      demo: "https://kellermann-studio.vercel.app"
+    },
+    {
+      group:"ai",
+      t:{en:"Automated Job Search Pipeline", de:"Automatisierte Jobsuche-Pipeline"},
+      d:{en:"Automated pipeline that pulls new job listings daily from the Bundesagentur für Arbeit API into Supabase for structured filtering and tracking.",
+         de:"Automatisierte Pipeline, die täglich neue Stellenangebote über die API der Bundesagentur für Arbeit in Supabase lädt."},
+      stack: {en:"Bundesagentur für Arbeit API · Supabase · Automation", de:"Bundesagentur-für-Arbeit-API · Supabase · Automatisierung"},
+      tags:["REST API","Supabase","Automation"]
+    },
+    {
+      group:"ai",
+      t:{en:"Kellermann AI Marketing Dashboard", de:"Kellermann KI-Marketing-Dashboard"},
+      d:{en:"A Python/Streamlit social media command center for Kellermann GmbH, comparing platform, product, format, and AI-vs-human caption performance from a simulated dataset.",
+         de:"Ein Python/Streamlit Social-Media-Kontrollzentrum für die Kellermann GmbH, das Plattform-, Produkt- und Formatperformance sowie KI- vs. menschliche Textleistung anhand eines simulierten Datensatzes vergleicht."},
+      stack: {en:"Python · Streamlit", de:"Python · Streamlit"},
+      tags:["Python","Data Science"],
+      repo: "https://github.com/aayushmotwani-dev/kellermann-ai-marketing-dashboard-for-interview"
     },
     {
       group:"ai",
@@ -1907,177 +2109,100 @@ const DATA = {
     },
     {
       group:"ai",
-      t:{en:"NeonRiftArena", de:"NeonRiftArena"},
-      d:{en:"A Unity 6.5 desktop/XR-ready combat arena that rebuilds playable spaces from simulated room scans, constraints, and safe-area data.",
-         de:"Eine Unity 6.5 Desktop/XR-fähige Kampfarena, die spielbare Räume aus simulierten Raumscans, Einschränkungen und Sicherheitszonen-Daten rekonstruiert."},
-      stack: {en:"Unity · C# · XR", de:"Unity · C# · XR"},
-      tags:["Unity","C#","XR"],
-      repo: "https://github.com/aayushmotwani-dev/NeonRiftArena"
-    },
-    {
-      group:"ai",
-      t:{en:"RedlineRenegades", de:"RedlineRenegades"},
-      d:{en:"A Unity 6.5 3D arcade motorcycle-combat racer with procedural mountain roads, directional melee, rivals, traffic, and a polished Windows vertical slice.",
-         de:"Ein Unity 6.5 3D-Arcade-Motorradrennspiel mit prozeduralen Bergstraßen, direktionalem Nahkampf, Rivalen, Verkehr und einem polierten Windows-Vertical-Slice."},
-      stack: {en:"Unity · C#", de:"Unity · C#"},
-      tags:["Unity","C#","Gaming"],
-      repo: "https://github.com/aayushmotwani-dev/RedlineRenegades"
-    },
-    {
-      group:"ai",
-      t:{en:"Kellermann AI Marketing Dashboard", de:"Kellermann KI-Marketing-Dashboard"},
-      d:{en:"A Python/Streamlit social media command center for Kellermann GmbH, comparing platform, product, format, and AI-vs-human caption performance from a simulated dataset.",
-         de:"Ein Python/Streamlit Social-Media-Kontrollzentrum für die Kellermann GmbH, das Plattform-, Produkt- und Formatperformance sowie KI- vs. menschliche Textleistung anhand eines simulierten Datensatzes vergleicht."},
-      stack: {en:"Python · Streamlit", de:"Python · Streamlit"},
-      tags:["Python","Data Science"],
-      repo: "https://github.com/aayushmotwani-dev/kellermann-ai-marketing-dashboard-for-interview"
-    },
-    {
-      group:"ai",
-      t:{en:"Kellermann Studio App", de:"Kellermann Studio App"},
-      d:{en:"A bilingual React/Vite production workspace for planning shooting schedules, reviewing EN/DE scripts, and approving teleprompter content in real time with Supabase.",
-         de:"Ein zweisprachiger React/Vite-Produktionsarbeitsbereich für die Planung von Drehplänen, die Überprüfung von EN/DE-Skripten und die Freigabe von Teleprompter-Inhalten in Echtzeit mit Supabase."},
-      stack: {en:"React · Vite · TypeScript · Supabase", de:"React · Vite · TypeScript · Supabase"},
-      tags:["React","Vite","Supabase"],
-      repo: "https://github.com/aayushmotwani-dev/Kellermann-studioapp",
-      demo: "https://kellermann-studio.vercel.app"
+      t:{en:"AI Tools &amp; Local Media Pipelines", de:"KI-Werkzeuge &amp; lokale Medien-Pipelines"},
+      d:{en:"Daily engineering workflows with Claude Code, ChatGPT/Codex, and Cursor — reading and testing generated code like a colleague’s work — alongside local AI media pipelines (whisper.cpp, Ollama, Remotion) and MCP connections to Unity, Blender, and DaVinci Resolve.",
+         de:"Tägliche Entwicklungsarbeit mit Claude Code, ChatGPT/Codex und Cursor — wobei generierter Code wie die Arbeit von Kollegen gelesen und getestet wird — ergänzt durch lokale Medien-Pipelines (whisper.cpp, Ollama, Remotion) und MCP-Anbindungen an Unity, Blender und DaVinci Resolve."},
+      stack: {en:"Claude Code · Codex · Cursor · Ollama · whisper.cpp · MCP", de:"Claude Code · Codex · Cursor · Ollama · whisper.cpp · MCP"},
+      tags:["Claude Code","MCP","Ollama"]
     },
     {
       group:"ai",
       t:{en:"GitHub portfolio", de:"GitHub-Portfolio"},
-      d:{en:"A handful of things built outside coursework: Vinyl Deck, an interactive Spotify web player styled as a vinyl turntable (React, Vite); a bilingual website for a family pharmacy business, built with Antigravity; Manuscripta, a writing environment for authors with character mapping and a timeline tool (React, Tiptap); ChronoVerse, a multi-theme clock widget with AI-generated insights via the Gemini API; and a Streamlit dashboard for social media metrics (Python, Pandas).",
-         de:"Ein paar Projekte außerhalb des Studiums: Vinyl Deck, ein interaktiver Spotify-Webplayer im Vinyl-Design (React, Vite); eine zweisprachige Website für ein Familienunternehmen im Apothekenbereich, umgesetzt mit Antigravity; Manuscripta, eine Schreibumgebung für Autoren mit Charakterkarten und einem Zeitleisten-Tool (React, Tiptap); ChronoVerse, ein Multi-Themen-Uhr-Widget mit KI-gestützten Insights über die Gemini API; sowie ein Streamlit-Dashboard zur Auswertung von Social-Media-Kennzahlen (Python, Pandas)."},
-      stack: {en:"React · Python · APIs", de:"React · Python · APIs"},
-      tags:["React","Python","Web Apps"],
+      d:{en:"Complete overview of public repositories and side projects including Quire, FlyRank Backend Engineering, Unity XR/game prototypes, Manuscripta, Vinyl Deck, ChronoVerse, Kellermann Studio, and automation tooling.",
+         de:"Gesamtübersicht aller öffentlichen Repositories und Eigenprojekte, darunter Quire, FlyRank Backend Engineering, Unity-XR-/Spielprototypen, Manuscripta, Vinyl Deck, ChronoVerse, Kellermann Studio sowie Automatisierungs-Tools."},
+      stack: {en:"Python · TypeScript · Node.js · C# · APIs", de:"Python · TypeScript · Node.js · C# · APIs"},
+      tags:["GitHub","Open Source","Full-Stack"],
       repo: "https://github.com/aayushmotwani-dev"
     }
   ],
 
   projectGroups: {
-    ai:    {en:"Software &amp; Tools", de:"Software &amp; Tools"},
-    eng:   {en:"Engineering &amp; Systems", de:"Technik &amp; Systeme"}
+    eng: {en:"Automation &amp; Electrical Engineering", de:"Automatisierung &amp; Elektrotechnik"},
+    xr:  {en:"XR, Audio &amp; Interactive Prototypes", de:"XR, Audio &amp; Interaktive Prototypen"},
+    ai:  {en:"Software, Backend &amp; AI Tools", de:"Software, Backend &amp; KI-Tools"}
   },
 
-    skills: [
+  skills: [
     {
-      l: {en: "Programming", de: "Programmierung"},
-      items: [
-        {
-          en: "<b>Python (NumPy, pandas, Matplotlib, scikit-learn, Jupyter Notebook)</b> — used across coursework, lab work, and personal projects",
-          de: "<b>Python (NumPy, pandas, Matplotlib, scikit-learn, Jupyter Notebook)</b> — aus Studium, Laborarbeit und eigenen Projekten"
-        },
-        {
-          en: "<b>MATLAB/Simulink</b> — academic use only",
-          de: "<b>MATLAB/Simulink</b> — ausschließlich akademisch"
-        },
-        {
-          en: "<b>HTML/CSS/JavaScript</b> — basic, from an early programming course",
-          de: "<b>HTML/CSS/JavaScript</b> — Grundkenntnisse, aus einem frühen Programmierkurs"
-        }
-      ]
-    },
-    {
-      l: {en: "Electrical Engineering & Automation", de: "Elektrotechnik & Automatisierung"},
-      items: [
-        {
-          en: "<b>PLC programming (PC Worx, IEC 61131-3)</b> — five complete independent projects",
-          de: "<b>SPS-Programmierung (PC Worx, IEC 61131-3)</b> — fünf vollständig eigenständige Projekte"
-        },
-        {
-          en: "<b>Control and regulation engineering, measurement technology</b> — from B.Eng. coursework and lab work",
-          de: "<b>Steuerungs- und Regelungstechnik, Messtechnik</b> — aus dem B.Eng.-Studium und der Laborarbeit"
-        }
-      ]
-    },
-    {
-      l: {en: "XR", de: "XR"},
-      items: [
-        {
-          en: "<b>VR application development, HMD integration</b> — through the Virtual Reality 1 module and ongoing Acoustic VR lab work; not yet built independently outside coursework",
-          de: "<b>VR-Anwendungsentwicklung, HMD-Integration</b> — durch das Modul Virtual Reality 1 und die laufende Laborarbeit Akustische Virtuelle Realität; noch nicht eigenständig außerhalb des Studiums umgesetzt"
-        }
-      ]
-    },
-    {
-      l: {en: "AI & Machine Learning", de: "KI & Machine Learning"},
-      items: [
-        {
-          en: "<b>Supervised learning (classification, regression), data preprocessing, basic neural network concepts</b> — from an ongoing course and one university module",
-          de: "<b>Supervised Learning (Klassifikation, Regression), Datenvorverarbeitung, Grundlagen neuronaler Netze</b> — aus einem laufenden Kurs und einem Hochschulmodul"
-        }
-      ]
-    },
-    {
-      l: {en: "AI Tools (Daily)", de: "KI-Tools (Regelmäßig)"},
+      l: {en: "Automation &amp; Electrical", de: "Automatisierung &amp; Elektrotechnik"},
       tags: [
-        {en: "Cursor", de: "Cursor"},
-        {en: "Claude", de: "Claude"},
-        {en: "Claude Code", de: "Claude Code"}
+        "IEC 61131-3", "CODESYS", "PC Worx",
+        {en: "Siemens TIA Portal (basics)", de: "Siemens TIA Portal (Grundlagen)"},
+        {en: "B&amp;R Automation Studio (basic)", de: "B&amp;R Automation Studio (Grundkenntnisse)"},
+        {en: "Commissioning &amp; Fault Finding", de: "Inbetriebnahme &amp; Fehlersuche"},
+        "IEC 60870-5-104",
+        {en: "SCADA (basics)", de: "SCADA-Grundlagen"},
+        "MATLAB / Simulink"
       ]
     },
     {
-      l: {en: "AI Tools (Media & Content)", de: "KI-Tools (Medien & Content)"},
+      l: {en: "Software &amp; Backend", de: "Software &amp; Backend"},
       tags: [
-        {en: "IC-Light", de: "IC-Light"}
+        "Python (NumPy, pandas, SciPy, Gradio)", "TypeScript", "Node.js", "Express",
+        "React", "Next.js", "PostgreSQL", "SQLite", "Supabase", "REST APIs",
+        "Docker", "Git", "GitHub Actions"
       ]
     },
     {
-      l: {en: "Currently Learning", de: "Aktuell in Einarbeitung"},
-      items: [
-        {
-          en: "<b>Blender</b> — early-stage, started recently; basic 3D product visualization, learning independently outside work deliverables",
-          de: "<b>Blender</b> — kürzlich begonnen; grundlegende 3D-Produktvisualisierung, eigenständiges Lernen außerhalb der Arbeitsaufgaben"
-        }
-      ]
-    },
-    {
-      l: {en: "AI Tools (Projects)", de: "KI-Tools (Projekte)"},
+      l: {en: "XR, 3D &amp; Media", de: "XR, 3D &amp; Medien"},
       tags: [
-        {en: "Higgsfield", de: "Higgsfield"},
-        {en: "Google AI Studio", de: "Google AI Studio"},
-        {en: "Lovable", de: "Lovable"},
-        {en: "Antigravity (no-code)", de: "Antigravity (No-Code)"},
-        {en: "n8n (workflow automation)", de: "n8n (Workflow-Automatisierung)"}
+        {en: "Unity &amp; C# (beginner)", de: "Unity mit C# (Einsteiger)"},
+        "Meta XR SDK", "OpenXR", "XR Interaction Toolkit", "Meta Quest", "pyfar",
+        {en: "Blender (basic)", de: "Blender (Grundkenntnisse)"},
+        "DaVinci Resolve", "Photoshop"
       ]
     },
     {
-      l: {en: "Software", de: "Software"},
+      l: {en: "AI Tools &amp; Workflows", de: "KI-Werkzeuge &amp; Workflows"},
       tags: [
-        {en: "DaVinci Resolve", de: "DaVinci Resolve"},
-        {en: "Adobe Photoshop", de: "Adobe Photoshop"},
-        {en: "Adobe Firefly", de: "Adobe Firefly"},
-        {en: "CapCut", de: "CapCut"},
-        {en: "Shopware 6", de: "Shopware 6"},
-        {en: "MS Office", de: "MS Office"},
-        {en: "Git (basic)", de: "Git (Grundkenntnisse)"}
+        "Claude Code", "ChatGPT / Codex", "Cursor", "Ollama", "whisper.cpp",
+        {en: "MCP (Unity, Blender, DaVinci Resolve)", de: "MCP-Anbindungen (Unity, Blender, DaVinci Resolve)"},
+        "BiRefNet", "Remotion", "n8n"
       ]
     },
     {
       l: {en: "Certifications", de: "Zertifikate"},
       items: [
-        {en: "Introduction to Python Programming (HPC.NRW)", de: "Einführung in die Programmierung mit Python (HPC.NRW)"},
-        {en: "Data Science, AI & Machine Learning (Udemy)", de: "Data Science, KI & Machine Learning (Udemy)"},
-        {en: "IELTS Academic (Band 7.5)", de: "IELTS Academic (Band 7.5)"}
+        {en: "<b>FlyRank Internship Certificates</b> — Backend AI Engineering and AI Fluency (10/2026)", de: "<b>FlyRank-Praktikumszertifikate</b> — Backend AI Engineering und AI Fluency (10/2026)"},
+        {en: "<b>Introduction to Programming with Python</b> — University of Bonn / HPC.NRW (11/2025)", de: "<b>Introduction to Programming with Python</b> — Universität Bonn / HPC.NRW (11/2025)"},
+        {en: "<b>IELTS Academic</b> — Band 7.5 (C1)", de: "<b>IELTS Academic</b> — Band 7,5 (C1)"}
       ]
     },
     {
       l: {en: "Languages", de: "Sprachen"},
       items: [
-        {en: "German (B2 certified)", de: "Deutsch (B2-Zertifikat)"},
-        {en: "English (C1, IELTS 7.5)", de: "Englisch (C1, IELTS 7.5)"},
-        {en: "Hindi (native)", de: "Hindi (Muttersprache)"}
+        {en: "<b>German</b> — B2 certified (Bachelor’s degree completed in German)", de: "<b>Deutsch</b> — B2 (zertifiziert), Bachelorstudium komplett auf Deutsch"},
+        {en: "<b>English</b> — C1 (IELTS Academic 7.5)", de: "<b>Englisch</b> — C1 (IELTS Academic 7,5)"},
+        {en: "<b>Hindi</b> — Native", de: "<b>Hindi</b> — Muttersprache"}
+      ]
+    },
+    {
+      l: {en: "Interests &amp; Availability", de: "Interessen &amp; Verfügbarkeit"},
+      items: [
+        {en: "<b>Interests</b> — Filmmaking and screenwriting, writing short stories, building PCs, VR and AR hardware", de: "<b>Interessen</b> — Filme drehen und Drehbücher schreiben, Kurzgeschichten, PC-Bau, VR- und AR-Hardware"},
+        {en: "<b>Availability</b> — Full-time, start four weeks after an offer · willing to relocate anywhere in Germany · driving licence Class B in progress", de: "<b>Verfügbarkeit</b> — Vollzeit, Beginn vier Wochen nach Zusage · deutschlandweit umzugsbereit · Führerschein Klasse B in Ausbildung"}
       ]
     }
   ],
   contact: {
-    line:{en:"Open to internships, working student roles, and full-time positions. The fastest way to reach me is email.",
-          de:"Offen für Praktika, Werkstudentenstellen und Festanstellungen. Am schnellsten erreichen Sie mich per E-Mail."},
+    line:{en:"Looking for a full-time position in automation, software development, or XR — available four weeks after an offer and willing to relocate anywhere in Germany. The fastest way to reach me is email.",
+          de:"Auf der Suche nach einer Vollzeitstelle in der Automatisierung, Softwareentwicklung oder im Bereich XR — verfügbar vier Wochen nach Zusage und deutschlandweit umzugsbereit. Am schnellsten erreichen Sie mich per E-Mail."},
     items:[
       {k:"Email", v:"aayushmotwani@gmail.com", url:"mailto:aayushmotwani@gmail.com"},
       {k:"LinkedIn", v:"aayush-motwani", url:"https://linkedin.com/in/aayush-motwani-668996103"},
       {k:"GitHub", v:"aayushmotwani-dev", url:"https://github.com/aayushmotwani-dev"},
       {k:"Website", v:"aayushmotwani.vercel.app", url:"https://aayushmotwani.vercel.app"},
-      {k:{en:"Location",de:"Standort"}, v:{en:"Aachen, Germany",de:"Aachen, Deutschland"}, url:"#"}
+      {k:{en:"Location",de:"Standort"}, v:{en:"Aachen, Germany (open to relocate nationwide)",de:"Aachen, Deutschland (deutschlandweit umzugsbereit)"}, url:"#"}
     ]
   }
 };
@@ -2187,7 +2312,7 @@ function render() {
   $("education-list").innerHTML = tl(DATA.education);
 
   /* projects — editorial list entries */
-  const order = ["ai", "media", "eng"];
+  const order = ["eng", "xr", "ai"];
   $("projects-list").innerHTML = order.map(g => {
     const items = DATA.projects.filter(p => p.group === g);
     if (!items.length) return "";
@@ -2345,13 +2470,13 @@ function playToggleBlip(enabled) {
 function initTheme() {
   const saved = storage.get("cv-theme");
   if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-    setTheme("dark");
+    setTheme("dark", false);
   } else {
-    setTheme("light");
+    setTheme("light", false);
   }
 }
 
-function setTheme(theme) {
+function setTheme(theme, animate = true) {
   const update = () => {
     THEME = theme;
     if (theme === "dark") {
@@ -2382,12 +2507,7 @@ function setTheme(theme) {
     });
   };
 
-  // Skip view transition on initial load (when THEME is default but theme is something else)
-  // Or if it's not supported, or user prefers reduced motion
-  if (!document.documentElement.classList.contains(THEME === "dark" ? "dark-theme" : "light-theme-placeholder") && document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    // Actually wait, initial load check is complicated. Just checking if document.body exists and is fully rendered is safer, but running startViewTransition is fine.
-    // However, to prevent flash on load, we just run it. 
-    // Actually, on initial load `initTheme` is called before body is fully parsed? No, it's called at the end of body.
+  if (animate && document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.startViewTransition(update);
   } else {
     update();
@@ -2407,17 +2527,17 @@ function initObservers() {
 
   const targets = document.querySelectorAll(".sec-marker, .focus-item, .tl__item, .proj-entry, .skill-row");
   
-  /* Assign stagger index per section for cascading reveal */
+  /* Assign stagger index per section (capped so long lists never stall) */
   const sectionMap = new Map();
   targets.forEach(el => {
     const section = el.closest("section") || el.closest(".site");
     if (!sectionMap.has(section)) sectionMap.set(section, 0);
     const idx = sectionMap.get(section);
-    el.style.setProperty("--stagger", idx);
+    el.style.setProperty("--stagger", Math.min(idx, 5));
     sectionMap.set(section, idx + 1);
     
     el.classList.add("fade-up");
-    if (prefersReduced) { el.classList.add("in"); return; }
+    if (prefersReduced || typeof IntersectionObserver === "undefined") { el.classList.add("in"); return; }
     el.classList.remove("in");
   });
 
@@ -2429,7 +2549,7 @@ function initObservers() {
           headingObs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.01, rootMargin: "0px 0px -10px 0px" });
 
     targets.forEach(el => headingObs.observe(el));
   }
@@ -2486,7 +2606,7 @@ function initMagneticButtons() {
 }
 
 function initParallax() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)").matches) return;
   const hero = document.getElementById("hero");
   if (!hero) return;
   hero.style.willChange = "transform, opacity";
@@ -2495,8 +2615,10 @@ function initParallax() {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         const scroll = window.scrollY;
-        hero.style.transform = `translate3d(0, ${scroll * 0.4}px, 0)`;
-        hero.style.opacity = 1 - (scroll / 600);
+        const opacity = Math.max(0, 1 - (scroll / 420));
+        hero.style.transform = `translate3d(0, ${Math.min(scroll * 0.14, 60)}px, 0)`;
+        hero.style.opacity = opacity;
+        hero.style.pointerEvents = opacity <= 0.05 ? "none" : "";
         ticking = false;
       });
       ticking = true;
@@ -2776,6 +2898,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if ($("hamburger")) {
     $("hamburger").addEventListener("click", toggleMobileMenu);
   }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && $("mobileMenu") && $("mobileMenu").classList.contains("open")) {
+      toggleMobileMenu();
+      if ($("hamburger")) $("hamburger").focus();
+    }
+  });
 });
 
 initTheme();
