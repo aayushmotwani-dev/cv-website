@@ -85,11 +85,11 @@
   --border: var(--ink);
   --shadow: #000000;
 }
-.theme-8bit, .theme-8bit .custom-cursor { 
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%23ffffff" stroke="%23000000" stroke-width="2" stroke-linejoin="miter" d="M2 2v12l4-4 3 6 2-1-3-6h5z"/></svg>') 2 2, auto !important; 
+:root.theme-8bit, :root.theme-8bit body {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNMiAydjEybDQtNCAzIDYgMi0xLTMtNmg1eiIvPjwvc3ZnPg==") 2 2, default !important;
 }
-.theme-8bit a, .theme-8bit button, .theme-8bit .proj-entry, .theme-8bit .contact-item {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%23ffd93d" stroke="%23000000" stroke-width="2" stroke-linejoin="miter" d="M6 1v4H4v8h2v-2h2v2h2v-2h2v2h2V7h-2V5h-2V3H8V1z"/></svg>') 6 1, pointer !important;
+:root.theme-8bit a, :root.theme-8bit button, :root.theme-8bit .btn, :root.theme-8bit .proj-entry, :root.theme-8bit .contact-item, :root.theme-8bit [onclick] {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjZmZkOTNkIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNNiAxdjRINHY4aDJ2LTJoMnYyaDJ2LTJoMnYyaDJWN2gtMlY1aC0yVjNIOFYxeiIvPjwvc3ZnPg==") 7 1, pointer !important;
 }
 
 .theme-8bit h1, .theme-8bit h2, .theme-8bit h3, 
@@ -560,7 +560,7 @@ section:first-of-type { border-top: none; }
    CUSTOM CURSOR
    ============================================================ */
 @media (pointer: fine) {
-  body, a, button { cursor: none; }
+  html:not(.theme-8bit) body, html:not(.theme-8bit) a, html:not(.theme-8bit) button { cursor: none; }
   .custom-cursor {
     position: fixed; top: 0; left: 0;
     width: 12px; height: 12px; border-radius: 50%;
